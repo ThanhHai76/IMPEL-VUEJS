@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import { checkAccessMiddleware } from './middlewares'
+import { getLocalDataMiddleware, getEndpointConfigMiddleware, checkAccessMiddleware, setPageTitleMiddleware, closeSidebarMobileMiddleware } from './middlewares'
 import { routes } from './routes'
 
 Vue.use(Router)
@@ -15,5 +15,11 @@ const router = new Router({
   }
 })
 
+// router.beforeEach(initCurrentUserStateMiddleware)
+router.beforeEach(getLocalDataMiddleware)
+router.beforeEach(getEndpointConfigMiddleware)
 router.beforeEach(checkAccessMiddleware)
+router.beforeEach(setPageTitleMiddleware)
+router.beforeEach(closeSidebarMobileMiddleware)
+// router.beforeEach(getPermissionByUser)
 export default router

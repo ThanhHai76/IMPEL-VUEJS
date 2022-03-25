@@ -16,7 +16,7 @@ const default_layout = 'default'
 export default {
   name: 'AppLayout',
   mounted () {
-    this.loadScriptAll()
+    
   },
   computed: {
     layout () {

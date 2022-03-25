@@ -35,7 +35,7 @@ new Vue({
         location.reload()
       }
     })
-    await store.dispatch('common/getConfigSystem')
+    // await store.dispatch('common/getConfigSystem')
   },
 
   beforeDestroy () {
