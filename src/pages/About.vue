@@ -203,13 +203,6 @@ export default {
         time: 1000
       })
     }, 1000)
-  },
-
-  destroyed () {
-    this.$store.commit('loading/SET_LOADING', {
-      loading: true,
-      time: 2000
-    })
   }
 }
 </script>

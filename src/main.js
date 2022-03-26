@@ -27,19 +27,5 @@ new Vue({
   name: 'Root',
   router,
   store,
-  async created () {
-    store.commit('dom/SET_WINDOW_WIDTH', window.innerWidth)
-    window.addEventListener('resize', () => store.commit('dom/SET_WINDOW_WIDTH', window.innerWidth))
-    window.addEventListener('storage', function (e) {
-      if (e.isTrusted && (e.key === 'token' || e.key === 'userData')) {
-        location.reload()
-      }
-    })
-    // await store.dispatch('common/getConfigSystem')
-  },
-
-  beforeDestroy () {
-    window.removeEventListener('resize', () => store.commit('dom/SE_TWINDOW_WIDTH', window.innerWidth))
-  },
   render: h => h(AppLayout)
 }).$mount('#app')

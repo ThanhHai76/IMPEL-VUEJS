@@ -64,15 +64,3 @@ export function checkAccessMiddleware (to, from, next) {
   if (isAuthRoute) return next({ name: 'index' })
   next()
 }
-
-export function setPageTitleMiddleware (to, from, next) {
-  const pageTitle = to.matched.find(item => item.meta.title)
-
-  if (pageTitle) window.document.title = pageTitle.meta.title
-  next()
-}
-
-export function closeSidebarMobileMiddleware (to, from, next) {
-  $store.commit('dom/SET_SIDEBAR_STATUS_MOBILE', false)
-  next()
-}

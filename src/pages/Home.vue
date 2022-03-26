@@ -65,7 +65,7 @@
               ></div>
               <!-- MAIN IMAGE -->
               <img
-                src="/1920x864"
+                src="http://kamleshyadav.com/html/impel/template/images/slide4.jpg"
                 alt=""
                 title="homedefault-bg1"
                 width="1920"
@@ -270,7 +270,7 @@
             >
               <!-- MAIN IMAGE -->
               <img
-                src="/1920x864"
+                src="http://kamleshyadav.com/html/impel/template/images/slide15.jpg"
                 alt=""
                 data-bgposition="center center"
                 data-kenburns="on"
@@ -745,7 +745,7 @@
         <div class="row">
           <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
             <div class="impl_welcome_img">
-              <img src="/650x317" alt="Welcome" class="img-responsive" />
+              <img src="@/assets/images/370x320/1.jpg" alt="Welcome" class="img-responsive" />
             </div>
           </div>
           <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
@@ -1363,11 +1363,11 @@ export default {
     }, 2000)
   },
 
-  destroyed () {
-    this.$store.commit('loading/SET_LOADING', {
-      loading: true
-    })
-  },
+  // destroyed () {
+  //   this.$store.commit('loading/SET_LOADING', {
+  //     loading: true
+  //   })
+  // },
 
   data: () => {
     return {

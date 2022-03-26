@@ -1,13 +1,5 @@
 <template>
   <div>
-    <!-- <transition name="fade" mode="out-in" appear>
-      <Sidebar
-        :isOpen="isOpen"
-        :isOpenMobile="isOpenMobile"
-        v-on:toggle-sidebar="toggleSideBar"
-        v-on:toggle-sidebar-mobile="toggleSideBarMobile"
-      />
-    </transition> -->
     <div class="main-content d-flex flex-column">
       <div id="preloader" v-if="loading || firstLoading">
         <div id="status">
@@ -21,11 +13,11 @@
         </div>
     </div>
       <Header/>
-      <div @click="closeSideBarMobile">
+      <div>
         <slot></slot>
       </div>
       <Footer/>
-      <span class="gotop" @click="scrollToTop()"><img src="@/assets/images/goto.png" alt=""></span>
+      <!-- <span class="gotop" @click="scrollToTop()"><img src="@/assets/images/goto.png" alt=""></span> -->
     </div>
   </div>
 </template>
@@ -58,24 +50,10 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isOpen: 'dom/isOpen',
-      isOpenMobile: 'dom/isOpenMobile',
       loading: 'loading/getDataLoading'
     })
   },
   methods: {
-    toggleSideBar () {
-      this.$store.commit('dom/SET_SIDEBAR_STATUS', !this.isOpen)
-    },
-    toggleSideBarMobile () {
-      this.$store.commit('dom/SET_SIDEBAR_STATUS_MOBILE', !this.isOpenMobile)
-    },
-    closeSideBarMobile () {
-      if (this.isOpenMobile) {
-        this.$store.commit('dom/SET_SIDEBAR_STATUS_MOBILE', false)
-      }
-    },
-
     scrollToTop () {
       window.scrollTo(0, 0)
     }

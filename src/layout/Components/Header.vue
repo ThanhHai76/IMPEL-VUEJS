@@ -272,9 +272,9 @@
                           </a>
                         </li>
                         <li>
-                          <router-link to="/home">
+                          <a href="/home">
                             Home version2
-                          </router-link>
+                          </a>
                         </li>
                       </ul>
                     </li>

@@ -452,12 +452,6 @@ export default {
         loading: false
       })
     }, 1000)
-  },
-
-  destroyed () {
-    this.$store.commit('loading/SET_LOADING', {
-      loading: true
-    })
   }
 }
 </script>
