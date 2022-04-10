@@ -2,7 +2,8 @@
   <div class="impl_header_wrapper">
     <div class="impl_logo">
       <router-link to="/">
-        <img src="@/assets/images/logo.png" alt="Logo" class="img-fluid" />
+        <img src="@/assets/images/logoxesang.png" alt="Logo" class="img-fluid" />
+        <!-- <img src="http://sanxesang.com:7102/resources/images/logo.png" alt="Logo" class="img-fluid" /> -->
       </router-link>
     </div>
     <div class="impl_top_header">
@@ -12,44 +13,28 @@
             <div class="impl_top_info">
               <ul class="impl_header_social">
                 <li>
-                  <a href="#"
+                  <a href="https://www.facebook.com/Sanxesang/" target="_blank"
                     ><i class="fa fa-facebook" aria-hidden="true"></i
                   ></a>
                 </li>
                 <li>
-                  <a href="#"
-                    ><i class="fa fa-twitter" aria-hidden="true"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><i class="fa fa-google-plus" aria-hidden="true"></i
-                  ></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><i class="fa fa-linkedin" aria-hidden="true"></i
+                  <a href="https://www.youtube.com/" target="_blank"
+                    ><i class="fa fa-youtube" aria-hidden="true"></i
                   ></a>
                 </li>
               </ul>
               <p class="impl_header_time">
-                <i class="fa fa-clock-o" aria-hidden="true"></i> Working Hours -
-                6 AM To 8 PM <span>sunday closed</span>
+                <i class="fa fa-clock-o" aria-hidden="true"></i> Mở cửa -
+                08:00 đến 20:00 kể cả chủ nhật
               </p>
               <ul class="impl_header_icons">
                 <li class="impl_search">
-                  <span><i class="fa fa-search" aria-hidden="true"></i></span>
+                  <span><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
                 </li>
-                <li>
-                  <a href="compare.html"
-                    ><i class="fa fa-exchange" aria-hidden="true"></i
-                  ></a>
-                </li>
-                <li class="cart-popup">
+                <!-- <li class="cart-popup">
                   <a href="#"
                     ><i class="fa fa-shopping-cart" aria-hidden="true"></i
                   ></a>
-                  <!--shopping cart box-->
                   <div class="cart-box">
                     <div class="popup-container">
                       <div class="cart-entry">
@@ -93,7 +78,7 @@
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> -->
                 <li>
                   <a href="#signin" data-toggle="modal"
                     ><i class="fa fa-sign-in" aria-hidden="true"></i
@@ -256,7 +241,11 @@
                     class="img-fluid"
                 /></a>
               </div>
-              <a href="sell_step.html" class="impl_btn">Sell your car</a>
+              <a href="#" class="impl_btn">
+                <router-link to="/sell-step">
+                  Đăng ký
+                </router-link>
+              </a>
               <div class="impl_menu">
                 <nav>
                   <div class="menu_cross">
@@ -264,23 +253,14 @@
                   </div>
                   <ul>
                     <li class="dropdown">
-                      <a href="javascript:;" class="active">home</a>
-                      <ul class="sub-menu">
-                        <li>
-                          <a href="/">
-                            Home version1
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/home">
-                            Home version2
-                          </a>
-                        </li>
-                      </ul>
+                      <a href="/" class="active">Trang chủ</a>
                     </li>
-                    <li><router-link to="/about">Company</router-link></li>
+                    <li><router-link to="/about">Ô tô</router-link></li>
                     <li class="dropdown">
-                      <a href="javascript:;">Purchase car</a>
+                      <router-link to="/purchase-new">
+                        Xe máy
+                      </router-link>
+                      <!-- <a href="javascript:;">Xe máy</a>
                       <ul class="sub-menu">
                         <li>
                           <router-link to="/purchase-new">
@@ -302,12 +282,13 @@
                             Old car single
                           </router-link>
                         </li>
-                      </ul>
+                      </ul> -->
                     </li>
                     <li>
-                      <router-link to="/service">Service</router-link>
+                      <router-link to="/service">Xe đạp</router-link>
                     </li>
-                    <li class="dropdown">
+
+                    <!-- <li class="dropdown">
                       <a href="javascript:;">blog</a>
                       <ul class="sub-menu">
                         <li>
@@ -336,7 +317,7 @@
                         <li><a href="error.html">404 page</a></li>
                       </ul>
                     </li>
-                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="contact.html">Contact us</a></li> -->
                   </ul>
                 </nav>
               </div>

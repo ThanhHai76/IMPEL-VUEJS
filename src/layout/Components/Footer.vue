@@ -19,46 +19,42 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="impl_foo_box footer_abt_text">
-                            <a href="index.html"><img src="@/assets/images/logo.png" alt=""></a>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable by injected humour.</p>
+                            <a href="index.html"><img src="@/assets/images/logoxesang.png" alt=""></a>
+                            <p>SanXeSang.com chuyên mua bán ký gửi Xe sang mới, cũ các hãng Xe sang.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="impl_foo_box">
-                            <h1 class="impl_foo_title">Basic Information</h1>
+                            <h1 class="impl_foo_title">Thông Tin</h1>
                             <ul>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Changing Oil</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Saving Fuel</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Antilock Brakes</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Battery</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Tips On Long Car Trips</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Air Pressure</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Tire Replacement</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Giới thiệu</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Chính sách sử dụng</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Chính sách bảo mật</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Quy định mua bán</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Hướng dẫn sử dụng</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="impl_foo_box">
-                            <h1 class="impl_foo_title">contact us</h1>
+                            <h1 class="impl_foo_title">Liên Hệ</h1>
                             <ul>
                                 <li>
                                     <div class="impl_foo_icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
                                     <div class="impl_foo_text">
-                                        <p>+1-202-555-0137</p>
-                                        <p>+1-202-555-0137</p>
+                                        <p>Hotline : 0934.20.20.20</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="impl_foo_icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
                                     <div class="impl_foo_text">
-                                        <p>514 S. Magnolia St.<br>  Orlando , US</p>
+                                        <p>Địa chỉ : 489 Hoàng Quốc Việt, Cầu Giấy, Hà Nội</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="impl_foo_icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                                     <div class="impl_foo_text">
-                                        <a href="#">dummymail@mail.com</a>
-                                        <a href="#">yourmail@mail.com</a>
+                                        <a href="#">Email : sanxesang@haiplus.com</a>
                                     </div>
                                 </li>
                             </ul>
@@ -66,8 +62,8 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="impl_foo_box">
-                            <h1 class="impl_foo_title">Subscribe </h1>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                            <h1 class="impl_foo_title">Nhận Thông Tin </h1>
+                            <p>Hãy để lại email để nhận những thông tin mới nhất về những chiếc xe sang đang được quan tâm nhiều nhất</p>
                             <div class="impl_footer_subs">
                                 <input type="text" class="form-control" placeholder="Enter Your Email">
                                 <button class="foo_subs_btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
@@ -83,7 +79,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <p class="impl_copyright">Copyright &copy; 2018 Impel Car Dealers. All Rights Reserved</p>
+                    <p class="impl_copyright"> Copyright &copy; 2020 Sàn Xe Sang</p>
                 </div>
             </div>
         </div>

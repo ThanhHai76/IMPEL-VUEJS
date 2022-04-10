@@ -1202,7 +1202,8 @@ p.slogan strong {
     padding-right: 30px;
     margin: 0px 15px;
     margin-bottom: 30px;
-    width: 21.1%;
+    width: 29%;
+    /* width: 21.1%; */
 }
 .impl_search_box .nice-select:after {
     border-bottom: 2px solid #5d5d5d;
@@ -1597,7 +1598,7 @@ p.slogan strong {
     -o-transition: all 0.4s ease-in-out;
 }
 .impl_fea_car_data {
-    padding: 30px 50px;
+    padding: 30px 30px;
     border: 1px solid #545454;
     text-align: center;
     transition: all 0.4s ease-in-out;
@@ -1639,7 +1640,7 @@ p.slogan strong {
     background-color: #ffffff;
     width: 5px;
     height: 2px;
-    content: "";
+    /* content: ""; */
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
@@ -1647,7 +1648,7 @@ p.slogan strong {
     -o-transform: translate(-50%, -50%);
 }
 .impl_fea_car_data ul li span.impl_fea_title {
-    width: 50%;
+    width: 95%;
     text-align: left;
     text-transform: capitalize;
     display: inline-block;
@@ -2029,7 +2030,7 @@ ul.impl_pst_views li a i {
 /*----Footer Css Start----*/
 
 .impl_footer_wrapper {
-    background-image: url(http://via.placeholder.com/1920x721);
+    background-image: url(../images/footer/footer_wrapper.jpg);
     background-size: cover;
     position: relative;
     z-index: 1;

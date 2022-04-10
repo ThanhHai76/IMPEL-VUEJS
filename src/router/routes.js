@@ -1,18 +1,18 @@
 // single pages
 import homePage from '@/pages/Home.vue'
-import homePage2 from '@/pages/Home2.vue'
 import loginPage from '@/pages/Login.vue'
 import notFoundPage from '@/pages/NotFound.vue'
 
+import sellStep from '@/pages/Sell_Step.vue'
 import about from '@/pages/About.vue'
-import purchaseNew from '@/pages/Purchase_New.vue'
-import purchaseUsed from '@/pages/Purchase_Used.vue'
-import purchaseNewSingle from '@/pages/Purchase_New_Single.vue'
-import purchaseOldSingle from '@/pages/Purchase_Old_Single.vue'
+import purchaseNew from '@/pages/Purchase/Purchase_New.vue'
+import purchaseUsed from '@/pages/Purchase/Purchase_Used.vue'
+import purchaseNewSingle from '@/pages/Purchase/Purchase_New_Single.vue'
+import purchaseOldSingle from '@/pages/Purchase/Purchase_Old_Single.vue'
 import service from '@/pages/Service.vue'
-import blogLeftSidebar from '@/pages/Blog_Left_Sidebar.vue'
-import blogRightSidebar from '@/pages/Blog_Right_Sidebar.vue'
-import blogSingle from '@/pages/Blog_Single.vue'
+import blogLeftSidebar from '@/pages/Blog/Blog_Left_Sidebar.vue'
+import blogRightSidebar from '@/pages/Blog/Blog_Right_Sidebar.vue'
+import blogSingle from '@/pages/Blog/Blog_Single.vue'
 
 import { DOMAIN_TITLE } from '../.env'
 
@@ -21,12 +21,6 @@ export const routes = [
     path: '/',
     name: 'index',
     component: homePage,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | home` }
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: homePage2,
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | home` }
   },
   {
@@ -41,6 +35,12 @@ export const routes = [
     meta: { title: `${DOMAIN_TITLE} | not found` }
   },
 
+  {
+    path: '/sell-step',
+    name: 'sell-step',
+    component: sellStep,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | home` }
+  },
   {
     path: '/about',
     name: 'about',

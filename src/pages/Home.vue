@@ -7,12 +7,12 @@
         class="rev_slider_wrapper fullscreen-container"
         data-alias="parallax-zoom-slices"
         data-source="gallery"
-        style="background:#000000;padding:0px;"
+        style="background: #000000; padding: 0px"
       >
         <div
           id="rev_slider_28_1"
           class="rev_slider fullscreenbanner"
-          style="display:none;"
+          style="display: none"
           data-version="5.4.1"
         >
           <ul>
@@ -42,7 +42,7 @@
               data-description=""
             >
               <div
-                class="tp-caption tp-shape tp-shapewrapper "
+                class="tp-caption tp-shape tp-shapewrapper"
                 id="slide-2800-layer-7"
                 data-x="['left','left','left','left']"
                 data-hoffset="['0','0','0','0']"
@@ -61,11 +61,16 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 5;background-color:rgba(0, 0, 0, 0.40);border-color:rgba(0, 0, 0, 0);border-width:0px;"
+                style="
+                  z-index: 5;
+                  background-color: rgba(0, 0, 0, 0.4);
+                  border-color: rgba(0, 0, 0, 0);
+                  border-width: 0px;
+                "
               ></div>
               <!-- MAIN IMAGE -->
               <img
-                src="http://kamleshyadav.com/html/impel/template/images/slide4.jpg"
+                src="@/assets/images/slide/slide1.jpg"
                 alt=""
                 title="homedefault-bg1"
                 width="1920"
@@ -80,11 +85,11 @@
               <div
                 id="rrzt_6"
                 class="rev_row_zone rev_row_zone_top"
-                style="z-index: 8;"
+                style="z-index: 8"
               >
                 <!-- LAYER NR. 1 -->
                 <div
-                  class="tp-caption  "
+                  class="tp-caption"
                   id="slide-66-layer-4"
                   data-x="['left','left','left','left']"
                   data-hoffset="['100','100','100','100']"
@@ -106,11 +111,18 @@
                   data-paddingright="[0,0,0,0]"
                   data-paddingbottom="[0,0,0,0]"
                   data-paddingleft="[0,0,0,0]"
-                  style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(255, 255, 255, 1.00);"
+                  style="
+                    z-index: 8;
+                    white-space: nowrap;
+                    font-size: 20px;
+                    line-height: 22px;
+                    font-weight: 400;
+                    color: rgba(255, 255, 255, 1);
+                  "
                 >
                   <!-- LAYER NR. 2 -->
                   <div
-                    class="tp-caption  "
+                    class="tp-caption"
                     id="slide-6-layer-5"
                     data-x="['left','left','left','left']"
                     data-hoffset="['100','100','100','100']"
@@ -132,12 +144,12 @@
                     data-paddingright="[0,0,0,0]"
                     data-paddingbottom="[0,0,0,0]"
                     data-paddingleft="[0,0,0,0]"
-                    style="z-index: 9; width: 100%;"
+                    style="z-index: 9; width: 100%"
                   ></div>
 
                   <!-- LAYER NR. 3 -->
                   <div
-                    class="tp-caption  "
+                    class="tp-caption"
                     id="slide-6-layer-6"
                     data-x="['left','left','left','left']"
                     data-hoffset="['100','100','100','100']"
@@ -159,13 +171,13 @@
                     data-paddingright="[0,0,0,0]"
                     data-paddingbottom="[0,0,0,0]"
                     data-paddingleft="[0,0,0,0]"
-                    style="z-index: 10; width: 100%;"
+                    style="z-index: 10; width: 100%"
                   ></div>
                 </div>
               </div>
               <!-- LAYER NR. 4 -->
               <div
-                class="tp-caption   tp-resizeme  text-slider"
+                class="tp-caption tp-resizeme text-slider"
                 id="slide-6-layer-1"
                 data-x="['center','center','center','center']"
                 data-hoffset="['0','0','0','0']"
@@ -184,14 +196,23 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 5; white-space: nowrap; font-size: 70px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family: 'Raleway', sans-serif;text-transform:uppercase;"
+                style="
+                  z-index: 5;
+                  white-space: nowrap;
+                  font-size: 70px;
+                  line-height: 100px;
+                  font-weight: 700;
+                  color: rgba(255, 255, 255, 1);
+                  font-family: 'Raleway', sans-serif;
+                  text-transform: uppercase;
+                "
               >
-                Accelerate Your Dreams
+                Tìm kiếm ước mơ của bạn
               </div>
 
               <!-- LAYER NR. 5 -->
               <div
-                class="tp-caption   tp-resizeme  text-slider"
+                class="tp-caption tp-resizeme text-slider"
                 id="slide-6-layer-2"
                 data-x="['center','center','center','center']"
                 data-hoffset="['0','0','0','0']"
@@ -210,14 +231,22 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 6; white-space: nowrap; font-size: 26px; line-height: 26px; font-weight: 400; color: rgba(255, 255, 255, 1.00);font-family:Roboto;"
+                style="
+                  z-index: 6;
+                  white-space: nowrap;
+                  font-size: 26px;
+                  line-height: 26px;
+                  font-weight: 400;
+                  color: rgba(255, 255, 255, 1);
+                  font-family: Roboto;
+                "
               >
-                Buy and sell your car on Impel car dealer
+                SÀN XE SANG - ĐẲNG CẤP LÀ MÃI MÃI
               </div>
 
               <!-- LAYER NR. 6 -->
               <a
-                class="tp-caption rev-btn  tp-resizeme"
+                class="tp-caption rev-btn tp-resizeme"
                 href="#"
                 target="_blank"
                 id="slide-67-layer-7"
@@ -237,9 +266,15 @@
                 data-paddingright="[50,50,50,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[50,50,50,0]"
-                style="cursor:pointer;text-decoration:none;z-index:19;;line-height:40px;"
-                ><span class="impl_btn">GET STARTED </span></a
+                style="
+                  cursor: pointer;
+                  text-decoration: none;
+                  z-index: 19;
+                  line-height: 40px;
+                "
               >
+                <!-- <span class="impl_btn">GET STARTED </span> -->
+              </a>
             </li>
             <!--slid2-->
             <li
@@ -270,7 +305,7 @@
             >
               <!-- MAIN IMAGE -->
               <img
-                src="http://kamleshyadav.com/html/impel/template/images/slide15.jpg"
+                src="@/assets/images/slide/slide2.jpg"
                 alt=""
                 data-bgposition="center center"
                 data-kenburns="on"
@@ -289,7 +324,7 @@
               />
               <!-- LAYER NR. 2 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-10"
                 data-x="['center','center','center','center']"
                 data-hoffset="['151','228','224','117']"
@@ -309,12 +344,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 6;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 6; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 3 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-29"
                 data-x="['center','center','center','center']"
                 data-hoffset="['339','-442','104','-159']"
@@ -334,12 +369,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 7;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 7; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 4 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-12"
                 data-x="['center','center','center','center']"
                 data-hoffset="['162','216','-239','193']"
@@ -359,12 +394,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 8;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 8; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 5 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-34"
                 data-x="['center','center','center','center']"
                 data-hoffset="['-186','-119','273','-223']"
@@ -384,12 +419,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 9;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 9; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 6 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-11"
                 data-x="['center','center','center','center']"
                 data-hoffset="['-325','292','162','-34']"
@@ -409,12 +444,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 10;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 10; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 7 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-27"
                 data-x="['center','center','center','center']"
                 data-hoffset="['-429','523','-190','-306']"
@@ -434,12 +469,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 11;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 11; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 8 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-28"
                 data-x="['center','center','center','center']"
                 data-hoffset="['422','-409','208','225']"
@@ -459,12 +494,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 12;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 12; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 9 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-30"
                 data-x="['center','center','center','center']"
                 data-hoffset="['549','-445','28','58']"
@@ -484,12 +519,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 13;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 13; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 10 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-31"
                 data-x="['center','center','center','center']"
                 data-hoffset="['-522','492','-151','262']"
@@ -509,12 +544,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 14;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 14; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 11 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-32"
                 data-x="['center','center','center','center']"
                 data-hoffset="['-588','-375','-253','-207']"
@@ -534,12 +569,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 15;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 15; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 12 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-33"
                 data-x="['center','center','center','center']"
                 data-hoffset="['-37','73','-76','-100']"
@@ -559,12 +594,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 16;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 16; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 13 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper tp-slicey  tp-resizeme"
+                class="tp-caption tp-shape tp-shapewrapper tp-slicey tp-resizeme"
                 id="slide-67-layer-35"
                 data-x="['center','center','center','center']"
                 data-hoffset="['186','38','116','17']"
@@ -584,12 +619,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 17;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 17; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 14 -->
               <div
-                class="tp-caption tp-shape tp-shapewrapper "
+                class="tp-caption tp-shape tp-shapewrapper"
                 id="slide-67-layer-1"
                 data-x="['center','center','center','center']"
                 data-hoffset="['0','0','0','0']"
@@ -608,12 +643,12 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 18;background-color:rgba(0, 0, 0, 0.5);"
+                style="z-index: 18; background-color: rgba(0, 0, 0, 0.5)"
               ></div>
 
               <!-- LAYER NR. 15 -->
               <div
-                class="tp-caption   tp-resizeme"
+                class="tp-caption tp-resizeme"
                 id="slide-67-layer-2"
                 data-x="['center','center','center','center']"
                 data-hoffset="['1','1','0','0']"
@@ -632,14 +667,24 @@
                 data-paddingright="[0,0,0,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[0,0,0,0]"
-                style="z-index: 19; white-space: nowrap; font-size: 70px; line-height: 80px; font-weight: 700; color: #ffffff; letter-spacing: 0px;font-family: 'Raleway', sans-serif;text-transform:uppercase;"
+                style="
+                  z-index: 19;
+                  white-space: nowrap;
+                  font-size: 70px;
+                  line-height: 80px;
+                  font-weight: 700;
+                  color: #ffffff;
+                  letter-spacing: 0px;
+                  font-family: 'Raleway', sans-serif;
+                  text-transform: uppercase;
+                "
               >
-                We're Your One Stop <br />
-                Destination for That !
+                Chúng tôi là điểm dừng của bạn <br />
+                Nơi bạn tìm thấy kết quả
               </div>
               <!-- LAYER NR. 17 -->
               <a
-                class="tp-caption rev-btn  tp-resizeme"
+                class="tp-caption rev-btn tp-resizeme"
                 href="#"
                 target="_blank"
                 id="slide-67-layer-8"
@@ -659,9 +704,15 @@
                 data-paddingright="[50,50,50,0]"
                 data-paddingbottom="[0,0,0,0]"
                 data-paddingleft="[50,50,50,0]"
-                style="cursor:pointer;text-decoration: none;z-index:19;line-height:45px;"
-                ><span class="impl_btn">GET STARTED </span></a
+                style="
+                  cursor: pointer;
+                  text-decoration: none;
+                  z-index: 19;
+                  line-height: 45px;
+                "
               >
+                <!-- <span class="impl_btn">GET STARTED </span> -->
+              </a>
             </li>
           </ul>
         </div>
@@ -677,48 +728,46 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="impl_select_boxes">
                     <select>
-                      <option>Select Brand</option>
-                      <option value="1">Brand 1</option>
-                      <option value="2">Brand 2</option>
-                      <option value="3">Brand 3</option>
-                      <option value="4">Brand 4</option>
+                      <option>Chọn phương tiện</option>
+                      <option value="1">Ô tô</option>
+                      <option value="2">Xe máy</option>
+                      <option value="3">Xe đạp</option>
                     </select>
                     <select>
-                      <option>Select Status</option>
+                      <option>Chọn hãng</option>
                       <option value="b1">Status 1</option>
                       <option value="b2">Status 2</option>
                       <option value="b3">Status 3</option>
                       <option value="b4">Status 4</option>
                     </select>
                     <select>
-                      <option>Select Model</option>
+                      <option>Chọn Series</option>
                       <option value="b1">Model 1</option>
                       <option value="b2">Model 2</option>
                       <option value="b3">Model 3</option>
                       <option value="b4">Model 4</option>
                     </select>
                     <select>
-                      <option>Select Year</option>
+                      <option>Chọn model</option>
                       <option value="b1">Year 1</option>
                       <option value="b2">Year 2</option>
                       <option value="b3">Year 3</option>
                       <option value="b4">Year 4</option>
                     </select>
                     <select>
-                      <option>Select Color</option>
-                      <option value="b1">Color 1</option>
-                      <option value="b2">Color 2</option>
-                      <option value="b3">Color 3</option>
-                      <option value="b4">Color 4</option>
-                    </select>
-                    <select>
-                      <option>Select Type</option>
+                      <option>Tỉnh thành</option>
                       <option value="b1">Type 1</option>
                       <option value="b2">Type 2</option>
                       <option value="b3">Type 3</option>
                       <option value="b4">Type 4</option>
                     </select>
-                    <div class="price_range">
+                    <select>
+                      <option>Tình trạng xe</option>
+                      <option value="b1">Xe mới</option>
+                      <option value="b2">Xe qua sử dụng</option>
+                    </select>
+
+                    <!-- <div class="price_range">
                       <label>price range</label>
                       <input
                         type="text"
@@ -726,10 +775,18 @@
                         name="ionRangeSlider"
                         value=""
                       />
-                    </div>
+                    </div> -->
+
+                    <selectSearch>
+                    </selectSearch>
+                    
+                  </div>
+
+                  <div class="impl_search_btn">
+                    <button class="impl_btn">Tìm kiếm xe</button>
                   </div>
                   <div class="impl_search_btn">
-                    <button class="impl_btn">search vehicle</button>
+                    <button class="impl_btn">Xoá tìm kiếm</button>
                   </div>
                 </div>
               </div>
@@ -739,191 +796,25 @@
       </div>
     </div>
 
-    <!------ Welcome Wrapper Start ------>
-    <div class="impl_welcome_wrapper impl_bottompadder80">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
-            <div class="impl_welcome_img">
-              <img src="@/assets/images/370x320/1.jpg" alt="Welcome" class="img-responsive" />
-            </div>
-          </div>
-          <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-            <div class="impl_welcome_text">
-              <!-- <h1>Welcome to impel cars</h1> -->
-              <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        class="accordion-toggle collapsed"
-                        data-toggle="collapse"
-                        data-parent="#accordion"
-                        href="#collapseOne"
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.</a
-                      >
-                    </h4>
-                  </div>
-                  <div id="collapseOne" class="panel-collapse collapse in show">
-                    <div class="panel-body">
-                      Vivamus malesuada orci a sapien rutrum, ut iaculis turpis
-                      posuere. Proin mollis sodales aliquet. Suspendisse
-                      iaculis, justo ac feugiat accumsan, turpis urna consequat
-                      mauris.
-                    </div>
-                  </div>
-                </div>
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        class="accordion-toggle"
-                        data-toggle="collapse"
-                        data-parent="#accordion"
-                        href="#collapseTwo"
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.</a
-                      >
-                    </h4>
-                  </div>
-                  <div id="collapseTwo" class="panel-collapse collapse">
-                    <div class="panel-body">
-                      Vivamus malesuada orci a sapien rutrum, ut iaculis turpis
-                      posuere. Proin mollis sodales aliquet. Suspendisse
-                      iaculis, justo ac feugiat accumsan, turpis urna consequat
-                      mauris.
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="panel panel-default"
-                  style="font-size: 18px; font-weight: 500;"
-                >
-                  <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a
-                        class="accordion-toggle"
-                        data-toggle="collapse"
-                        data-parent="#accordion"
-                        href="#collapseThree"
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit.</a
-                      >
-                    </h4>
-                  </div>
-                  <div
-                    id="collapseThree"
-                    class="panel-collapse collapse"
-                    style="padding: 20px;"
-                  >
-                    <div class="panel-body">
-                      Vivamus malesuada orci a sapien rutrum, ut iaculis turpis
-                      posuere. Proin mollis sodales aliquet. Suspendisse
-                      iaculis, justo ac feugiat accumsan, turpis urna consequat
-                      mauris.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!------ Service and Video Wrapper Start ------>
-    <div class="impl_service_wrapper">
-      <div class="impl_service_car">
-        <img src="/346x503/fff" alt="" />
-      </div>
-      <div class="impl_service_video">
-        <div class="impl_video_inner">
-          <div class="impl_servdo_video">
-            <span class="impl_play_icon"
-              ><a
-                class="impl-popup-youtube"
-                href="https://www.youtube.com/watch?v=BqjuObIH1nY"
-                ><i class="fa fa-play" aria-hidden="true"></i></a
-            ></span>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 col-md-12">
-            <div class="impl_service_left">
-              <div class="impl_service_details">
-                <div class="impl_heading">
-                  <h1>service</h1>
-                </div>
-                <div class="impl_timeline_wrapper">
-                  <ul class="impl_timeline">
-                    <li>
-                      <div class="impl_tl_item">
-                        <h2>Purchase</h2>
-                        <p>
-                          Vivamus malesuada orci a sapien rutrum, ut iaculis
-                          turpis posuere. Proin mollis sodales.
-                        </p>
-                        <span class="impl_tl_icon">
-                          <i
-                            class="fa fa-shopping-basket"
-                            aria-hidden="true"
-                          ></i>
-                        </span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="impl_tl_item impl_tl_item_rt">
-                        <h2>sell</h2>
-                        <p>
-                          Vivamus malesuada orci a sapien rutrum, ut iaculis
-                          turpis posuere. Proin mollis sodales.
-                        </p>
-                        <span class="impl_tl_icon">
-                          <i class="fa fa-usd" aria-hidden="true"></i>
-                        </span>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="impl_tl_item">
-                        <h2>repair</h2>
-                        <p>
-                          Vivamus malesuada orci a sapien rutrum, ut iaculis
-                          turpis posuere. Proin mollis sodales.
-                        </p>
-                        <span class="impl_tl_icon">
-                          <i class="fa fa-wrench" aria-hidden="true"></i>
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!------ Featured Cars Start ------>
     <div class="impl_featured_wrappar">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="impl_heading">
-              <h1>Featured Cars</h1>
+              <h1>Kết quả tìm kiếm</h1>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
                 <img
-                  src="/370x320"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/24326/logomercedes-c300-amg-2020-sedan-01.jpg"
                   alt=""
                   class="img-fluid impl_frst_car_img"
                 />
                 <img
-                  src="/370x320/fff"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/24326/mercedes-c300-amg-2020-sedan-03.jpg"
                   alt=""
                   class="img-fluid impl_hover_car_img"
                 />
@@ -932,41 +823,46 @@
                 ></span>
               </div>
               <div class="impl_fea_car_data">
-                <h2><a href="purchase_new.html">Aurora</a></h2>
+                <h2 class="line-clamp">
+                  <a href="purchase_new.html"
+                    >Bán xe MERCEDES C300 2020, GIẢM GIÁ TIỀN MẶT KHỦNG</a
+                  >
+                </h2>
                 <ul>
                   <li>
-                    <span class="impl_fea_title">model</span>
-                    <span class="impl_fea_name">Aurora 811</span>
+                    <span class="impl_fea_title ellipsis"
+                      >Nơi Bán : Tp. Hồ Chí Minh</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">Vehicle Status</span>
-                    <span class="impl_fea_name">new</span>
+                    <span class="impl_fea_title ellipsis"
+                      >Tình Trạng : Xe Mới</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">Color</span>
-                    <span class="impl_fea_name">white</span>
+                    <span class="impl_fea_title ellipsis">Năm SX : 2020</span>
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
                   <button class="impl_btn">
-                    <span class="impl_doller">$ 72000 </span
-                    ><span class="impl_bnw">buy now</span>
+                    <span class="impl_doller">1 Tỷ 929 Triệu Đồng </span
+                    ><span class="impl_bnw">Xem ngay</span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
           <!--2-->
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
                 <img
-                  src="/370x320"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/logolincoln-navigator-2019-suv-01.jpg"
                   alt=""
                   class="img-fluid impl_frst_car_img"
                 />
                 <img
-                  src="/370x320/fff"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/lincoln-navigator-2019-suv-05.jpg"
                   alt=""
                   class="img-fluid impl_hover_car_img"
                 />
@@ -975,41 +871,46 @@
                 ></span>
               </div>
               <div class="impl_fea_car_data">
-                <h2><a href="purchase_new.html">Serpent</a></h2>
+               <h2 class="line-clamp">
+                  <a href="purchase_new.html"
+                    >Bán xe Lincoln Navigator L 2019</a
+                  >
+                </h2>
                 <ul>
                   <li>
-                    <span class="impl_fea_title">model</span>
-                    <span class="impl_fea_name">Serpent 16.6 </span>
+                    <span class="impl_fea_title ellipsis"
+                      >Nơi Bán : Hà Nội</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">Vehicle Status</span>
-                    <span class="impl_fea_name">new</span>
+                    <span class="impl_fea_title ellipsis"
+                      >Tình Trạng : Xe Mới</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">Color</span>
-                    <span class="impl_fea_name">blue</span>
+                    <span class="impl_fea_title ellipsis">Năm SX : 2019</span>
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
                   <button class="impl_btn">
-                    <span class="impl_doller">$ 72000 </span
-                    ><span class="impl_bnw">buy now</span>
+                    <span class="impl_doller">7 Tỷ 660 Triệu Đồng </span
+                    ><span class="impl_bnw">Xem ngay</span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
           <!--3-->
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
                 <img
-                  src="/370x320"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/logolexus-gx-460-2010-suv-01.jpg"
                   alt=""
                   class="img-fluid impl_frst_car_img"
                 />
                 <img
-                  src="/370x320/fff"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/lexus-gx-460-2010-suv-04.jpg"
                   alt=""
                   class="img-fluid impl_hover_car_img"
                 />
@@ -1018,41 +919,46 @@
                 ></span>
               </div>
               <div class="impl_fea_car_data">
-                <h2><a href="purchase_new.html">Basilisk</a></h2>
+                <h2 class="line-clamp">
+                  <a href="purchase_new.html"
+                    >Bán xe Lexus GX 460 2010</a
+                  >
+                </h2>
                 <ul>
                   <li>
-                    <span class="impl_fea_title">model</span>
-                    <span class="impl_fea_name">Basilisk 811</span>
+                    <span class="impl_fea_title ellipsis"
+                      >Nơi Bán : Tp. Hồ Chí Minh</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">Vehicle Status</span>
-                    <span class="impl_fea_name">new</span>
+                    <span class="impl_fea_title ellipsis"
+                      >Tình Trạng : Xe Qua Sử Dụng</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">Color</span>
-                    <span class="impl_fea_name">white</span>
+                    <span class="impl_fea_title ellipsis">Năm SX : 2010</span>
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
                   <button class="impl_btn">
-                    <span class="impl_doller">$ 72000 </span
-                    ><span class="impl_bnw">buy now</span>
+                    <span class="impl_doller">2 Tỷ 70 Triệu Đồng </span
+                    ><span class="impl_bnw">Xem ngay</span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
           <!--4-->
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
                 <img
-                  src="/370x320"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/19946/logobmw-730li-2018-sedan-01.jpg"
                   alt=""
                   class="img-fluid impl_frst_car_img"
                 />
                 <img
-                  src="/370x320/fff"
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/19946/bmw-730li-2018-sedan-03.jpg"
                   alt=""
                   class="img-fluid impl_hover_car_img"
                 />
@@ -1061,123 +967,30 @@
                 ></span>
               </div>
               <div class="impl_fea_car_data">
-                <h2><a href="purchase_used.html">Mirage</a></h2>
+                <h2 class="line-clamp">
+                  <a href="purchase_new.html"
+                    >Bán xe BMW 730Li 2020</a
+                  >
+                </h2>
                 <ul>
                   <li>
-                    <span class="impl_fea_title">model</span>
-                    <span class="impl_fea_name">Mirage</span>
+                    <span class="impl_fea_title ellipsis"
+                      >Nơi Bán : Tp. Hồ Chí Minh</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">Vehicle Status</span>
-                    <span class="impl_fea_name">old</span>
+                    <span class="impl_fea_title ellipsis"
+                      >Tình Trạng : Xe Mới</span
+                    >
                   </li>
                   <li>
-                    <span class="impl_fea_title">year</span>
-                    <span class="impl_fea_name">2016</span>
-                  </li>
-                  <li>
-                    <span class="impl_fea_title">Color</span>
-                    <span class="impl_fea_name">white</span>
+                    <span class="impl_fea_title ellipsis">Năm SX : 2020</span>
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
                   <button class="impl_btn">
-                    <span class="impl_doller">$ 72000 </span
-                    ><span class="impl_bnw">buy now</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--5-->
-          <div class="col-lg-4 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="/370x320"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="/370x320/fff"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2><a href="purchase_used.html"> Realm</a></h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title">model</span>
-                    <span class="impl_fea_name">Realm 16.6</span>
-                  </li>
-                  <li>
-                    <span class="impl_fea_title">Vehicle Status</span>
-                    <span class="impl_fea_name">old</span>
-                  </li>
-                  <li>
-                    <span class="impl_fea_title">year</span>
-                    <span class="impl_fea_name">2015</span>
-                  </li>
-                  <li>
-                    <span class="impl_fea_title">Color</span>
-                    <span class="impl_fea_name">black</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">$ 72000 </span
-                    ><span class="impl_bnw">buy now</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--6-->
-          <div class="col-lg-4 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="/370x320"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="/370x320/fff"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2><a href="purchase_used.html"> Empire</a></h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title">model</span>
-                    <span class="impl_fea_name">Empire Z06</span>
-                  </li>
-                  <li>
-                    <span class="impl_fea_title">Vehicle Status</span>
-                    <span class="impl_fea_name">old</span>
-                  </li>
-                  <li>
-                    <span class="impl_fea_title">year</span>
-                    <span class="impl_fea_name">2015</span>
-                  </li>
-                  <li>
-                    <span class="impl_fea_title">Color</span>
-                    <span class="impl_fea_name">yellow</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">$ 72000 </span
-                    ><span class="impl_bnw">buy now</span>
+                    <span class="impl_doller">499 Triệu Đồng </span
+                    ><span class="impl_bnw">Xem ngay</span>
                   </button>
                 </div>
               </div>
@@ -1186,158 +999,107 @@
         </div>
       </div>
     </div>
-    <!------ Need Help Section Start ------>
-    <div class="impl_help_wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 col-md-12 offset-lg-1">
-            <div class="impl_help_data">
-              <h1>Need Help Finding Perfect Car ?</h1>
-              <p>Call Us Now</p>
-              <div class="impl_help_no"><span>(+1)202-202-012</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!------ Latest Blog Section Start ------>
-    <div class="impl_blog_wrapper">
+
+    <!-------- Mau xe quan tam -------->
+     <div class="impl_featured_wrappar">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="impl_heading">
-              <h1>Latest Blogs</h1>
+              <h1>MẪU XE ĐƯỢC QUAN TÂM</h1>
             </div>
           </div>
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_blog_box">
-              <div class="row">
-                <div class="col-lg-4 col-md-12">
-                  <div class="impl_post_img">
-                    <img src="/370x303" alt="" class="img-fluid" />
-                    <span class="impl_pst_date">
-                      16 sep
-                    </span>
-                    <div class="impl_pst_img_icon">
-                      <a href="#" class="fa fa-link"></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-8 col-md-12">
-                  <div class="impl_post_data">
-                    <h2>
-                      <a href="blog_left_sidebar.html"
-                        >Stories Behind Car Brand Names
-                      </a>
-                    </h2>
-                    <p>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less normal distribution of letters, as
-                      opposed to using 'Content here, content here', making it
-                      look like readable English. Many desktop publishing
-                      packages and web page editors now use Lorem Ipsum as their
-                      default model text, and a search for 'lorem ipsum' will
-                      uncover many web sites still in their infancy. Various
-                      versions have evolved over the years, sometimes by
-                      accident, sometimes on purpose (injected humour and the
-                      like). There are many variations of passages of Lorem
-                      Ipsum available
-                    </p>
-                    <div class="impl_pst_info">
-                      <div class="impl_pst_admin">
-                        <span><a href="#">admin</a></span>
-                        <span><a href="#">16 September 2017</a></span>
-                      </div>
-                      <ul class="impl_pst_views">
-                        <li>
-                          <a href="#"
-                            ><i class="fa fa-eye" aria-hidden="true"></i> 413</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#"
-                            ><i class="fa fa-comments" aria-hidden="true"></i>
-                            251</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#"
-                            ><i class="fa fa-share-alt" aria-hidden="true"></i>
-                            5</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+           <div class="col-lg-3 col-md-6">
+            <div class="impl_fea_car_box">
+              <div class="impl_fea_car_img">
+                <img
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/logolexus-gx-460-2010-suv-01.jpg"
+                  alt=""
+                  class="img-fluid impl_frst_car_img"
+                />
+                <img
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/lexus-gx-460-2010-suv-04.jpg"
+                  alt=""
+                  class="img-fluid impl_hover_car_img"
+                />
+                <span class="impl_img_tag" title="compare"
+                  ><i class="fa fa-exchange" aria-hidden="true"></i
+                ></span>
+              </div>
+              <div class="impl_fea_car_data">
+                <h2 class="line-clamp">
+                  <a href="purchase_new.html"
+                    >Bán xe Lexus GX 460 2010</a
+                  >
+                </h2>
+                <ul>
+                  <li>
+                    <span class="impl_fea_title ellipsis"
+                      >Nơi Bán : Tp. Hồ Chí Minh</span
+                    >
+                  </li>
+                  <li>
+                    <span class="impl_fea_title ellipsis"
+                      >Tình Trạng : Xe Qua Sử Dụng</span
+                    >
+                  </li>
+                  <li>
+                    <span class="impl_fea_title ellipsis">Năm SX : 2010</span>
+                  </li>
+                </ul>
+                <div class="impl_fea_btn">
+                  <button class="impl_btn">
+                    <span class="impl_doller">2 Tỷ 70 Triệu Đồng </span
+                    ><span class="impl_bnw">Xem ngay</span>
+                  </button>
                 </div>
               </div>
             </div>
-            <!--Blog 2-->
-            <div class="impl_blog_box impl_blog_right">
-              <div class="row">
-                <div class="col-lg-4 col-md-12 push-lg-8">
-                  <div class="impl_post_img">
-                    <img src="/370x303" alt="" class="img-fluid" />
-                    <span class="impl_pst_date">
-                      16 sep
-                    </span>
-                    <div class="impl_pst_img_icon">
-                      <a href="#"
-                        ><i class="fa fa-link" aria-hidden="true"></i
-                      ></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-8 col-md-12 pull-lg-4">
-                  <div class="impl_post_data">
-                    <h2>
-                      <a href="blog_left_sidebar.html"
-                        >Stories Behind Car Brand Names
-                      </a>
-                    </h2>
-                    <p>
-                      It is a long established fact that a reader will be
-                      distracted by the readable content of a page when looking
-                      at its layout. The point of using Lorem Ipsum is that it
-                      has a more-or-less normal distribution of letters, as
-                      opposed to using 'Content here, content here', making it
-                      look like readable English. Many desktop publishing
-                      packages and web page editors now use Lorem Ipsum as their
-                      default model text, and a search for 'lorem ipsum' will
-                      uncover many web sites still in their infancy. Various
-                      versions have evolved over the years, sometimes by
-                      accident, sometimes on purpose (injected humour and the
-                      like). There are many variations of passages of Lorem
-                      Ipsum available
-                    </p>
-                    <div class="impl_pst_info">
-                      <div class="impl_pst_admin">
-                        <span><a href="#">admin</a></span>
-                        <span><a href="#">16 September 2017</a></span>
-                      </div>
-                      <ul class="impl_pst_views">
-                        <li>
-                          <a href="#"
-                            ><i class="fa fa-eye" aria-hidden="true"></i> 413</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#"
-                            ><i class="fa fa-comments" aria-hidden="true"></i>
-                            251</a
-                          >
-                        </li>
-                        <li>
-                          <a href="#"
-                            ><i class="fa fa-share-alt" aria-hidden="true"></i>
-                            5</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+          </div>
+          <!--2-->
+          <div class="col-lg-3 col-md-6">
+            <div class="impl_fea_car_box">
+              <div class="impl_fea_car_img">
+                <img
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/logolincoln-navigator-2019-suv-01.jpg"
+                  alt=""
+                  class="img-fluid impl_frst_car_img"
+                />
+                <img
+                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/lincoln-navigator-2019-suv-05.jpg"
+                  alt=""
+                  class="img-fluid impl_hover_car_img"
+                />
+                <span class="impl_img_tag" title="compare"
+                  ><i class="fa fa-exchange" aria-hidden="true"></i
+                ></span>
+              </div>
+              <div class="impl_fea_car_data">
+               <h2 class="line-clamp">
+                  <a href="purchase_new.html"
+                    >Bán xe Lincoln Navigator L 2019</a
+                  >
+                </h2>
+                <ul>
+                  <li>
+                    <span class="impl_fea_title ellipsis"
+                      >Nơi Bán : Hà Nội</span
+                    >
+                  </li>
+                  <li>
+                    <span class="impl_fea_title ellipsis"
+                      >Tình Trạng : Xe Mới</span
+                    >
+                  </li>
+                  <li>
+                    <span class="impl_fea_title ellipsis">Năm SX : 2019</span>
+                  </li>
+                </ul>
+                <div class="impl_fea_btn">
+                  <button class="impl_btn">
+                    <span class="impl_doller">7 Tỷ 660 Triệu Đồng </span
+                    ><span class="impl_bnw">Xem ngay</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1349,10 +1111,13 @@
 </template>
 
 <script>
+import selectSearch from './Select-box/select-search.vue'
 export default {
   name: 'IndexPage',
 
-  components: {},
+  components: {
+    selectSearch
+  },
 
   mounted () {
     this.loadScriptAll()
@@ -1403,7 +1168,10 @@ export default {
       document.body.appendChild(loadscript4)
 
       const loadscript5 = document.createElement('script')
-      loadscript5.setAttribute('src', 'js/plugin/magnific/jquery.magnific-popup.min.js')
+      loadscript5.setAttribute(
+        'src',
+        'js/plugin/magnific/jquery.magnific-popup.min.js'
+      )
       document.body.appendChild(loadscript5)
 
       const loadscript6 = document.createElement('script')
@@ -1411,51 +1179,80 @@ export default {
       document.body.appendChild(loadscript6)
 
       const loadscript7 = document.createElement('script')
-      loadscript7.setAttribute('src', 'js/plugin/nice_select/jquery.nice-select.min.js')
+      loadscript7.setAttribute(
+        'src',
+        'js/plugin/nice_select/jquery.nice-select.min.js'
+      )
       document.body.appendChild(loadscript7)
 
       const loadscript8 = document.createElement('script')
-      loadscript8.setAttribute('src', 'js/plugin/revolution/js/jquery.themepunch.revolution.min.js')
+      loadscript8.setAttribute(
+        'src',
+        'js/plugin/revolution/js/jquery.themepunch.revolution.min.js'
+      )
       document.body.appendChild(loadscript8)
 
       const loadscript9 = document.createElement('script')
-      loadscript9.setAttribute('src', 'js/plugin/revolution/js/jquery.themepunch.tools.min.js')
+      loadscript9.setAttribute(
+        'src',
+        'js/plugin/revolution/js/jquery.themepunch.tools.min.js'
+      )
       document.body.appendChild(loadscript9)
 
       const loadscript10 = document.createElement('script')
-      loadscript10.setAttribute('src', 'js/plugin/revolution/js/revolution.extension.kenburn.min.js')
+      loadscript10.setAttribute(
+        'src',
+        'js/plugin/revolution/js/revolution.extension.kenburn.min.js'
+      )
       document.body.appendChild(loadscript10)
 
       const loadscript11 = document.createElement('script')
-      loadscript11.setAttribute('src', 'js/plugin/revolution/js/revolution.extension.layeranimation.min.js')
+      loadscript11.setAttribute(
+        'src',
+        'js/plugin/revolution/js/revolution.extension.layeranimation.min.js'
+      )
       document.body.appendChild(loadscript11)
 
       const loadscript12 = document.createElement('script')
-      loadscript12.setAttribute('src', 'js/plugin/revolution/js/revolution.extension.navigation.min.js')
+      loadscript12.setAttribute(
+        'src',
+        'js/plugin/revolution/js/revolution.extension.navigation.min.js'
+      )
       document.body.appendChild(loadscript12)
 
       const loadscript13 = document.createElement('script')
-      loadscript13.setAttribute('src', 'js/plugin/revolution/js/revolution.extension.parallax.min.js')
+      loadscript13.setAttribute(
+        'src',
+        'js/plugin/revolution/js/revolution.extension.parallax.min.js'
+      )
       document.body.appendChild(loadscript13)
 
       const loadscript14 = document.createElement('script')
-      loadscript14.setAttribute('src', 'js/plugin/revolution/js/revolution.extension.actions.min.js')
+      loadscript14.setAttribute(
+        'src',
+        'js/plugin/revolution/js/revolution.extension.actions.min.js'
+      )
       document.body.appendChild(loadscript14)
 
       const loadscript15 = document.createElement('script')
-      loadscript15.setAttribute('src', 'js/plugin/revolution/js/revolution.addon.slicey.min.js')
+      loadscript15.setAttribute(
+        'src',
+        'js/plugin/revolution/js/revolution.addon.slicey.min.js'
+      )
       document.body.appendChild(loadscript15)
 
       const loadscript16 = document.createElement('script')
-      loadscript16.setAttribute('src', 'js/custom.js')
+      loadscript16.setAttribute(
+        'src',
+        'js/plugin/revolution/js/revolution.extension.slideanims.min.js'
+      )
       document.body.appendChild(loadscript16)
 
       const loadscript17 = document.createElement('script')
-      loadscript17.setAttribute('src', 'js/plugin/revolution/js/revolution.extension.slideanims.min.js')
+      loadscript17.setAttribute('src', 'js/custom.js')
       document.body.appendChild(loadscript17)
     }
   }
 }
 </script>
-<style scoped>
-</style>
+<style scoped></style>
