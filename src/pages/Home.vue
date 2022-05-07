@@ -767,18 +767,105 @@
                       <option value="b2">Xe qua sử dụng</option>
                     </select>
 
-                    <!-- <div class="price_range">
-                      <label>price range</label>
+                    <select>
+                      <option value="0" selected="">Chọn kiểu dáng</option>
+                      <option value="1">Sedan</option>
+                      <option value="2">Hatchback</option>
+                      <option value="3">Fastback</option>
+                      <option value="4">Hard-top</option>
+                      <option value="5">Minivan</option>
+                      <option value="6">Coupe</option>
+                      <option value="7">Cabriolet</option>
+                      <option value="8">Van</option>
+                      <option value="9">SUV</option>
+                      <option value="10">Roadster</option>
+                      <option value="11">Pikup</option>
+                      <option value="12">Hybrid</option>
+                      <option value="13">Crossover</option>
+                      <option value="14">Convertibles</option>
+                      <option value="15">Wagon</option>
+                      <option value="16">MPV</option>
+                    </select>
+
+                    <select>
+                      <option value="0" selected="">Chọn nhiên liệu</option>
+                      <option value="1">Xăng</option>
+                      <option value="2">Dầu</option>
+                      <option value="3">Điện</option>
+                      <option value="4">Xăng + Điện</option>
+                    </select>
+
+                    <!-- <selectSearch>
+                    </selectSearch> -->
+
+                    <div class="price_range">
+                      <label>Chọn giá</label>
                       <input
                         type="text"
                         id="range_24"
                         name="ionRangeSlider"
                         value=""
                       />
-                    </div> -->
+                    </div>
 
-                    <selectSearch>
-                    </selectSearch>
+                    <div class="price_range">
+                      <label>Chọn năm</label>
+                      <span class="irs js-irs-0"
+                        ><span class="irs"
+                          ><span class="irs-line" tabindex="0"
+                            ><span class="irs-line-left"></span
+                            ><span class="irs-line-mid"></span
+                            ><span class="irs-line-right"></span></span
+                          ><span
+                            class="irs-min"
+                            style="display: none; visibility: visible"
+                            >0</span
+                          ><span
+                            class="irs-max"
+                            style="display: none; visibility: visible"
+                            >1</span
+                          ><span
+                            class="irs-from"
+                            style="visibility: visible; left: 17.8481%"
+                            >2010</span
+                          ><span
+                            class="irs-to"
+                            style="visibility: visible; left: 77.6058%"
+                            >2022</span
+                          ><span
+                            class="irs-single"
+                            style="visibility: hidden; left: 38.8248%"
+                            >2010 — 2022</span
+                          ></span
+                        ><span class="irs-grid"></span
+                        ><span
+                          class="irs-bar"
+                          style="left: 23.4781%; width: 59.3207%"
+                        ></span
+                        ><span
+                          class="irs-shadow shadow-from"
+                          style="display: none"
+                        ></span
+                        ><span
+                          class="irs-shadow shadow-to"
+                          style="display: none"
+                        ></span
+                        ><span
+                          class="irs-slider from"
+                          style="left: 17.6813%"
+                        ></span
+                        ><span
+                          class="irs-slider to type_last"
+                          style="left: 77.002%"
+                        ></span
+                      ></span>
+                      <!-- <input
+                        type="text"
+                        id="range_24"
+                        name="ionRangeSlider"
+                        value=""
+                      /> -->
+                    </div>
                     
                   </div>
 
@@ -871,7 +958,7 @@
                 ></span>
               </div>
               <div class="impl_fea_car_data">
-               <h2 class="line-clamp">
+                <h2 class="line-clamp">
                   <a href="purchase_new.html"
                     >Bán xe Lincoln Navigator L 2019</a
                   >
@@ -920,9 +1007,7 @@
               </div>
               <div class="impl_fea_car_data">
                 <h2 class="line-clamp">
-                  <a href="purchase_new.html"
-                    >Bán xe Lexus GX 460 2010</a
-                  >
+                  <a href="purchase_new.html">Bán xe Lexus GX 460 2010</a>
                 </h2>
                 <ul>
                   <li>
@@ -968,9 +1053,7 @@
               </div>
               <div class="impl_fea_car_data">
                 <h2 class="line-clamp">
-                  <a href="purchase_new.html"
-                    >Bán xe BMW 730Li 2020</a
-                  >
+                  <a href="purchase_new.html">Bán xe BMW 730Li 2020</a>
                 </h2>
                 <ul>
                   <li>
@@ -1001,7 +1084,7 @@
     </div>
 
     <!-------- Mau xe quan tam -------->
-     <div class="impl_featured_wrappar">
+    <div class="impl_featured_wrappar">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
@@ -1009,7 +1092,7 @@
               <h1>MẪU XE ĐƯỢC QUAN TÂM</h1>
             </div>
           </div>
-           <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
                 <img
@@ -1028,9 +1111,7 @@
               </div>
               <div class="impl_fea_car_data">
                 <h2 class="line-clamp">
-                  <a href="purchase_new.html"
-                    >Bán xe Lexus GX 460 2010</a
-                  >
+                  <a href="purchase_new.html">Bán xe Lexus GX 460 2010</a>
                 </h2>
                 <ul>
                   <li>
@@ -1075,7 +1156,7 @@
                 ></span>
               </div>
               <div class="impl_fea_car_data">
-               <h2 class="line-clamp">
+                <h2 class="line-clamp">
                   <a href="purchase_new.html"
                     >Bán xe Lincoln Navigator L 2019</a
                   >
@@ -1111,16 +1192,16 @@
 </template>
 
 <script>
-import selectSearch from './Select-box/select-search.vue'
+// import selectSearch from './Select-box/select-search.vue'
 export default {
   name: 'IndexPage',
 
   components: {
-    selectSearch
+    // selectSearch
   },
 
   mounted () {
-    this.loadScriptAll()
+    // this.loadScriptAll()
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
         loading: false

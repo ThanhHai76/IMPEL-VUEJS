@@ -4,7 +4,7 @@ import loginPage from '@/pages/Login.vue'
 import notFoundPage from '@/pages/NotFound.vue'
 
 import sellStep from '@/pages/Sell_Step.vue'
-import about from '@/pages/About.vue'
+import cars from '@/pages/Cars.vue'
 import purchaseNew from '@/pages/Purchase/Purchase_New.vue'
 import purchaseUsed from '@/pages/Purchase/Purchase_Used.vue'
 import purchaseNewSingle from '@/pages/Purchase/Purchase_New_Single.vue'
@@ -42,10 +42,10 @@ export const routes = [
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | home` }
   },
   {
-    path: '/about',
-    name: 'about',
-    component: about,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | about` }
+    path: '/cars',
+    name: 'cars',
+    component: cars,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | cars` }
   },
   {
     path: '/purchase-new',

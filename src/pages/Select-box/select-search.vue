@@ -133,7 +133,7 @@
       </div>
     </div>
 
-    <div class="nice-select" style="padding-left: 0px; padding-right: 0px">
+    <!-- <div class="nice-select" style="padding-left: 0px; padding-right: 0px">
       <div class="impl_welcome_text">
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
@@ -288,7 +288,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="nice-select" style="padding-left: 0px; padding-right: 0px">
       <div class="impl_welcome_text">

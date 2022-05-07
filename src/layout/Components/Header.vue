@@ -253,9 +253,9 @@
                   </div>
                   <ul>
                     <li class="dropdown">
-                      <a href="/" class="active">Trang chủ</a>
+                      <a href="/">Trang chủ</a>
                     </li>
-                    <li><router-link to="/about">Ô tô</router-link></li>
+                    <li><router-link to="/cars">Ô tô</router-link></li>
                     <li class="dropdown">
                       <router-link to="/purchase-new">
                         Xe máy

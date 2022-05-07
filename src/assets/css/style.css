@@ -1187,7 +1187,7 @@ p.slogan strong {
     float: left;
 }
 .impl_search_box {
-    padding: 30px 41px 0px 30px;
+    padding: 30px 41px 30px 30px;
     background-color: #f15b5b;
 }
 .impl_search_box .nice-select {
@@ -1343,8 +1343,8 @@ p.slogan strong {
     background-color: #ffffff;
 }
 .impl_welcome_text .panel-title a {
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;
     width: 100%;
     display: block;
     color: #5d5d5d;
@@ -2574,7 +2574,7 @@ p.impl_ser_para {
 /*----About Page Css start-----*/
 
 .impl_bread_wrapper {
-    background-image: url(http://via.placeholder.com/1920x360);
+    background-image: url(../images/cars/cars_bg.jpg);
     background-size: cover;
     position: relative;
     padding: 136px 0px;

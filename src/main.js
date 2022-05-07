@@ -23,6 +23,8 @@ import '@/assets/js/plugin/nice_select/nice-select.css'
 // import '@/assets/js/plugin/revolution/css/settings.css'
 import '@/assets/css/style.css'
 
+import '@/assets/css/style_2.css'
+
 new Vue({
   name: 'Root',
   router,
