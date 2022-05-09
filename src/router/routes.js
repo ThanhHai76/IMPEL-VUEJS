@@ -3,8 +3,11 @@ import homePage from '@/pages/Home.vue'
 import loginPage from '@/pages/Login.vue'
 import notFoundPage from '@/pages/NotFound.vue'
 
+import cars from '@/pages/Vehicles/Cars.vue'
+import motorbike from '@/pages/Vehicles/Motorbike.vue'
+import bicycle from '@/pages/Vehicles/Bicycle.vue'
 import sellStep from '@/pages/Sell_Step.vue'
-import cars from '@/pages/Cars.vue'
+
 import purchaseNew from '@/pages/Purchase/Purchase_New.vue'
 import purchaseUsed from '@/pages/Purchase/Purchase_Used.vue'
 import purchaseNewSingle from '@/pages/Purchase/Purchase_New_Single.vue'
@@ -36,16 +39,29 @@ export const routes = [
   },
 
   {
+    path: '/car',
+    name: 'cars',
+    component: cars,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | cars` }
+  },
+  {
+    path: '/motorcycle',
+    name: 'motorbike',
+    component: motorbike,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | motorcycle` }
+  },
+  {
+    path: '/bicycle',
+    name: 'bicycle',
+    component: bicycle,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | cars` }
+  },
+
+  {
     path: '/sell-step',
     name: 'sell-step',
     component: sellStep,
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | home` }
-  },
-  {
-    path: '/cars',
-    name: 'cars',
-    component: cars,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | cars` }
   },
   {
     path: '/purchase-new',

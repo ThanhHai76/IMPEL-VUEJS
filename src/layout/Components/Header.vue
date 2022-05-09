@@ -255,69 +255,10 @@
                     <li class="dropdown">
                       <a href="/">Trang chủ</a>
                     </li>
-                    <li><router-link to="/cars">Ô tô</router-link></li>
-                    <li class="dropdown">
-                      <router-link to="/purchase-new">
-                        Xe máy
-                      </router-link>
-                      <!-- <a href="javascript:;">Xe máy</a>
-                      <ul class="sub-menu">
-                        <li>
-                          <router-link to="/purchase-new">
-                            New car
-                          </router-link>
-                        </li>
-                        <li>
-                          <router-link to="/purchase-used">
-                            Old car
-                          </router-link>
-                        </li>
-                        <li>
-                          <router-link to="/purchase-new-single">
-                            New Car Single
-                          </router-link>
-                        </li>
-                        <li>
-                          <router-link to="/purchase-old-single">
-                            Old car single
-                          </router-link>
-                        </li>
-                      </ul> -->
-                    </li>
-                    <li>
-                      <router-link to="/service">Xe đạp</router-link>
+                    <li class="dropdown" v-for="item in menuHeader" :key="item.id">
+                      <router-link :to="item.code">{{ item.name }}</router-link>
                     </li>
 
-                    <!-- <li class="dropdown">
-                      <a href="javascript:;">blog</a>
-                      <ul class="sub-menu">
-                        <li>
-                          <router-link to="/blog-left-sidebar">
-                            blog left sidebar
-                          </router-link>
-                        </li>
-                        <li>
-                          <router-link to="/blog-right-sidebar">
-                            blog right sidebar
-                          </router-link>
-                        </li>
-                        <li>
-                          <router-link to="/blog-single">
-                            blog single
-                          </router-link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="javascript:;">pages</a>
-                      <ul class="sub-menu">
-                        <li><a href="sell_step.html">Sell page</a></li>
-                        <li><a href="compare.html">compare page</a></li>
-                        <li><a href="checkout.html">checkout page</a></li>
-                        <li><a href="error.html">404 page</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="contact.html">Contact us</a></li> -->
                   </ul>
                 </nav>
               </div>
@@ -330,12 +271,16 @@
 </template>
 
 <script>
+import { TransportService } from '@/services/transport.service'
+import { EndpointService } from '@/services/endpoint.service'
 export default {
   name: 'Header',
 
   data () {
     return {
-      dataUser: JSON.parse(localStorage.getItem('userData'))
+      dataUser: JSON.parse(localStorage.getItem('userData')),
+      endpoint: {},
+      menuHeader: []
     }
   },
   props: {
@@ -343,10 +288,39 @@ export default {
     isOpen: Boolean,
     isOpenMobile: Boolean
   },
+
+  async mounted () {
+    await this.getEndpoint()
+    this.getTransportMenu()
+  },
+
   methods: {
     async logout () {
       await this.$store.dispatch('user/clear')
       this.$store.dispatch('auth/logout')
+    },
+
+    async getEndpoint () {
+      try {
+        const response = await EndpointService.getConfig()
+        this.endpoint = response.data
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async getTransportMenu () {
+      try {
+        const response = await TransportService.getListTransport({
+          data: {
+            codeParent: 'transport'
+          },
+          endpoint: this.endpoint['hnp.luxury.transport.get-list-transport']
+        })
+        this.menuHeader = response.data
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }

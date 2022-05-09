@@ -1217,7 +1217,6 @@ export default {
 
   data: () => {
     return {
-      // msg: 'Welcome to Index!!!',
       isShownModal: false,
       inputError: false,
       checkboxState: false,

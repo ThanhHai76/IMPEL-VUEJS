@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
-            <h1><i class="fa fa-car"></i> Ô TÔ</h1>
+            <h1><i class="fa fa-car"></i> XE MÁY</h1>
             <!-- <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">company</li>
@@ -290,189 +290,12 @@
         </div>
       </div>
     </div>
-    <!------ History Section Start ------>
-    <div class="impl_history_wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_heading">
-              <h1>our history</h1>
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_hstry_timeline">
-              <div class="impl_timeline_wrapper">
-                <ul class="impl_timeline">
-                  <li>
-                    <div class="impl_tl_item">
-                      <h2>2001</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="impl_tl_item impl_tl_item_rt">
-                      <h2>2004</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="impl_tl_item">
-                      <h2>2011</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="impl_tl_item impl_tl_item_rt">
-                      <h2>2017</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!------ Testimonial Section Start ------>
-    <div class="impl_test_wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_heading">
-              <h1>words of satisfaction</h1>
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_test_slider">
-              <div class="item">
-                <div class="impl_test_slider_box">
-                  <div class="impl_test_data">
-                    <div class="impl_test_img">
-                      <img src="http://via.placeholder.com/270x256" alt="" />
-                    </div>
-                    <p>
-                      <span class="impl_test_quote"
-                        ><img src="images/svg/quotes.svg" alt="" /></span
-                      >There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. . All the Lorem Ipsum
-                      generators on the Internet tend to repeat predefined
-                      chunks as necessary, making this the first true generator
-                      on the Internet. There are many variations of passages of
-                      Lorem Ipsum available, but the majority have suffered
-                      alteration in some form, by injected humour, or randomised
-                      words which don't look even slightly believable.
-                    </p>
-                    <div class="impl_test_footer">- Grant Allison</div>
-                  </div>
-                </div>
-              </div>
-              <!--2-->
-              <div class="item">
-                <div class="impl_test_slider_box">
-                  <div class="impl_test_data">
-                    <div class="impl_test_img">
-                      <img src="http://via.placeholder.com/270x256" alt="" />
-                    </div>
-                    <p>
-                      <span class="impl_test_quote"
-                        ><img src="images/svg/quotes.svg" alt="" /></span
-                      >There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. . All the Lorem Ipsum
-                      generators on the Internet tend to repeat predefined
-                      chunks as necessary, making this the first true generator
-                      on the Internet. There are many variations of passages of
-                      Lorem Ipsum available, but the majority have suffered
-                      alteration in some form, by injected humour, or randomised
-                      words which don't look even slightly believable.
-                    </p>
-                    <div class="impl_test_footer">- Aaron Green</div>
-                  </div>
-                </div>
-              </div>
-              <!--3-->
-              <div class="item">
-                <div class="impl_test_slider_box">
-                  <div class="impl_test_data">
-                    <div class="impl_test_img">
-                      <img src="http://via.placeholder.com/270x256" alt="" />
-                    </div>
-                    <p>
-                      <span class="impl_test_quote"
-                        ><img src="images/svg/quotes.svg" alt="" /></span
-                      >There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. . All the Lorem Ipsum
-                      generators on the Internet tend to repeat predefined
-                      chunks as necessary, making this the first true generator
-                      on the Internet. There are many variations of passages of
-                      Lorem Ipsum available, but the majority have suffered
-                      alteration in some form, by injected humour, or randomised
-                      words which don't look even slightly believable.
-                    </p>
-                    <div class="impl_test_footer">- Raul Valdez</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 
 <script>
-import searchBox from './Select-box/search-box.vue'
+import searchBox from '../Select-box/search-box.vue'
 export default {
   mounted () {
     setTimeout(() => {
