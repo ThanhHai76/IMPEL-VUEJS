@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <searchBox></searchBox>
+    <searchBox :menuSearch="carsMenu"></searchBox>
 
     <!------ Featured Cars Start ------>
     <div>
@@ -473,7 +473,18 @@
 
 <script>
 import searchBox from '../Select-box/search-box.vue'
+import { TransportService } from '@/services/transport.service'
 export default {
+  data () {
+    return {
+      carsMenu: []
+    }
+  },
+
+  created () {
+    this.getTransportMenu()
+  },
+
   mounted () {
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
@@ -483,10 +494,24 @@ export default {
     }, 1000)
   },
 
+  methods: {
+    async getTransportMenu () {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: 'transport_car'
+        })
+        this.carsMenu = response.data
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  },
+
   components: {
     searchBox
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

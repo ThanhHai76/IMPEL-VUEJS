@@ -39,29 +39,29 @@ export const routes = [
   },
 
   {
-    path: '/car',
+    path: '/transport_car',
     name: 'cars',
     component: cars,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | cars` }
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Cars` }
   },
   {
-    path: '/motorcycle',
+    path: '/transport_motorcycle',
     name: 'motorbike',
     component: motorbike,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | motorcycle` }
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Motorcycle` }
   },
   {
-    path: '/bicycle',
+    path: '/transport_bicycle',
     name: 'bicycle',
     component: bicycle,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | cars` }
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Bicycle` }
   },
 
   {
     path: '/sell-step',
     name: 'sell-step',
     component: sellStep,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | home` }
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Sell Step` }
   },
   {
     path: '/purchase-new',

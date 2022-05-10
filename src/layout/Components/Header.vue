@@ -253,10 +253,13 @@
                   </div>
                   <ul>
                     <li class="dropdown">
-                      <a href="/">Trang chủ</a>
+                      <a href="/" :class="{'active': $route.path === '/'}">Trang chủ</a>
                     </li>
                     <li class="dropdown" v-for="item in menuHeader" :key="item.id">
-                      <router-link :to="item.code">{{ item.name }}</router-link>
+                      <a href="javascript:void(0)" @click="changeRoute(item.code)"
+                        :class="{'active': (currentRoute === item.code || $route.path === item.code)}">
+                        {{ item.name }}
+                      </a>
                     </li>
 
                   </ul>
@@ -280,7 +283,8 @@ export default {
     return {
       dataUser: JSON.parse(localStorage.getItem('userData')),
       endpoint: {},
-      menuHeader: []
+      menuHeader: [],
+      currentRoute: ''
     }
   },
   props: {
@@ -300,10 +304,16 @@ export default {
       this.$store.dispatch('auth/logout')
     },
 
+    changeRoute (route) {
+      this.currentRoute = route
+      this.$router.push(route)
+    },
+
     async getEndpoint () {
       try {
         const response = await EndpointService.getConfig()
         this.endpoint = response.data
+        await this.$store.dispatch('endpoint/getEndpointConfig')
       } catch (error) {
         console.log(error)
       }
@@ -311,7 +321,7 @@ export default {
 
     async getTransportMenu () {
       try {
-        const response = await TransportService.getListTransport({
+        const response = await TransportService.getListTransportHeader({
           data: {
             codeParent: 'transport'
           },

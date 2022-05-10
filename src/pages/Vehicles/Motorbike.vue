@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <searchBox></searchBox>
+    <searchBox :menuSearch="motobikeMenu"></searchBox>
 
     <!------ Featured Cars Start ------>
     <div>
@@ -23,7 +23,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <div class="impl_heading">
-              <h1>SẢN PHẨM: Ô TÔ</h1>
+              <h1>SẢN PHẨM: XE MÁY</h1>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
@@ -296,7 +296,18 @@
 
 <script>
 import searchBox from '../Select-box/search-box.vue'
+import { TransportService } from '@/services/transport.service'
 export default {
+  data () {
+    return {
+      motobikeMenu: []
+    }
+  },
+
+  created () {
+    this.getTransportMenu()
+  },
+
   mounted () {
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
@@ -304,6 +315,19 @@ export default {
         time: 1000
       })
     }, 1000)
+  },
+
+  methods: {
+    async getTransportMenu () {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: 'transport_motorcycle'
+        })
+        this.motobikeMenu = response.data
+      } catch (error) {
+        console.log(error)
+      }
+    }
   },
 
   components: {

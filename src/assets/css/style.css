@@ -4209,6 +4209,9 @@ ul.step_car_img li:hover .step_view_img_over {
 }
 .impl_buycar_color .slick-initialized .slick-slide {
     text-align: center;
+    margin: auto;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
 }
 .impl_buycar_color .slick-slide.slick-current .car_color:after {
     position: absolute;
