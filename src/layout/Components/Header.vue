@@ -258,7 +258,7 @@
                     <li class="dropdown" v-for="item in menuHeader" :key="item.id">
                       <a href="javascript:void(0)" @click="changeRoute(item.code)"
                         :class="{'active': (currentRoute === item.code || $route.path === item.code)}">
-                        {{ item.name }}
+                        {{ item.name | transformName(transportName) }}
                       </a>
                     </li>
 
@@ -284,7 +284,12 @@ export default {
       dataUser: JSON.parse(localStorage.getItem('userData')),
       endpoint: {},
       menuHeader: [],
-      currentRoute: ''
+      currentRoute: '',
+      transportName: [
+        { id: 'Car', text: 'ô tô' },
+        { id: 'Motorcycle', text: 'xe máy' },
+        { id: 'Bicycle', text: 'xe đạp' }
+      ]
     }
   },
   props: {
@@ -293,9 +298,18 @@ export default {
     isOpenMobile: Boolean
   },
 
-  async mounted () {
+  filters: {
+    transformName (name, transportName) {
+      const transport = transportName.filter(item => item.id === name)
+      return transport[0] ? transport[0].text : ''
+    }
+  },
+
+  async created () {
     await this.getEndpoint()
     this.getTransportMenu()
+    const currentPath = this.$route.path
+    if (this.currentRoute === '') this.currentRoute = currentPath.substring(1, currentPath.length)
   },
 
   methods: {
@@ -307,6 +321,7 @@ export default {
     changeRoute (route) {
       this.currentRoute = route
       this.$router.push(route)
+      // this.$router.replace({ path: route })
     },
 
     async getEndpoint () {
@@ -327,7 +342,7 @@ export default {
           },
           endpoint: this.endpoint['hnp.luxury.transport.get-list-transport']
         })
-        this.menuHeader = response.data
+        this.menuHeader = response.data.transportListRes
       } catch (error) {
         console.log(error)
       }

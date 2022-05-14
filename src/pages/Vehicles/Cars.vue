@@ -6,16 +6,55 @@
         <div class="row">
           <div class="col-lg-12 col-md-12">
             <h1><i class="fa fa-car"></i> Ô TÔ</h1>
-            <!-- <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">company</li>
-                    </ol> -->
+            <ol class="breadcrumb">
+                <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">company</li> -->
+            </ol>
+            <div class="d-flex position-relative justify-content-sm-center" style=" margin: auto; width: fit-content;">
+
+                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_1" v-show="selectedMenu" @change="getMenuChild">
+                  <option disabled>{{ selectedTree_1 ? selectedTree_1 : 'Chọn Ô tô' }}</option>
+                  <option
+                    v-for="(item, index) in carsMenu_1" :key="index"
+                    :value="item.code"
+                  >
+                    {{ item.name }}
+                  </option>
+                </select>
+
+                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_2" @change="getMenuChild_2" v-show="carsMenu_2.length > 0">
+                  <option disabled>{{ selectedTree_2 ? selectedTree_2 : 'Chọn Class'}}</option>
+                  <option
+                    v-for="(item, index) in carsMenu_2" :key="index"
+                    :value="item.code"
+                  >
+                    {{ item.name }}
+                  </option>
+                </select>
+
+                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_3" @change="getMenuChild_3" v-show="carsMenu_3.length > 0">
+                  <option>{{ selectedTree_3 ? selectedTree_3 : 'Chọn' }}</option>
+                  <option
+                    v-for="(item, index) in carsMenu_3" :key="index"
+                    :value="item.code"
+                  >
+                    {{ item.name }}
+                  </option>
+                </select>
+
+                <div class="menu_pro mr-3 parent-menu" v-if="selectedMenu">
+                  <a href="#" tabindex="-1">
+                    <i class="fa fa-car"></i> {{ selectedMenu }}</a
+                  >
+                </div>
+
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <searchBox :menuSearch="carsMenu"></searchBox>
+    <searchBox @data="receiveData" :menuSearch="menuSearch"></searchBox>
 
     <!------ Featured Cars Start ------>
     <div>
@@ -66,8 +105,8 @@
                 </ul>
                 <div class="impl_fea_btn">
                   <button class="impl_btn">
-                    <span class="impl_doller">1 Tỷ 929 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
+                    <span class="impl_doller">1 Tỷ 929 Triệu Đồng </span>
+                    <span class="impl_bnw" @click="$router.push('/detail')">Xem ngay</span>
                   </button>
                 </div>
               </div>
@@ -290,184 +329,7 @@
         </div>
       </div>
     </div>
-    <!------ History Section Start ------>
-    <div class="impl_history_wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_heading">
-              <h1>our history</h1>
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_hstry_timeline">
-              <div class="impl_timeline_wrapper">
-                <ul class="impl_timeline">
-                  <li>
-                    <div class="impl_tl_item">
-                      <h2>2001</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="impl_tl_item impl_tl_item_rt">
-                      <h2>2004</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="impl_tl_item">
-                      <h2>2011</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="impl_tl_item impl_tl_item_rt">
-                      <h2>2017</h2>
-                      <p>
-                        There are many variations of passages of Lorem Ipsum
-                        available, but the majorty have suffered alteration in
-                        some form, by injected humour, or randomised words which
-                        don't look even slightly believable. If you are going to
-                        use a passage of Lorem Ipsum, you need to be sure there
-                        isn't anything embarrassing hidden in the middle of
-                        text.
-                      </p>
-                      <span class="impl_tl_icon">
-                        <span class="impl_tl_dot"></span>
-                      </span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!------ Testimonial Section Start ------>
-    <div class="impl_test_wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_heading">
-              <h1>words of satisfaction</h1>
-            </div>
-          </div>
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_test_slider">
-              <div class="item">
-                <div class="impl_test_slider_box">
-                  <div class="impl_test_data">
-                    <div class="impl_test_img">
-                      <img src="http://via.placeholder.com/270x256" alt="" />
-                    </div>
-                    <p>
-                      <span class="impl_test_quote"
-                        ><img src="images/svg/quotes.svg" alt="" /></span
-                      >There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. . All the Lorem Ipsum
-                      generators on the Internet tend to repeat predefined
-                      chunks as necessary, making this the first true generator
-                      on the Internet. There are many variations of passages of
-                      Lorem Ipsum available, but the majority have suffered
-                      alteration in some form, by injected humour, or randomised
-                      words which don't look even slightly believable.
-                    </p>
-                    <div class="impl_test_footer">- Grant Allison</div>
-                  </div>
-                </div>
-              </div>
-              <!--2-->
-              <div class="item">
-                <div class="impl_test_slider_box">
-                  <div class="impl_test_data">
-                    <div class="impl_test_img">
-                      <img src="http://via.placeholder.com/270x256" alt="" />
-                    </div>
-                    <p>
-                      <span class="impl_test_quote"
-                        ><img src="images/svg/quotes.svg" alt="" /></span
-                      >There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. . All the Lorem Ipsum
-                      generators on the Internet tend to repeat predefined
-                      chunks as necessary, making this the first true generator
-                      on the Internet. There are many variations of passages of
-                      Lorem Ipsum available, but the majority have suffered
-                      alteration in some form, by injected humour, or randomised
-                      words which don't look even slightly believable.
-                    </p>
-                    <div class="impl_test_footer">- Aaron Green</div>
-                  </div>
-                </div>
-              </div>
-              <!--3-->
-              <div class="item">
-                <div class="impl_test_slider_box">
-                  <div class="impl_test_data">
-                    <div class="impl_test_img">
-                      <img src="http://via.placeholder.com/270x256" alt="" />
-                    </div>
-                    <p>
-                      <span class="impl_test_quote"
-                        ><img src="images/svg/quotes.svg" alt="" /></span
-                      >There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in
-                      some form, by injected humour, or randomised words which
-                      don't look even slightly believable. . All the Lorem Ipsum
-                      generators on the Internet tend to repeat predefined
-                      chunks as necessary, making this the first true generator
-                      on the Internet. There are many variations of passages of
-                      Lorem Ipsum available, but the majority have suffered
-                      alteration in some form, by injected humour, or randomised
-                      words which don't look even slightly believable.
-                    </p>
-                    <div class="impl_test_footer">- Raul Valdez</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 
@@ -477,15 +339,40 @@ import { TransportService } from '@/services/transport.service'
 export default {
   data () {
     return {
-      carsMenu: []
+      carsMenu_1: [],
+      treeTransport_1: [],
+      carsMenu_2: [],
+      treeTransport_2: [],
+      carsMenu_3: [],
+      treeTransport_3: [],
+      transportName: [
+        { id: 'transport', text: 'Phương tiện' },
+        { id: 'transport_car', text: 'ô tô' },
+        { id: 'transport_motorcycle', text: 'xe máy' },
+        { id: 'transport_bicycle', text: 'xe đạp' }
+      ],
+      menuSearch: [],
+      selectedMenu: null,
+      currentLevel: 1,
+      selectedTree_1: null,
+      selectedTree_2: null,
+      selectedTree_3: null
     }
   },
 
-  created () {
-    this.getTransportMenu()
+  filters: {
+    transformName (name, transportName) {
+      const transport = transportName.filter(item => item.id === name)
+      return transport[0] ? transport[0].text : ''
+    }
   },
 
+  // created () {
+  //   this.getTransportMenu()
+  // },
+
   mounted () {
+    this.getTransportMenu('transport_car')
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
         loading: false,
@@ -495,15 +382,104 @@ export default {
   },
 
   methods: {
-    async getTransportMenu () {
+    async getTransportMenu (code) {
       try {
         const response = await TransportService.getListTransport({
-          codeParent: 'transport_car'
+          codeParent: code
         })
-        this.carsMenu = response.data
+        this.carsMenu_1 = response.data.transportListRes
+        this.menuSearch = this.carsMenu_1
+        this.treeTransport_1 = response.data.treeTransport
       } catch (error) {
         console.log(error)
       }
+    },
+    async getTransportMenu_2 (code) {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: code
+        })
+        this.menuSearch = response.data.transportListRes
+        // this.treeTransport_2 = response.data.treeTransport
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async getTransportMenu_parent_2 (code) {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: code
+        })
+        this.carsMenu_2 = response.data.transportListRes
+        // this.menuSearch = response.data.transportListRes
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async getTransportMenu_parent_3 (code) {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: code
+        })
+        this.carsMenu_3 = response.data.transportListRes
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async getMenuChild (data) {
+      const code = data.target.value
+      this.currentLevel = 1
+      await this.controllerMenu({ code: code })
+      this.carsMenu_2 = []
+      this.carsMenu_3 = []
+      console.log(this.currentLevel)
+    },
+
+    getMenuChild_2 (data) {
+      const code = data.target.value
+      this.currentLevel = 2
+      this.controllerMenu({ code: code })
+      this.carsMenu_3 = []
+    },
+
+    getMenuChild_3 (data) {
+      const code = data.target.value
+      this.currentLevel = 3
+      this.controllerMenu({ code: code })
+    },
+
+    async receiveData (data) {
+      this.controllerMenu(data)
+    },
+
+    async controllerMenu (data) {
+      if (this.currentLevel === 1) {
+        const itemSeleted = this.carsMenu_1.filter(e => e.code === data.code)
+        this.selectedMenu = itemSeleted.length ? itemSeleted[0].name : ''
+        this.selectedTree_1 = this.selectedMenu
+        this.getTransportMenu_2(data.code)
+      }
+
+      if (this.currentLevel === 2) {
+        await this.getTransportMenu_parent_2(data.codeParent)
+        const itemSeleted = this.carsMenu_2.filter(e => e.code === data.code)
+        this.selectedMenu = itemSeleted.length ? itemSeleted[0].name : ''
+        this.selectedTree_2 = this.selectedMenu
+        this.getTransportMenu_2(data.code)
+      }
+
+      if (this.currentLevel === 3) {
+        await this.getTransportMenu_parent_3(data.codeParent)
+        const itemSeleted = this.carsMenu_3.filter(e => e.code === data.code)
+        this.selectedMenu = itemSeleted.length ? itemSeleted[0].name : ''
+        this.selectedTree_3 = this.selectedMenu
+        this.getTransportMenu_2(data.code)
+      }
+      this.currentLevel++
+      console.log(this.currentLevel)
+      // this.getTransportMenu_3(data.code)
     }
   },
 
@@ -514,4 +490,10 @@ export default {
 </script>
 
 <style scoped>
+.parent-menu {
+  text-align: center;
+  margin: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
 </style>

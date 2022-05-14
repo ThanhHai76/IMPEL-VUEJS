@@ -3837,13 +3837,16 @@ h3.comment-reply-title {
 .impl_con_data i {
     font-size: 26px;
 }
+.impl_con_data p i {
+    font-size: 16px;
+}
 .impl_con_data h2 {
     font-size: 20px;
     text-transform: uppercase;
     padding: 17px 0px 10px;
 }
 .impl_con_data p {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     margin: 0px;
     color: #ffffff;

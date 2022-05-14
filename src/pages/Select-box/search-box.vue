@@ -13,8 +13,8 @@
                   tabindex="-1"
                   v-for="item in menuSearch" :key="item.id"
                 >
-                  <div class="menu_pro">
-                    <a href="javascript:void(0)" @click="$router.push(item.code)" tabindex="-1">
+                  <div class="menu_pro" @click="getMenuChild(item)">
+                    <a href="javascript:void(0)" tabindex="-1">
                       <i class="fa fa-car"></i> {{ item.name }}
                     </a>
                   </div>
@@ -102,10 +102,18 @@ export default {
         touchThreshold: 4
       }
     }
+  },
+  methods: {
+    getMenuChild (item) {
+      // this.$router.push(`/transport?code=${item.code}`)
+      this.$emit('data', item)
+    }
   }
 }
 </script>
 
 <style scoped>
-
+.menu_pro:hover {
+  cursor: pointer;
+}
 </style>

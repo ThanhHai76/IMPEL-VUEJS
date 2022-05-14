@@ -323,7 +323,7 @@ export default {
         const response = await TransportService.getListTransport({
           codeParent: 'transport_bicycle'
         })
-        this.bicycleMenu = response.data
+        this.bicycleMenu = response.data.transportListRes
       } catch (error) {
         console.log(error)
       }
