@@ -1,21 +1,7 @@
 <template>
   <div>
     <!------ Breadcrumbs Start ------>
-    <div class="impl_bread_wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <h1><i class="fa fa-car"></i> XE ĐẠP</h1>
-            <!-- <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">company</li>
-                    </ol> -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <searchBox :menuSearch="bicycleMenu"></searchBox>
+     <BreadcrumbStart ref="menuStart" name="Xe đạp"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
     <div>
@@ -296,7 +282,7 @@
 
 <script>
 import { TransportService } from '@/services/transport.service'
-import searchBox from '../Select-box/search-box.vue'
+import BreadcrumbStart from '../Components/Breadcrumbs_Start.vue'
 export default {
   data () {
     return {
@@ -305,10 +291,11 @@ export default {
   },
 
   created () {
-    this.getTransportMenu()
+    // this.getTransportMenu()
   },
 
   mounted () {
+    this.$refs.menuStart.getTransportMenu('transport_bicycle')
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
         loading: false,
@@ -331,7 +318,7 @@ export default {
   },
 
   components: {
-    searchBox
+    BreadcrumbStart
   }
 }
 </script>

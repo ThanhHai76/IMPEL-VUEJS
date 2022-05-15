@@ -28,7 +28,7 @@
                 >
                   <div class="menu_pro">
                     <a href="#" tabindex="-1">
-                      <i class="fa fa-car"></i> Chọn model</a
+                      <i class="fa fa-car"></i> </a
                     >
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                 >
                   <div class="menu_pro">
                     <a href="#" tabindex="-1">
-                      <i class="fa fa-car"></i> Chọn model</a
+                      <i class="fa fa-car"></i> </a
                     >
                   </div>
                 </div>
@@ -52,7 +52,7 @@
                 >
                   <div class="menu_pro">
                     <a href="#" tabindex="-1">
-                      <i class="fa fa-car"></i> Chọn model</a
+                      <i class="fa fa-car"></i> </a
                     >
                   </div>
                 </div>
@@ -64,7 +64,7 @@
                 >
                   <div class="menu_pro">
                     <a href="#" tabindex="-1">
-                      <i class="fa fa-car"></i> Chọn model</a
+                      <i class="fa fa-car"></i> </a
                     >
                   </div>
                 </div>
@@ -76,7 +76,7 @@
                 >
                   <div class="menu_pro">
                     <a href="#" tabindex="-1">
-                      <i class="fa fa-car"></i> Chọn model</a
+                      <i class="fa fa-car"></i> </a
                     >
                   </div>
                 </div>
@@ -91,15 +91,15 @@
 
 <script>
 export default {
-  props: ['menuSearch'],
+  props: ['menuSearch', 'levelMenu'],
   data () {
     return {
       settings: {
+        infinite: true,
         dots: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 2,
-        touchThreshold: 4
+        slidesToScroll: 2
       }
     }
   },
