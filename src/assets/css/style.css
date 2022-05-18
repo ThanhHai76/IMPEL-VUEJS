@@ -1172,7 +1172,7 @@ p.slogan strong {
 /*----Search Box Css Start----*/
 
 .impl_searchbox_wrapper {
-    top: -85px;
+    /* top: -85px; */
     position: relative;
 }
 .dropdown-expander {

@@ -11,7 +11,7 @@
             </ol>
             <div class="d-flex position-relative justify-content-sm-center" style=" margin: auto; width: fit-content;">
 
-                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_1" v-show="selectedMenu" @change="getMenuChild">
+                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_1" v-show="selectedMenu" @change="getMenuChild" @click="showMenuAll = true">
                   <option disabled>{{ selectedTree_1 ? selectedTree_1 : 'Chọn Ô tô' }}</option>
                   <option
                     v-for="(item, index) in carsMenu_1" :key="index"
@@ -51,14 +51,41 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <searchBox @data="receiveData" :menuSearch="menuSearch" :levelMenu="levelMenu"></searchBox>
+      <div class="impl_searchbox_wrapper mt-5" v-if="showMenuAll">
+        <div class="container_search">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="impl_buycar_wrapper">
+                <div class="impl_buycar_color">
+                  <div class="slider slider-nav1 slick-initialized slick-slider" :class="{'d-flex justify-content-center': menuSearch.length < 5}">
+                    <div class="slick-list draggable">
+                       <select v-for="item in carsMenu_1" @change="getMenuChild_2" :key="item.id" @click="getDataSelect(item)"
+                        class="menu_pro mr-3 mb-3 parent-menu">
+                          <option>{{ item.name }}</option>
+                          <option
+                            v-for="item_child in dataSelect" :key="item_child.id"
+                            :value="item_child.code"
+                          >
+                            {{ item_child.name }}
+                          </option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <searchBox v-else class="mt-5" @data="receiveData" :menuSearch="menuSearch" :levelMenu="levelMenu"></searchBox>
+    </div>
   </div>
 </template>
 
 <script>
-import searchBox from '../Select-box/search-box.vue'
+import searchBox from './search-box.vue'
 import { TransportService } from '@/services/transport.service'
 export default {
   props: ['name'],
@@ -83,7 +110,9 @@ export default {
       selectedTree_1: null,
       selectedTree_2: null,
       selectedTree_3: null,
-      checkDuplicate: false
+      checkDuplicate: false,
+      dataSelect: [],
+      showMenuAll: true
     }
   },
 
@@ -146,13 +175,15 @@ export default {
       await this.controllerMenu({ code: code })
       this.carsMenu_2 = []
       this.carsMenu_3 = []
-      console.log(this.currentLevel)
     },
 
     getMenuChild_2 (data) {
+      this.showMenuAll = false
+      console.log('change')
       const code = data.target.value
+      const codeParent = this.dataSelect.filter((e) => e.code === code)[0].codeParent
       this.currentLevel = 2
-      this.controllerMenu({ code: code })
+      this.controllerMenu({ code: code, codeParent: codeParent })
       this.carsMenu_3 = []
     },
 
@@ -208,6 +239,19 @@ export default {
       // const sameArray = this.carsMenu_2.length === this.carsMenu_3.length && this.carsMenu_2.every((value, index) => value === this.carsMenu_3[index])
       // const sameArray = JSON.stringify(this.carsMenu_2) === JSON.stringify(this.carsMenu_3)
       // console.log(sameArray)
+    },
+
+    async getDataSelect (item) {
+      try {
+        this.showMenuAll = true
+        const response = await TransportService.getListTransport({
+          codeParent: item.code
+        })
+        this.dataSelect = response.data.transportListRes
+        this.selectedTree_1 = item.name
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }

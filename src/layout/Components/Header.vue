@@ -286,9 +286,9 @@ export default {
       menuHeader: [],
       currentRoute: '',
       transportName: [
-        { id: 'Car', text: 'ô tô' },
-        { id: 'Motorcycle', text: 'xe máy' },
-        { id: 'Bicycle', text: 'xe đạp' }
+        { id: 'car', text: 'ô tô' },
+        { id: 'motorcycle', text: 'xe máy' },
+        { id: 'bicycle', text: 'xe đạp' }
       ]
     }
   },

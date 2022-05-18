@@ -6,5 +6,6 @@
   background-color: rgb(241, 91, 91, 0.3);
   font-size: 16px;
   font-weight: 500;
-  padding: 12px 0px;
+  padding: 12px 2rem;
+  /* width: 10rem; */
 }
