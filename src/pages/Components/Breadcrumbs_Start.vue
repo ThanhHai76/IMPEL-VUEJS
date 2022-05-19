@@ -9,9 +9,9 @@
                 <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">company</li> -->
             </ol>
-            <div class="d-flex position-relative justify-content-sm-center" style=" margin: auto; width: fit-content;">
+            <div class="position-relative justify-content-sm-center mt-5" style=" margin: auto; width: fit-content;">
 
-                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_1" v-show="selectedMenu" @change="getMenuChild" @click="showMenuAll = true">
+                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_1" v-show="selectedMenu" @change="getMenuChild" @click="actionShowAllMenu()">
                   <option disabled>{{ selectedTree_1 ? selectedTree_1 : 'Chọn Ô tô' }}</option>
                   <option
                     v-for="(item, index) in carsMenu_1" :key="index"
@@ -41,11 +41,11 @@
                   </option>
                 </select>
 
-                <div class="menu_pro mr-3 parent-menu" v-if="selectedMenu">
+                <!-- <div class="menu_pro mr-3 parent-menu" v-if="selectedMenu">
                   <a href="#" tabindex="-1">
                     <i class="fa fa-car"></i> {{ selectedMenu }}</a
                   >
-                </div>
+                </div> -->
 
             </div>
           </div>
@@ -59,11 +59,12 @@
               <div class="impl_buycar_wrapper">
                 <div class="impl_buycar_color">
                   <div class="slider slider-nav1 slick-initialized slick-slider" :class="{'d-flex justify-content-center': menuSearch.length < 5}">
-                    <div class="slick-list draggable">
+                    <div class="slick-list draggable" style="padding: 0 5rem;">
                        <select v-for="item in carsMenu_1" @change="getMenuChild_2" :key="item.id" @click="getDataSelect(item)"
                         class="menu_pro mr-3 mb-3 parent-menu">
                           <option>{{ item.name }}</option>
                           <option
+                            v-show="item.code === item_child.codeParent"
                             v-for="item_child in dataSelect" :key="item_child.id"
                             :value="item_child.code"
                           >
@@ -79,13 +80,33 @@
         </div>
       </div>
 
-      <searchBox v-else class="mt-5" @data="receiveData" :menuSearch="menuSearch" :levelMenu="levelMenu"></searchBox>
+      <div v-else class="menu-slider">
+        <div class="slider slider-nav1 slick-initialized slick-slider">
+          <div class="slick-list draggable d-flex justify-content-center flex-wrap">
+              <div
+                style="padding: 5px;"
+                class="slick-slide"
+                aria-hidden="true"
+                tabindex="-1"
+                v-for="item in menuSearch" :key="item.id"
+              >
+                <div class="menu_pro" @click="receiveData(item)">
+                  <a href="javascript:void(0)" tabindex="-1">
+                    <i class="fa fa-car"></i> {{ item.name }}
+                  </a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <searchBox v-else class="mt-5" @data="receiveData" :menuSearch="menuSearch" :levelMenu="levelMenu"></searchBox> -->
     </div>
   </div>
 </template>
 
 <script>
-import searchBox from './search-box.vue'
+// import searchBox from './search-box.vue'
 import { TransportService } from '@/services/transport.service'
 export default {
   props: ['name'],
@@ -117,7 +138,13 @@ export default {
   },
 
   components: {
-    searchBox
+    // searchBox
+  },
+
+  watch: {
+    selectedMenu: function () {
+      this.showMenuAll = false
+    }
   },
 
   methods: {
@@ -179,7 +206,6 @@ export default {
 
     getMenuChild_2 (data) {
       this.showMenuAll = false
-      console.log('change')
       const code = data.target.value
       const codeParent = this.dataSelect.filter((e) => e.code === code)[0].codeParent
       this.currentLevel = 2
@@ -252,6 +278,10 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+
+    actionShowAllMenu () {
+      this.showMenuAll = true
     }
   }
 }
@@ -261,13 +291,16 @@ export default {
 .parent-menu {
   text-align: center;
   margin: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   color: #fff
 }
 select option {
   background: #fff;
   color: black;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+.menu-slider{
+  margin-top: 3rem;
 }
 </style>

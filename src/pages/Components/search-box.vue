@@ -5,13 +5,25 @@
         <div class="col-lg-12 col-md-12">
           <div class="impl_buycar_wrapper">
             <div class="impl_buycar_color">
-              <!-- <div class="slider slider-nav1 slick-initialized slick-slider" :class="{'d-flex justify-content-center': menuSearch.length < 5}">
+              <div class="slider slider-nav1 slick-initialized slick-slider" :class="{'d-flex justify-content-center': menuSearch.length < 5}">
                 <div class="slick-list draggable">
-                   
+                   <div
+                      style="padding: 5px;"
+                      class="slick-slide"
+                      aria-hidden="true"
+                      tabindex="-1"
+                      v-for="item in menuSearch" :key="item.id"
+                    >
+                      <div class="menu_pro" @click="getMenuChild(item)">
+                        <a href="javascript:void(0)" tabindex="-1">
+                          <i class="fa fa-car"></i> {{ item.name }}
+                        </a>
+                      </div>
+                    </div>
                 </div>
-              </div> -->
+              </div>
 
-              <VueSlickCarousel v-bind="settings">
+              <!-- <VueSlickCarousel v-bind="settings">
                 <div
                   style="padding: 5px;"
                   class="slick-slide"
@@ -98,7 +110,7 @@
                     >
                   </div>
                 </div>
-              </VueSlickCarousel>
+              </VueSlickCarousel> -->
             </div>
           </div>
         </div>

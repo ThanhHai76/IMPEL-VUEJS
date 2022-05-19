@@ -1,10 +1,10 @@
 <template>
   <div class="impl_header_wrapper">
     <div class="impl_logo">
-      <router-link to="/">
+      <a href="/">
         <img src="@/assets/images/logoxesang.png" alt="Logo" class="img-fluid" />
         <!-- <img src="http://sanxesang.com:7102/resources/images/logo.png" alt="Logo" class="img-fluid" /> -->
-      </router-link>
+      </a>
     </div>
     <div class="impl_top_header">
       <div class="container">
