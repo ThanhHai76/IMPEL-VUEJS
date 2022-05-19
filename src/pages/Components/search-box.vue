@@ -86,6 +86,18 @@
                     >
                   </div>
                 </div>
+                <div
+                  style="padding: 5px; "
+                  class="slick-slide"
+                  aria-hidden="true"
+                  tabindex="-1"
+                >
+                  <div class="menu_pro">
+                    <a href="#" tabindex="-1">
+                      <i class="fa fa-car"></i> </a
+                    >
+                  </div>
+                </div>
               </VueSlickCarousel>
             </div>
           </div>
