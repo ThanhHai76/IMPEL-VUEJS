@@ -282,6 +282,8 @@
 
 <script>
 import BreadcrumbStart from '../Components/Breadcrumbs_Start.vue'
+import { TransportService } from '@/services/transport.service'
+import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
@@ -308,6 +310,12 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters({
+      getDataEndPoint: 'endpoint/dataEndPoint'
+    })
+  },
+
   filters: {
     transformName (name, transportName) {
       const transport = transportName.filter(item => item.id === name)
@@ -319,22 +327,30 @@ export default {
     BreadcrumbStart
   },
 
-  // created () {
-  //   this.getTransportMenu()
-  // },
-
   mounted () {
     this.$refs.menuStart.getTransportMenu('transport_car')
-    setTimeout(() => {
-      this.$store.commit('loading/SET_LOADING', {
-        loading: false,
-        time: 1000
-      })
-    }, 1000)
+    // setTimeout(() => {
+    //   this.$store.commit('loading/SET_LOADING', {
+    //     loading: false,
+    //     time: 1000
+    //   })
+    // }, 1000)
   },
 
   methods: {
-    
+    async getTransportMenu (code) {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: code
+        })
+        this.carsMenu_1 = response.data.transportListRes
+        this.menuSearch = this.carsMenu_1
+        this.levelMenu = response.data.treeTransport ? response.data.treeTransport.length : 1
+        this.treeTransport_1 = response.data.treeTransport
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 }
 </script>

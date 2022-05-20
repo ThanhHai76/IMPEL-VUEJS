@@ -303,4 +303,10 @@ select option {
 .menu-slider{
   margin-top: 3rem;
 }
+select {
+  width: 150px;
+}
+option {
+  width: 150px;
+}
 </style>

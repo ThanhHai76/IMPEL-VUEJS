@@ -41,6 +41,8 @@ export async function getLocalDataMiddleware (to, from, next) {
 
 export async function getEndpointConfigMiddleware (to, from, next) {
   const endPointConfig = $store.state.endpoint.endPointConfig
+  await $store.dispatch('endpoint/getEndpointConfig')
+  next()
   if (AuthService.hasToken() && !endPointConfig) {
     try {
       await $store.dispatch('endpoint/getEndpointConfig')
