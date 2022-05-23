@@ -1,7 +1,7 @@
 <template>
   <div>
     <!------ Breadcrumbs Start ------>
-    <BreadcrumbStart ref="menuStart" name="Xe máy"></BreadcrumbStart>
+    <BreadcrumbStart ref="menuStart" name="Xe máy" code="transport_motorcycle"></BreadcrumbStart>
 
     <!-- <searchBox :menuSearch="motobikeMenu"></searchBox> -->
 

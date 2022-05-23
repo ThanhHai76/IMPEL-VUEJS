@@ -1,7 +1,7 @@
 <template>
   <div>
     <!------ Breadcrumbs Start ------>
-     <BreadcrumbStart ref="menuStart" name="Xe đạp"></BreadcrumbStart>
+     <BreadcrumbStart ref="menuStart" name="Xe đạp" code="transport_bicycle"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
     <div class="mt-5">

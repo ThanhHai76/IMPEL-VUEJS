@@ -11,7 +11,11 @@
             </ol>
             <div class="position-relative justify-content-sm-center mt-5" style=" margin: auto; width: fit-content;">
 
-                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_1" v-show="selectedMenu" @change="getMenuChild" @click="actionShowAllMenu()">
+                <a href="javascript:void(0)" v-show="showBack" @click="actionShowAllMenu" class="menu_pro mr-3 parent-menu">
+                  <span><i class="fa fa-angle-double-left"></i></span>
+                </a>
+
+                <select class="menu_pro mr-3 parent-menu" v-model="selectedTree_1" v-show="selectedMenu && showBack" @change="getMenuChild">
                   <option disabled>{{ selectedTree_1 ? selectedTree_1 : 'Chọn Ô tô' }}</option>
                   <option
                     v-for="(item, index) in carsMenu_1" :key="index"
@@ -109,7 +113,7 @@
 // import searchBox from './search-box.vue'
 import { TransportService } from '@/services/transport.service'
 export default {
-  props: ['name'],
+  props: ['name', 'code'],
   data () {
     return {
       carsMenu_1: [],
@@ -133,7 +137,8 @@ export default {
       selectedTree_3: null,
       checkDuplicate: false,
       dataSelect: [],
-      showMenuAll: true
+      showMenuAll: true,
+      showBack: false
     }
   },
 
@@ -206,6 +211,7 @@ export default {
 
     getMenuChild_2 (data) {
       this.showMenuAll = false
+      this.showBack = true
       const code = data.target.value
       const codeParent = this.dataSelect.filter((e) => e.code === code)[0].codeParent
       this.currentLevel = 2
@@ -282,6 +288,11 @@ export default {
 
     actionShowAllMenu () {
       this.showMenuAll = true
+      this.getTransportMenu(this.code)
+      // this.selectedMenu = null
+      this.showBack = false
+      this.carsMenu_2 = []
+      this.carsMenu_3 = []
     }
   }
 }
