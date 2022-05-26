@@ -5,7 +5,7 @@
         <div class="col-lg-12 col-md-12">
           <div class="impl_buycar_wrapper">
             <div class="impl_buycar_color">
-              <div class="slider slider-nav1 slick-initialized slick-slider" :class="{'d-flex justify-content-center': menuSearch.length < 5}">
+              <!-- <div class="slider slider-nav1 slick-initialized slick-slider" :class="{'d-flex justify-content-center': menuSearch.length < 5}">
                 <div class="slick-list draggable">
                    <div
                       style="padding: 5px;"
@@ -21,9 +21,9 @@
                       </div>
                     </div>
                 </div>
-              </div>
+              </div> -->
 
-              <!-- <VueSlickCarousel v-bind="settings">
+              <VueSlickCarousel v-bind="settings">
                 <div
                   style="padding: 5px;"
                   class="slick-slide"
@@ -110,7 +110,7 @@
                     >
                   </div>
                 </div>
-              </VueSlickCarousel> -->
+              </VueSlickCarousel>
             </div>
           </div>
         </div>
@@ -148,5 +148,8 @@ export default {
 }
 .menu_pro:hover {
   cursor: pointer;
+}
+.slick-slide {
+  width: 100% !important;
 }
 </style>

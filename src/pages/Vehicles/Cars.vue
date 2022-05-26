@@ -53,7 +53,7 @@
                 <div class="impl_fea_btn">
                   <button class="impl_btn">
                     <span class="impl_doller">1 Tỷ 929 Triệu Đồng </span>
-                    <span class="impl_bnw" @click="$router.push('/detail')">Xem ngay</span>
+                    <span class="impl_bnw" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')">Xem ngay</span>
                   </button>
                 </div>
               </div>

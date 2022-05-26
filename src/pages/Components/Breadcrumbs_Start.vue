@@ -64,7 +64,7 @@
                 <div class="impl_buycar_color">
                   <div class="slider slider-nav1 slick-initialized slick-slider" :class="{'d-flex justify-content-center': menuSearch.length < 5}">
                     <div class="slick-list draggable" style="padding: 0 5rem;">
-                       <select v-for="item in carsMenu_1" @change="getMenuChild_2" :key="item.id" @click="getDataSelect(item)"
+                       <select v-for="item in carsMenu_1" @change="getMenuChild_2" :key="item.id" :title="item.name" @click="getDataSelect(item)"
                         class="menu_pro mr-3 mb-3 parent-menu">
                           <option>{{ item.name }}</option>
                           <option
@@ -84,17 +84,19 @@
         </div>
       </div>
 
+      <!-- <searchBox v-else-if="showSlider" class="mt-5" @data="receiveData" :menuSearch="menuSearch" :levelMenu="levelMenu"></searchBox> -->
+
       <div v-else class="menu-slider">
         <div class="slider slider-nav1 slick-initialized slick-slider">
           <div class="slick-list draggable d-flex justify-content-center flex-wrap">
               <div
-                style="padding: 5px;"
+                style="padding: 5px; margin-bottom: 1rem"
                 class="slick-slide"
                 aria-hidden="true"
                 tabindex="-1"
                 v-for="item in menuSearch" :key="item.id"
               >
-                <div class="menu_pro" @click="receiveData(item)">
+                <div :title="item.name" class="menu_pro menu-item" @click="receiveData(item)">
                   <a href="javascript:void(0)" tabindex="-1">
                     <i class="fa fa-car"></i> {{ item.name }}
                   </a>
@@ -104,7 +106,6 @@
         </div>
       </div>
 
-      <!-- <searchBox v-else class="mt-5" @data="receiveData" :menuSearch="menuSearch" :levelMenu="levelMenu"></searchBox> -->
     </div>
   </div>
 </template>
@@ -138,7 +139,8 @@ export default {
       checkDuplicate: false,
       dataSelect: [],
       showMenuAll: true,
-      showBack: false
+      showBack: false,
+      showSlider: false
     }
   },
 
@@ -149,6 +151,11 @@ export default {
   watch: {
     selectedMenu: function () {
       this.showMenuAll = false
+      if (window.innerWidth < 767) {
+        this.showSlider = true
+      } else {
+        this.showSlider = false
+      }
     }
   },
 
@@ -319,5 +326,34 @@ select {
 }
 option {
   width: 150px;
+}
+@media (max-width: 767px) {
+  select {
+    width: 100px;
+  }
+  option {
+    width: 100px;
+  }
+  .slick-list.draggable {
+    padding: 0 !important;
+    height: 20vh;
+    overflow: auto;
+  }
+  .parent-menu  {
+    margin-top: 1rem;
+  }
+  .impl_searchbox_wrapper {
+    top: -5rem;
+  }
+  .impl_bread_wrapper {
+    padding: 80px 0px 0px;
+  }
+  .slick-slide {
+    height: 40%;
+  }
+  .menu-item {
+    width: 10rem !important;
+    margin: 1rem 0;
+  }
 }
 </style>
