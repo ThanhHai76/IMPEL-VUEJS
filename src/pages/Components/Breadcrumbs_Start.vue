@@ -9,7 +9,7 @@
                 <!-- <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item active">company</li> -->
             </ol>
-            <div class="position-relative justify-content-sm-center mt-5" style=" margin: auto; width: fit-content;">
+            <div class="d-flex justify-content-sm-center mt-5" style=" margin: auto; width: fit-content;">
 
                 <a href="javascript:void(0)" v-show="showBack" @click="actionShowAllMenu" class="menu_pro mr-3 parent-menu">
                   <span><i class="fa fa-angle-double-left"></i></span>
@@ -45,7 +45,7 @@
                   </option>
                 </select>
 
-                <!-- <div class="menu_pro mr-3 parent-menu" v-if="selectedMenu">
+                <!-- <div class="menu_pro mr-3 parent-menu" v-if="showLastSeleted">
                   <a href="#" tabindex="-1">
                     <i class="fa fa-car"></i> {{ selectedMenu }}</a
                   >
@@ -132,6 +132,7 @@ export default {
       menuSearch: [],
       levelMenu: 0,
       selectedMenu: null,
+      showLastSeleted: false,
       currentLevel: 1,
       selectedTree_1: null,
       selectedTree_2: null,
@@ -243,6 +244,7 @@ export default {
         this.selectedMenu = itemSeleted.length ? itemSeleted[0].name : ''
         this.selectedTree_1 = this.selectedMenu
         this.getTransportMenu_2(data.code)
+        this.showLastSeleted = false
       }
 
       if (this.currentLevel === 2) {
@@ -251,6 +253,7 @@ export default {
         this.selectedMenu = itemSeleted.length ? itemSeleted[0].name : ''
         this.selectedTree_2 = this.selectedMenu
         this.getTransportMenu_2(data.code)
+        this.showLastSeleted = false
       }
 
       if (this.currentLevel === 3) {
@@ -259,6 +262,7 @@ export default {
         this.selectedMenu = itemSeleted.length ? itemSeleted[0].name : ''
         this.selectedTree_3 = this.selectedMenu
         this.getTransportMenu_2(data.code)
+        this.showLastSeleted = true
       }
       this.currentLevel++
       if (this.currentLevel > 3) this.currentLevel = 1
@@ -327,6 +331,7 @@ select {
 option {
   width: 150px;
 }
+
 @media (max-width: 767px) {
   select {
     width: 100px;

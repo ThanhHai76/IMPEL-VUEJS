@@ -71,6 +71,83 @@
       </div>
     </div>
 
+    <div class="impl_oldsingle_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <!-- <div class="impl_carparts_inner">
+                        <div class="impl_buy_old_car">
+                            <div v-html="sliderHTML_view"></div>
+                            <div v-html="sliderHTML_thumb_view"></div>
+
+                            <div class="slider slider-for">
+                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                            </div>
+                            <div class="slider slider-nav">
+                                <div>
+                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                </div>
+                                <div>
+                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                </div>
+                                <div>
+                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                </div>
+                                <div>
+                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                </div>
+                                <div>
+                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> -->
+
+                  <b-carousel
+                    id="carousel-1"
+                    :interval="3000"
+                    controls
+                    indicators
+                    background="#ababab"
+                    img-width="512"
+                    img-height="240"
+                    style="text-shadow: 1px 1px 2px #333;"
+                  >
+                    <b-carousel-slide
+                      v-for="(item, index) in detailImages.images" :key="index"
+                      :img-src="item"
+                    ></b-carousel-slide>
+
+                  </b-carousel>
+
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="impl_buycar_data impl_buy_old_car_data">
+                        <h1>Expedition , Centaur</h1>
+                        <h1>$81000 </h1>
+                        <div class="step_car_features">
+                            <ul>
+                                <li><span class="fea_name">year</span> <span class="fea_colon">: </span><span class="fea_value">2015</span> </li>
+                                <li><span class="fea_name">driven</span> <span class="fea_colon">: </span> <span class="fea_value">12000 kms </span> </li>
+                                <li><span class="fea_name">city</span> <span class="fea_colon">: </span><span class="fea_value">orlando</span> </li>
+                                <li><span class="fea_name">color</span> <span class="fea_colon">: </span><span class="fea_value">white</span> </li>
+                            </ul>
+                        </div>
+                        <div class="impl_old_buy_btn mt-2">
+                            <a href="#" class="impl_btn">add to cart</a>
+                            <a href="#" class="impl_btn mt-3">buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="impl_contact_wrapper">
       <div class="container">
         <div class="row">
@@ -124,12 +201,18 @@ export default {
       dataDetail: {},
       vehicleParametersGroup: [],
       listParameters: [],
-      tabIndex: 0
+      detailImages: [],
+      tabIndex: 0,
+      currentSlide: 0,
+      sliderHTML: '',
+      sliderHTML_thumb: '',
+      sliderHTML_view: '',
+      sliderHTML_thumb_view: ''
     }
   },
 
-  mounted () {
-    this.fetchData()
+  async mounted () {
+    await this.fetchData()
   },
 
   methods: {
@@ -139,11 +222,19 @@ export default {
           id: this.carId
         })
         this.dataDetail = data
-        const { vehicleParametersGroup, listParameters } = this.dataDetail
+        const { vehicleParametersGroup, listParameters, detailImages } = this.dataDetail
         this.vehicleParametersGroup = vehicleParametersGroup
         this.listParameters = listParameters
+        this.detailImages = detailImages
+
+        this.detailImages.images.forEach(item => {
+          this.sliderHTML += `<div><img width="570" height="176" src="${item}" alt=""></div>`
+          this.sliderHTML_thumb += `<div><div class="impl_thumb_ovrly"><img width="110" height="70" src="${item}" alt=""></div></div>`
+        })
+        this.sliderHTML_view = '<div class="slider slider-for">' + this.sliderHTML + '</div>'
+        this.sliderHTML_thumb_view = '<div class="slider slider-nav">' + this.sliderHTML_thumb + '</div>'
       } catch (error) {
-        
+        console.log(error)
       }
     }
   }
@@ -160,5 +251,14 @@ export default {
   /* width: 50%; */
   text-transform: capitalize;
   display: inline-block;
+}
+.slide-style-1 {
+  width: 750px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;
+}
+.slide-style-2 {
+  width: 750px; position: relative; left: -750px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;
+}
+.slide-style-3 {
+  width: 750px; position: relative; left: -1500px; top: 0px; z-index: 998; opacity: 0;
 }
 </style>
