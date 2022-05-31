@@ -75,40 +75,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8">
-                    <!-- <div class="impl_carparts_inner">
-                        <div class="impl_buy_old_car">
-                            <div v-html="sliderHTML_view"></div>
-                            <div v-html="sliderHTML_thumb_view"></div>
+                  <!-- <div class="impl_carparts_inner">
+                      <div class="impl_buy_old_car">
+                          <div v-html="sliderHTML_view"></div>
+                          <div v-html="sliderHTML_thumb_view"></div>
+                      </div>
+                  </div> -->
 
-                            <div class="slider slider-for">
-                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                <div><img width="570" height="176" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                            </div>
-                            <div class="slider slider-nav">
-                                <div>
-                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                </div>
-                                <div>
-                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                </div>
-                                <div>
-                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                </div>
-                                <div>
-                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                </div>
-                                <div>
-                                    <div class="impl_thumb_ovrly"><img width="110" height="70" src="http://115.146.127.242:8080/api/common/cts/628f007a3928fd6e2b101733/lexus-lx-570-2019-suv-01.jpg" alt=""></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div> -->
-
-                  <b-carousel
+                  <!-- <b-carousel
                     id="carousel-1"
                     :interval="3000"
                     controls
@@ -123,7 +97,38 @@
                       :img-src="item"
                     ></b-carousel-slide>
 
-                  </b-carousel>
+                  </b-carousel> -->
+
+                  <div class="card" style="background: #0a0a0a">
+                    <div class="card-content">
+                        <div class="card-carousel">
+                            <div class="card-img">
+                                <img style="height: 400px; width: 90%" :src="currentImage" alt="">
+                                <!-- <div class="actions">
+                                    <span @click="prevImage" class="prev">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span @click="nextImage" class="next">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </div> -->
+                            </div>
+                            <div class="thumnails mt-5">
+                               <VueSlickCarousel v-bind="settings">
+                                <div
+                                    v-for="(image, index) in  detailImages.images"
+                                    :key="index"
+                                    :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
+                                    @click="activateImage(index)"
+                                >
+                                    <img width="150" height="70" :src="image">
+                                </div>
+                                
+                              </VueSlickCarousel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 </div>
                 <div class="col-lg-4 col-md-4">
@@ -207,7 +212,23 @@ export default {
       sliderHTML: '',
       sliderHTML_thumb: '',
       sliderHTML_view: '',
-      sliderHTML_thumb_view: ''
+      sliderHTML_thumb_view: '',
+      activeImage: 0,
+      settings: {
+        infinite: true,
+        focusOnSelect: true,
+        dots: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        touchThreshold: 5
+      }
+    }
+  },
+
+  computed: {
+    currentImage () {
+      return this.detailImages.images[this.activeImage]
     }
   },
 
@@ -236,6 +257,24 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+
+    nextImage () {
+      var active = this.activeImage + 1
+      if (active >= this.detailImages.images.length) {
+        active = 0
+      }
+      this.activateImage(active)
+    },
+    prevImage () {
+      var active = this.activeImage - 1
+      if (active < 0) {
+        active = this.detailImages.images.length - 1
+      }
+      this.activateImage(active)
+    },
+    activateImage (imageIndex) {
+      this.activeImage = imageIndex
     }
   }
 }
@@ -252,13 +291,11 @@ export default {
   text-transform: capitalize;
   display: inline-block;
 }
-.slide-style-1 {
-  width: 750px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1;
-}
-.slide-style-2 {
-  width: 750px; position: relative; left: -750px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;
-}
-.slide-style-3 {
-  width: 750px; position: relative; left: -1500px; top: 0px; z-index: 998; opacity: 0;
+@media screen and (max-width: 676px) {
+  .card {
+    margin-bottom: 40px;
+  }
 }
 </style>
+
+<style scoped src="@/assets/css/carousel.css"></style>
