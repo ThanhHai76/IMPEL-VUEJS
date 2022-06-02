@@ -24,7 +24,7 @@
           <div class="col-lg-12 col-md-12">
               <div class="impl_heading">
                   <h1>
-                      <i class="fa fa-bell-o" style="color: #f15b5b;"></i> {{ dataDetail.transport }} {{ dataDetail.manufacture }} {{ dataDetail.model }}
+                      <i class="fa fa-bell-o" style="color: #f15b5b;"></i> {{ dataDetail.titleSell }}
                   </h1>
               </div>
           </div>
@@ -36,10 +36,10 @@
                     <div class="impl_con_data">
                       <i class="fa fa-sellsy" aria-hidden="true"></i>
                       <h2>Thông tin xe</h2>
-                      <p><i class="fa fa-money"></i> Giá bán</p>
-                      <p><i class="fa fa-calendar"></i> Năm SX</p>
-                      <p><i class="fa fa-info"></i></p>
-                      <p><i class="fa fa-calendar-o"></i> Ngày đăng</p>
+                      <p><i class="fa fa-money"></i> Giá bán : {{ dataDetail.price | formatPriceToText }}</p>
+                      <p><i class="fa fa-calendar"></i> Năm SX : {{ dataDetail.manufactureYear }}</p>
+                      <p><i class="fa fa-info"></i> Tình trạng : Xe mới</p>
+                      <p><i class="fa fa-calendar-o"></i> Ngày đăng: {{ dataDetail.manufactureYear }}</p>
                       <p><i class="fa fa-car"></i></p>
                       <p><i class="fa fa-university"></i></p>
                     </div>
@@ -50,7 +50,12 @@
                     <div class="impl_con_data">
                       <i class="fa fa-info-circle"></i>
                       <h2>THÔNG TIN NGƯỜI BÁN</h2>
-                      <p>514 S. Magnolia St.<br />Orlando , US</p>
+                      <p><i class="fa fa-home"></i></p>
+                      <p>
+                        <i class="fa fa-info"></i>
+                      </p>
+                      <p><i class="fa fa-phone"></i></p>
+                      <p><i class="fa fa-address-card-o"></i></p>
                     </div>
                   </div>
                 </div>
@@ -59,8 +64,9 @@
                     <div class="impl_con_data">
                       <i class="fa fa-cog" aria-hidden="true"></i>
                       <h2>THÔNG TIN KHÁC</h2>
-                      <p><a href="#">dummymail@mail.com</a></p>
-                      <p><a href="#">yourmail@mail.com</a></p>
+                      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
+                      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
+                      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
                     </div>
                   </div>
                 </div>
@@ -69,6 +75,22 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="impl_spesi_wrapper">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="impl_heading" style="margin: 20px 0px;">
+                        <h1><i class="fa fa-info-circle"></i> Thông tin mô tả</h1>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <span style="font-size: 16px;" v-html="description">
+                  </span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="impl_oldsingle_wrapper">
@@ -103,15 +125,7 @@
                     <div class="card-content">
                         <div class="card-carousel">
                             <div class="card-img">
-                                <img style="height: 400px; width: 90%" :src="currentImage" alt="">
-                                <!-- <div class="actions">
-                                    <span @click="prevImage" class="prev">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span @click="nextImage" class="next">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </span>
-                                </div> -->
+                                <img class="img-item" :src="currentImage" alt="">
                             </div>
                             <div class="thumnails mt-5">
                                <VueSlickCarousel v-bind="settings">
@@ -167,7 +181,7 @@
               </div>
               <div class="row">
                 <div class="col-lg-12 col-md-12">
-                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <ul class="nav nav-tabs align-items-center" id="myTab" role="tablist">
                     <li class="nav-item" v-for="(item, index) in listParameters" :key="index">
                       <a class="nav-link" :class="{'active': tabIndex === index}" @click="tabIndex = index" href="javascript:void(0)" role="tab" aria-selected="true" style="font-size: 16px;">
                         {{ item }}
@@ -182,7 +196,7 @@
                       </h3>
                       <p v-for="(itemParam, indexParam) in itemVehicle.lstVehicleParameters" :key="indexParam">
                         <span class="xq title-row mr-2">{{ itemParam.parameters }} : </span>
-                        <span style="color: #f15b5b; font-size: 15px;">{{ itemParam.transportColumnName }}</span>
+                        <span class="value-row text-nowrap">{{ itemParam.transportColumnName }}</span>
                       </p>
                     </div>
                   </div>
@@ -222,7 +236,8 @@ export default {
         slidesToShow: 4,
         slidesToScroll: 2,
         touchThreshold: 5
-      }
+      },
+      description: ''
     }
   },
 
@@ -247,6 +262,7 @@ export default {
         this.vehicleParametersGroup = vehicleParametersGroup
         this.listParameters = listParameters
         this.detailImages = detailImages
+        this.description = this.decodeHTML(this.dataDetail.description)
 
         this.detailImages.images.forEach(item => {
           this.sliderHTML += `<div><img width="570" height="176" src="${item}" alt=""></div>`
@@ -257,6 +273,16 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+
+    decodeHTML (string) {
+      const decodedString = window.atob(string);
+      return decodedString
+    },
+
+    endcodeHTML (string) {
+      const encodedString = window.btoa(string)
+      return encodedString
     },
 
     nextImage () {
@@ -287,13 +313,35 @@ export default {
 .title-row {
   font-size: 15px;
   color: #fff;
-  /* width: 50%; */
   text-transform: capitalize;
   display: inline-block;
 }
-@media screen and (max-width: 676px) {
+.img-item {
+  height: 400px;
+  width: 90%;
+}
+.value-row {
+  color: #f15b5b;
+  font-size: 15px;
+}
+@media screen and (max-width: 992px) {
   .card {
     margin-bottom: 40px;
+  }
+  .img-item {
+    height: 230px;
+  }
+  .impl_contact_wrapper {
+    padding: 0;
+  }
+  .nav-item .nav-link {
+    font-size: 12px !important;
+  }
+  .tab-pane h3 {
+    font-size: 20px;
+  }
+  .tab-pane span {
+    font-size: 12px;
   }
 }
 </style>

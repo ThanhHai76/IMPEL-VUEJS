@@ -1,4 +1,4 @@
-var mangso = ['không', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín']
+var mangso = ['không', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 function doc_hang_chuc (so, daydu) {
   var chuoi = ''

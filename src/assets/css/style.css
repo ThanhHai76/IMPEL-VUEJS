@@ -4293,7 +4293,7 @@ ul.step_car_img li:hover .step_view_img_over {
     min-width: 120px;
 }
 .impl_spesi_wrapper {
-    background-image: url(http://via.placeholder.com/1920x400);
+    background-image: url(../images/car_spesi.jpg);
     position: relative;
 }
 .impl_car_spesi_list {

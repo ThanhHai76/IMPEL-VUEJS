@@ -911,7 +911,7 @@
               </div>
               <div class="impl_fea_car_data">
                 <h2 class="line-clamp">
-                  <a href="purchase_new.html"
+                  <a href="javascript:void(0)" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')"
                     >Bán xe MERCEDES C300 2020, GIẢM GIÁ TIỀN MẶT KHỦNG</a
                   >
                 </h2>
