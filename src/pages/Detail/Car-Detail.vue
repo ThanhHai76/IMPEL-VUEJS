@@ -77,22 +77,6 @@
       </div>
     </div>
 
-    <div class="impl_spesi_wrapper">
-        <div class="container py-3">
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <div class="impl_heading" style="margin: 20px 0px;">
-                        <h1><i class="fa fa-info-circle"></i> Thông tin mô tả</h1>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12">
-                  <span style="font-size: 16px;" v-html="description">
-                  </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="impl_oldsingle_wrapper">
         <div class="container">
             <div class="row">
@@ -103,23 +87,6 @@
                           <div v-html="sliderHTML_thumb_view"></div>
                       </div>
                   </div> -->
-
-                  <!-- <b-carousel
-                    id="carousel-1"
-                    :interval="3000"
-                    controls
-                    indicators
-                    background="#ababab"
-                    img-width="512"
-                    img-height="240"
-                    style="text-shadow: 1px 1px 2px #333;"
-                  >
-                    <b-carousel-slide
-                      v-for="(item, index) in detailImages.images" :key="index"
-                      :img-src="item"
-                    ></b-carousel-slide>
-
-                  </b-carousel> -->
 
                   <div class="card" style="background: #0a0a0a">
                     <div class="card-content">
@@ -162,6 +129,22 @@
                             <a href="#" class="impl_btn mt-3">buy now</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="impl_spesi_wrapper">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="impl_heading" style="margin: 20px 0px;">
+                        <h1><i class="fa fa-info-circle"></i> Thông tin mô tả</h1>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <span style="font-size: 16px;" v-html="description">
+                  </span>
                 </div>
             </div>
         </div>
@@ -262,7 +245,7 @@ export default {
         this.vehicleParametersGroup = vehicleParametersGroup
         this.listParameters = listParameters
         this.detailImages = detailImages
-        this.description = this.decodeHTML(this.dataDetail.description)
+        this.description = this.decodeB64toUTF8(this.dataDetail.description)
 
         this.detailImages.images.forEach(item => {
           this.sliderHTML += `<div><img width="570" height="176" src="${item}" alt=""></div>`
@@ -283,6 +266,14 @@ export default {
     endcodeHTML (string) {
       const encodedString = window.btoa(string)
       return encodedString
+    },
+
+    encodeUTF8toB64 (string) {
+      return window.btoa(unescape(encodeURIComponent(string)))
+    },
+
+    decodeB64toUTF8 (string) {
+      return decodeURIComponent(escape(window.atob( string)))
     },
 
     nextImage () {

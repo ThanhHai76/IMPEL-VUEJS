@@ -4295,6 +4295,9 @@ ul.step_car_img li:hover .step_view_img_over {
 .impl_spesi_wrapper {
     background-image: url(../images/car_spesi.jpg);
     position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .impl_car_spesi_list {
     padding: 44px 0px 14px;
