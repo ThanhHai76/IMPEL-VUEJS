@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button @click="makeLogin" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                                        <button class="btn btn-lg btn-primary btn-block">Sign in</button>
                                     </div>
                                 </form>
                                 <div class="form-note-s2 text-center pt-4"> New on our platform? <a href="javascript:void(0)" @click="$router.push('/register')">Create an account</a>
@@ -146,7 +146,7 @@ import { AuthService } from '@/services/auth.service'
             username: this.authData.username,
             password: this.authData.password
           })
-          // this.$router.push('/')
+          window.location.href = '/'
         } catch (error) {
           this.$refs.observer.setErrors({
             email: [error.message]
