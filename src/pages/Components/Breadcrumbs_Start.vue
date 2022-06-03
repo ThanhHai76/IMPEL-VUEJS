@@ -331,6 +331,9 @@ select {
 option {
   width: 150px;
 }
+ .impl_searchbox_wrapper {
+  width: 99%;
+}
 
 @media (max-width: 767px) {
   select {

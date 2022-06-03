@@ -3,7 +3,8 @@
     <div class="main-content d-flex flex-column">
       <div id="preloader" v-if="loading || firstLoading">
         <div id="status">
-            <img src="@/assets/images/logo.png" alt="" />
+            <img src="@/assets/images/logoxesang.png" alt="" />
+            <!-- <img src="@/assets/images/logo.png" alt="" /> -->
             <div class="loader">
                 Loading...
                 <div class="ball"></div>

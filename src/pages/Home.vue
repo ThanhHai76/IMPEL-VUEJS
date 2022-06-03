@@ -931,9 +931,9 @@
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
-                  <button class="impl_btn">
+                  <button class="impl_btn" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')">
                     <span class="impl_doller">1 Tỷ 929 Triệu Đồng </span
-                    ><span class="impl_bnw" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')">Xem ngay</span>
+                    ><span class="impl_bnw">Xem ngay</span>
                   </button>
                 </div>
               </div>
@@ -959,7 +959,7 @@
               </div>
               <div class="impl_fea_car_data">
                 <h2 class="line-clamp">
-                  <a href="purchase_new.html"
+                  <a href="javascript:void(0)" @click="$router.push('/detail?id=6299f4d02186836100ffe0d6')"
                     >Bán xe Lincoln Navigator L 2019</a
                   >
                 </h2>
@@ -979,7 +979,7 @@
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
-                  <button class="impl_btn">
+                  <button class="impl_btn" @click="$router.push('/detail?id=6299f4d02186836100ffe0d6')">
                     <span class="impl_doller">7 Tỷ 660 Triệu Đồng </span
                     ><span class="impl_bnw">Xem ngay</span>
                   </button>

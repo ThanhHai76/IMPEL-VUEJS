@@ -4,13 +4,15 @@
     <div class="impl_bread_wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12">{{ dataDetail.manufacture }}
-                  <h1>{{ dataDetail.transport }}</h1>
+                <div class="col-lg-12 col-md-12">
+                  <!-- {{ dataDetail.transportTree[0] ? dataDetail.transportTree[0] : '' }} -->
+                  <h1>{{ dataDetail.transportTree[1] ? dataDetail.transportTree[1] : '' }}</h1>
                   <ol class="breadcrumb">
-                      <li class="breadcrumb-item">
-                          <a href="#">{{ dataDetail.manufacture }}</a>
+                      <li class="breadcrumb-item" v-show="dataDetail.transportTree[2]">
+                          <a href="#">{{ dataDetail.transportTree[2] }}</a>
                       </li>
-                      <li class="breadcrumb-item active">{{ dataDetail.model }}
+                      <li class="breadcrumb-item active" v-show="dataDetail.transportTree[3]">
+                        {{ dataDetail.transportTree[3] }}
                       </li>
                   </ol>
               </div>
@@ -38,24 +40,30 @@
                       <h2>Thông tin xe</h2>
                       <p><i class="fa fa-money"></i> Giá bán : {{ dataDetail.price | formatPriceToText }}</p>
                       <p><i class="fa fa-calendar"></i> Năm SX : {{ dataDetail.manufactureYear }}</p>
-                      <p><i class="fa fa-info"></i> Tình trạng : Xe mới</p>
+                      <p><i class="fa fa-info"></i> Tình trạng : {{ dataDetail.statusVehicle }}</p>
                       <p><i class="fa fa-calendar-o"></i> Ngày đăng: {{ dataDetail.manufactureYear }}</p>
-                      <p><i class="fa fa-car"></i></p>
-                      <p><i class="fa fa-university"></i></p>
+                      <p><i class="fa fa-car"></i> Số dặm: {{ dataDetail.odometer | transformNumber }}</p>
+                      <!-- <p><i class="fa fa-university"></i></p> -->
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
                   <div class="impl_contact_box">
-                    <div class="impl_con_data">
+                    <div class="impl_con_data px-2">
                       <i class="fa fa-info-circle"></i>
                       <h2>THÔNG TIN NGƯỜI BÁN</h2>
-                      <p><i class="fa fa-home"></i></p>
+                      <!-- <p>
+                        <i class="fa fa-home"></i> 
+                      </p> -->
                       <p>
-                        <i class="fa fa-info"></i>
+                        <i class="fa fa-info"></i> Người bán: {{ dataDetail.infoSellers.fullName }}
                       </p>
-                      <p><i class="fa fa-phone"></i></p>
-                      <p><i class="fa fa-address-card-o"></i></p>
+                      <p>
+                        <i class="fa fa-phone"></i> Số điện thoại: {{ dataDetail.infoSellers.phone }}
+                      </p>
+                      <p>
+                        <i class="fa fa-address-card-o"></i> Địa chỉ: {{ dataDetail.infoSellers.address }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -64,9 +72,9 @@
                     <div class="impl_con_data">
                       <i class="fa fa-cog" aria-hidden="true"></i>
                       <h2>THÔNG TIN KHÁC</h2>
-                      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
-                      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
-                      <p><i class="fa fa-cog" aria-hidden="true"></i></p>
+                      <p v-for="item in dataDetail.infoVehicleSpecial" :key="item.priority">
+                        <i class="fa fa-cog" aria-hidden="true"></i> {{ item.transportColumnName }} : {{ item.parameters }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -230,6 +238,12 @@ export default {
     }
   },
 
+  filters: {
+    transformNumber (data) {
+      return data ? data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') : ''
+    }
+  },
+
   async mounted () {
     await this.fetchData()
   },
@@ -314,6 +328,9 @@ export default {
 .value-row {
   color: #f15b5b;
   font-size: 15px;
+}
+.impl_con_data p {
+  text-align: left;
 }
 @media screen and (max-width: 992px) {
   .card {

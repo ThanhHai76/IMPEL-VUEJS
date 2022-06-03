@@ -80,7 +80,10 @@
                   </div>
                 </li> -->
                 <li>
-                  <a href="#signin" data-toggle="modal"
+                  <!-- <a href="#signin" data-toggle="modal"
+                    ><i class="fa fa-sign-in" aria-hidden="true"></i
+                  ></a> -->
+                  <a href="javascript:void(0)" @click="$router.push('/login')"
                     ><i class="fa fa-sign-in" aria-hidden="true"></i
                   ></a>
                 </li>
@@ -258,7 +261,7 @@
                     <li class="dropdown" v-for="item in menuHeader" :key="item.id">
                       <a href="javascript:void(0)" @click="changeRoute(item.code)"
                         :class="{'active': (currentRoute === item.code || $route.path === item.code)}">
-                        {{ item.name | transformName(transportName) }}
+                        {{ item.name }}
                       </a>
                     </li>
 
@@ -301,7 +304,7 @@ export default {
   filters: {
     transformName (name, transportName) {
       const transport = transportName.filter(item => item.id === name)
-      return transport[0] ? transport[0].text : ''
+      return transport[0] ? transport[0].text : name
     }
   },
 

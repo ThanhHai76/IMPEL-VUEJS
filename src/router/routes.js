@@ -1,6 +1,7 @@
 // single pages
 import homePage from '@/pages/Home.vue'
-import loginPage from '@/pages/Login.vue'
+import loginPage from '@/pages/auth/Login.vue'
+import registerPage from '@/pages/auth/Register.vue'
 import notFoundPage from '@/pages/NotFound.vue'
 
 import cars from '@/pages/Vehicles/Cars.vue'
@@ -31,6 +32,12 @@ export const routes = [
     name: 'login',
     component: loginPage,
     meta: { title: `${DOMAIN_TITLE} | login`, layout: 'login' }
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: registerPage,
+    meta: { title: `${DOMAIN_TITLE} | register`, layout: 'login' }
   },
   {
     path: '*',
