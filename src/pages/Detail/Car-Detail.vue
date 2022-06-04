@@ -35,20 +35,6 @@
               <div class="row">
                 <div class="col-lg-4 col-md-4">
                   <div class="impl_contact_box">
-                    <div class="impl_con_data">
-                      <i class="fa fa-sellsy" aria-hidden="true"></i>
-                      <h2>Thông tin xe</h2>
-                      <p><i class="fa fa-money"></i> Giá bán : {{ dataDetail.price | formatPriceToText }}</p>
-                      <p><i class="fa fa-calendar"></i> Năm SX : {{ dataDetail.manufactureYear }}</p>
-                      <p><i class="fa fa-info"></i> Tình trạng : {{ dataDetail.statusVehicle }}</p>
-                      <p><i class="fa fa-calendar-o"></i> Ngày đăng: {{ dataDetail.manufactureYear }}</p>
-                      <p><i class="fa fa-car"></i> Số dặm: {{ dataDetail.odometer | transformNumber }}</p>
-                      <!-- <p><i class="fa fa-university"></i></p> -->
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                  <div class="impl_contact_box">
                     <div class="impl_con_data px-2">
                       <i class="fa fa-info-circle"></i>
                       <h2>THÔNG TIN NGƯỜI BÁN</h2>
@@ -64,6 +50,20 @@
                       <p>
                         <i class="fa fa-address-card-o"></i> Địa chỉ: {{ dataDetail.infoSellers.address }}
                       </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                  <div class="impl_contact_box">
+                    <div class="impl_con_data">
+                      <i class="fa fa-sellsy" aria-hidden="true"></i>
+                      <h2>Thông tin xe</h2>
+                      <p><i class="fa fa-money"></i> Giá bán : {{ dataDetail.price | formatPriceToText }}</p>
+                      <p><i class="fa fa-calendar"></i> Năm SX : {{ dataDetail.manufactureYear }}</p>
+                      <p><i class="fa fa-info"></i> Tình trạng : {{ dataDetail.statusVehicle }}</p>
+                      <p><i class="fa fa-calendar-o"></i> Ngày đăng: {{ dataDetail.manufactureYear }}</p>
+                      <p><i class="fa fa-car"></i> Số dặm: {{ dataDetail.odometer | transformNumber }}</p>
+                      <!-- <p><i class="fa fa-university"></i></p> -->
                     </div>
                   </div>
                 </div>
@@ -88,7 +88,7 @@
     <div class="impl_oldsingle_wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-8">
+                <div class="col-lg-12 col-md-12">
                   <!-- <div class="impl_carparts_inner">
                       <div class="impl_buy_old_car">
                           <div v-html="sliderHTML_view"></div>
@@ -120,7 +120,7 @@
                 </div>
 
                 </div>
-                <div class="col-lg-4 col-md-4">
+                <!-- <div class="col-lg-4 col-md-4">
                     <div class="impl_buycar_data impl_buy_old_car_data">
                         <h1>Expedition , Centaur</h1>
                         <h1>$81000 </h1>
@@ -137,7 +137,7 @@
                             <a href="#" class="impl_btn mt-3">buy now</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -224,7 +224,7 @@ export default {
         focusOnSelect: true,
         dots: true,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 2,
         touchThreshold: 5
       },
@@ -322,7 +322,7 @@ export default {
   display: inline-block;
 }
 .img-item {
-  height: 400px;
+  height: 560px;
   width: 90%;
 }
 .value-row {
@@ -332,12 +332,31 @@ export default {
 .impl_con_data p {
   text-align: left;
 }
+.impl_contact_info {
+  padding-top: 0;
+}
+
+@media screen and (min-width: 1200px) {
+  .impl_contact_box {
+    height: 18rem;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .impl_contact_box {
+    height: 22rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .impl_contact_box {
+    height: 28rem;
+  }
+}
 @media screen and (max-width: 992px) {
   .card {
     margin-bottom: 40px;
   }
   .img-item {
-    height: 230px;
+    height: 280px;
   }
   .impl_contact_wrapper {
     padding: 0;
@@ -350,6 +369,9 @@ export default {
   }
   .tab-pane span {
     font-size: 12px;
+  }
+  .impl_con_data {
+    width: 60%;
   }
 }
 </style>

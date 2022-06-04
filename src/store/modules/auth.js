@@ -25,7 +25,7 @@ export default {
       localStorage.removeItem('userData')
       localStorage.removeItem('token')
       localStorage.removeItem('dataPermission')
-      window.location.reload()
+      // window.location.reload()
     }
   }
 }

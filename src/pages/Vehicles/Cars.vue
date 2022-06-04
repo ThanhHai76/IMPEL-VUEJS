@@ -4,204 +4,9 @@
     <BreadcrumbStart ref="menuStart" name="Ô tô" code="transport_car"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
-    <div class="mt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_heading">
-              <h1>SẢN PHẨM: Ô TÔ</h1>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/24326/logomercedes-c300-amg-2020-sedan-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/24326/mercedes-c300-amg-2020-sedan-03.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="javascript:void(0)" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')"
-                    >Bán xe MERCEDES C300 2020, GIẢM GIÁ TIỀN MẶT KHỦNG</a
-                  >
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Tp. Hồ Chí Minh</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Mới</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2020</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')">
-                    <span class="impl_doller">1 Tỷ 929 Triệu Đồng </span>
-                    <span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--2-->
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/logolincoln-navigator-2019-suv-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/lincoln-navigator-2019-suv-05.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="javascript:void(0)" @click="$router.push('/detail?id=6299f4d02186836100ffe0d6')"
-                    >Bán xe Lincoln Navigator L 2019</a
-                  >
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Hà Nội</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Mới</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2019</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn" @click="$router.push('/detail?id=6299f4d02186836100ffe0d6')">
-                    <span class="impl_doller">7 Tỷ 660 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--3-->
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/logolexus-gx-460-2010-suv-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/lexus-gx-460-2010-suv-04.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="purchase_new.html">Bán xe Lexus GX 460 2010</a>
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Tp. Hồ Chí Minh</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Qua Sử Dụng</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2010</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">2 Tỷ 70 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--4-->
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/19946/logobmw-730li-2018-sedan-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/19946/bmw-730li-2018-sedan-03.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="purchase_new.html">Bán xe BMW 730Li 2020</a>
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Tp. Hồ Chí Minh</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Mới</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2020</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">499 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <PurchaseNew v-show="typeTab === 'NEW'" @typeTab="changeTab"></PurchaseNew>
+
+    <PurchaseUsed v-show="typeTab === 'USED'" @typeTab="changeTab"></PurchaseUsed>
 
     <!------ About our company Start ------>
     <div class="impl_about_wrapper">
@@ -284,15 +89,14 @@
 import BreadcrumbStart from '../Components/Breadcrumbs_Start.vue'
 import { TransportService } from '@/services/transport.service'
 import { mapGetters } from 'vuex'
+import PurchaseNew from '../Purchase/Purchase_New.vue'
+import PurchaseUsed from '../Purchase/Purchase_Used.vue'
+
 export default {
   data () {
     return {
       carsMenu_1: [],
       treeTransport_1: [],
-      carsMenu_2: [],
-      treeTransport_2: [],
-      carsMenu_3: [],
-      treeTransport_3: [],
       transportName: [
         { id: 'transport', text: 'Phương tiện' },
         { id: 'transport_car', text: 'ô tô' },
@@ -301,12 +105,7 @@ export default {
       ],
       menuSearch: [],
       levelMenu: 0,
-      selectedMenu: null,
-      currentLevel: 1,
-      selectedTree_1: null,
-      selectedTree_2: null,
-      selectedTree_3: null,
-      checkDuplicate: false
+      typeTab: 'NEW'
     }
   },
 
@@ -324,7 +123,9 @@ export default {
   },
 
   components: {
-    BreadcrumbStart
+    BreadcrumbStart,
+    PurchaseNew,
+    PurchaseUsed
   },
 
   mounted () {
@@ -350,6 +151,9 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+    changeTab (type) {
+      this.typeTab = type
     }
   }
 }

@@ -146,7 +146,7 @@ import { AuthService } from '@/services/auth.service'
             username: this.authData.username,
             password: this.authData.password
           })
-          window.location.href = '/'
+          window.location.href = '/admin'
         } catch (error) {
           this.$refs.observer.setErrors({
             email: [error.message]

@@ -1,19 +1,5 @@
 <template>
   <div>
-    <!------ Breadcrumbs Start ------>
-    <div class="impl_bread_wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <h1>purchase</h1>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">purchase</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </div>
     <!------ Purchase new section Start ------>
     <div class="impl_purchase_wrapper impl_old_purchase_wrapper">
       <div class="container">
@@ -21,28 +7,16 @@
           <div class="col-lg-6 col-md-6">
             <div class="impl_sorting_text custom_select">
               <span class="impl_show"> Showing 9 of 68 Results</span>
-              <div class="impl_select_wrapper">
-                <span>sort by</span>
-                <select>
-                  <option value="1">Newest</option>
-                  <option value="2">New</option>
-                  <option value="3">Old</option>
-                  <option value="4">Oldest</option>
-                </select>
-              </div>
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="impl_category_type">
-              <router-link to="/purchase-new" class="impl_btn">
+              <a href="javascript:void(0)" @click="$emit('typeTab', 'NEW')" class="impl_btn">
                 New car
-              </router-link>
-              <router-link
-                to="/purchase-used"
-                class="impl_btn impl_used_car active"
-              >
+              </a>
+              <a href="javascript:void(0)" @click="$emit('typeTab', 'USED')" class="impl_btn impl_used_car active">
                 Used car
-              </router-link>
+              </a>
             </div>
           </div>
           <div class="col-lg-12 col-md-12">
@@ -812,10 +786,10 @@
                               ></a>
                             </li>
                             <li class="page-item">
-                              <a class="page-link" href="#">1</a>
+                              <a class="page-link active" href="#">1</a>
                             </li>
                             <li class="page-item">
-                              <a class="page-link active" href="#">2</a>
+                              <a class="page-link" href="#">2</a>
                             </li>
                             <li class="page-item">
                               <a class="page-link" href="#">3</a>

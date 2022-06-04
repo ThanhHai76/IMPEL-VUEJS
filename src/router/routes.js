@@ -14,11 +14,12 @@ import sellStep from '@/pages/Sell_Step.vue'
 
 import purchaseNew from '@/pages/Purchase/Purchase_New.vue'
 import purchaseUsed from '@/pages/Purchase/Purchase_Used.vue'
-import purchaseNewSingle from '@/pages/Purchase/Purchase_New_Single.vue'
-import purchaseOldSingle from '@/pages/Purchase/Purchase_Old_Single.vue'
 import service from '@/pages/Service.vue'
 
 import { DOMAIN_TITLE } from '../.env'
+
+//CMS
+import adminHome from '@/pages/Admin/index.vue'
 
 export const routes = [
   {
@@ -96,22 +97,18 @@ export const routes = [
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | Purchase Used` }
   },
   {
-    path: '/purchase-new-single',
-    name: 'purchaseNewSingle',
-    component: purchaseNewSingle,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Purchase New Single` }
-  },
-  {
-    path: '/purchase-old-single',
-    name: 'purchaseOldSingle',
-    component: purchaseOldSingle,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Purchase Old Single` }
-  },
-  {
     path: '/service',
     name: 'service',
     component: service,
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | Service` }
-  }
+  },
+
+  // Admin
+  {
+    path: '/admin',
+    name: 'adminHome',
+    component: adminHome,
+    meta: { title: `${DOMAIN_TITLE} | admin`, layout: 'login' }
+  },
   
 ]
