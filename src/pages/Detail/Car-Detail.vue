@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                  <!-- {{ dataDetail.transportTree[0] ? dataDetail.transportTree[0] : '' }} -->
+                  {{ dataDetail.transportTree[0] ? dataDetail.transportTree[0] : '' }}
                   <h1>{{ dataDetail.transportTree[1] ? dataDetail.transportTree[1] : '' }}</h1>
                   <ol class="breadcrumb">
                       <li class="breadcrumb-item" v-show="dataDetail.transportTree[2]">

@@ -12710,7 +12710,7 @@ p > span > .icon.ni { vertical-align: middle; }
 
 .nk-slider-s2 .slider-arrows > div { padding: .5rem 0; }
 
-.project-head { display: flex; justify-content: space-between; margin-bottom: 1.25rem; align-items: start; }
+.project-head { display: flex; justify-content: space-between; margin-bottom: 1.25rem; align-items: flex-start; }
 
 .project-title { display: flex; align-items: center; margin-right: 0.75rem; }
 
