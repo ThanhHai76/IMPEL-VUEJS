@@ -108,7 +108,7 @@ export const routes = [
     path: '/admin',
     name: 'adminHome',
     component: adminHome,
-    meta: { title: `${DOMAIN_TITLE} | admin`, layout: 'login' }
-  },
+    meta: { title: `${DOMAIN_TITLE} | admin`, layout: 'admin' }
+  }
   
 ]

@@ -276,12 +276,14 @@
                       <div class="impl_fea_car_box">
                         <div class="impl_fea_car_img">
                           <img
-                            src="http://via.placeholder.com/370x320"
+                            src="http://sanxesang.com/faces/images/muaban/xehoi/24326/logomercedes-c300-amg-2020-sedan-01.jpg"
                             alt=""
                             class="img-fluid impl_frst_car_img"
+                            width="370"
+                            height="320"
                           />
                           <img
-                            src="http://via.placeholder.com/370x320/fff"
+                            src="http://sanxesang.com/faces/images/muaban/xehoi/24326/mercedes-c300-amg-2020-sedan-03.jpg"
                             alt=""
                             class="img-fluid impl_hover_car_img"
                           />
@@ -294,7 +296,11 @@
                           ></span>
                         </div>
                         <div class="impl_fea_car_data">
-                          <h2><a href="purchase_new_single.html">Aurora</a></h2>
+                          <h2>
+                            <a href="javascript:void(0)" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')">
+                              Aurora
+                            </a>
+                          </h2>
                           <ul>
                             <li>
                               <span class="impl_fea_title">model</span>
@@ -310,7 +316,7 @@
                             </li>
                           </ul>
                           <div class="impl_fea_btn">
-                            <button class="impl_btn">
+                            <button class="impl_btn" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')">
                               <span class="impl_doller">$ 72000 </span
                               ><span class="impl_bnw">buy now</span>
                             </button>
@@ -323,12 +329,12 @@
                       <div class="impl_fea_car_box">
                         <div class="impl_fea_car_img">
                           <img
-                            src="http://via.placeholder.com/370x320"
+                            src="http://sanxesang.com/faces/images/muaban/xehoi/22636/logolincoln-navigator-2019-suv-01.jpg"
                             alt=""
                             class="img-fluid impl_frst_car_img"
                           />
                           <img
-                            src="http://via.placeholder.com/370x320/fff"
+                            src="http://sanxesang.com/faces/images/muaban/xehoi/22636/lincoln-navigator-2019-suv-05.jpg"
                             alt=""
                             class="img-fluid impl_hover_car_img"
                           />
@@ -372,12 +378,12 @@
                       <div class="impl_fea_car_box">
                         <div class="impl_fea_car_img">
                           <img
-                            src="http://via.placeholder.com/370x320"
+                            src="http://sanxesang.com/faces/images/muaban/xehoi/23022/logolexus-gx-460-2010-suv-01.jpg"
                             alt=""
                             class="img-fluid impl_frst_car_img"
                           />
                           <img
-                            src="http://via.placeholder.com/370x320/fff"
+                            src="http://sanxesang.com/faces/images/muaban/xehoi/23022/lexus-gx-460-2010-suv-04.jpg"
                             alt=""
                             class="img-fluid impl_hover_car_img"
                           />
@@ -759,4 +765,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.impl_fea_car_data ul li span.impl_fea_title {
+  width: 50%;
+}
+</style>

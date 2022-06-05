@@ -725,84 +725,25 @@
           <div class="col-lg-12 col-md-12">
             <div class="impl_search_box custom_select">
               <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                   <div class="impl_select_boxes">
-                    <select>
-                      <option>Chọn phương tiện</option>
-                      <option value="1">Ô tô</option>
-                      <option value="2">Xe máy</option>
-                      <option value="3">Xe đạp</option>
-                    </select>
-                    <select>
-                      <option>Chọn hãng</option>
-                      <option value="b1">Status 1</option>
-                      <option value="b2">Status 2</option>
-                      <option value="b3">Status 3</option>
-                      <option value="b4">Status 4</option>
-                    </select>
-                    <select>
-                      <option>Chọn Series</option>
-                      <option value="b1">Model 1</option>
-                      <option value="b2">Model 2</option>
-                      <option value="b3">Model 3</option>
-                      <option value="b4">Model 4</option>
-                    </select>
-                    <select>
-                      <option>Chọn model</option>
-                      <option value="b1">Year 1</option>
-                      <option value="b2">Year 2</option>
-                      <option value="b3">Year 3</option>
-                      <option value="b4">Year 4</option>
-                    </select>
-                    <select>
-                      <option>Tỉnh thành</option>
-                      <option value="b1">Type 1</option>
-                      <option value="b2">Type 2</option>
-                      <option value="b3">Type 3</option>
-                      <option value="b4">Type 4</option>
-                    </select>
-                    <select>
-                      <option>Tình trạng xe</option>
-                      <option value="b1">Xe mới</option>
-                      <option value="b2">Xe qua sử dụng</option>
-                    </select>
+                    <b-form-select class="select-box" v-model="SelectData.transport" :options="transportOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.company" :options="companyOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.model" :options="modelOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.province" :options="provinceOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.condition" :options="conditionOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.design" :options="designOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.fuel" :options="fuelOptions"></b-form-select>
+                  </div>
 
-                    <select>
-                      <option value="0" selected="">Chọn kiểu dáng</option>
-                      <option value="1">Sedan</option>
-                      <option value="2">Hatchback</option>
-                      <option value="3">Fastback</option>
-                      <option value="4">Hard-top</option>
-                      <option value="5">Minivan</option>
-                      <option value="6">Coupe</option>
-                      <option value="7">Cabriolet</option>
-                      <option value="8">Van</option>
-                      <option value="9">SUV</option>
-                      <option value="10">Roadster</option>
-                      <option value="11">Pikup</option>
-                      <option value="12">Hybrid</option>
-                      <option value="13">Crossover</option>
-                      <option value="14">Convertibles</option>
-                      <option value="15">Wagon</option>
-                      <option value="16">MPV</option>
-                    </select>
-
-                    <select>
-                      <option value="0" selected="">Chọn nhiên liệu</option>
-                      <option value="1">Xăng</option>
-                      <option value="2">Dầu</option>
-                      <option value="3">Điện</option>
-                      <option value="4">Xăng + Điện</option>
-                    </select>
-
-                    <!-- <selectSearch>
-                    </selectSearch> -->
-
+                  <div class="impl_select_boxes">
                     <div class="price_range">
                       <label>Chọn giá</label>
                       <input
                         type="text"
                         id="range_24"
+                        v-model="SelectData.price"
+                        @change="changePrice()"
                         name="ionRangeSlider"
                         value=""
                       />
@@ -866,16 +807,20 @@
                         value=""
                       /> -->
                     </div>
-                    
-                  </div>
-
-                  <div class="impl_search_btn">
-                    <button class="impl_btn">Tìm kiếm xe</button>
-                  </div>
-                  <div class="impl_search_btn">
-                    <button class="impl_btn">Xoá tìm kiếm</button>
                   </div>
                 </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                  <div class="impl_select_boxes">
+                    <div class="impl_search_btn" @click="submitSearch()">
+                      <button class="impl_btn">Tìm kiếm xe</button>
+                    </div>
+                    <div class="impl_search_btn">
+                      <button class="impl_btn">Xoá tìm kiếm</button>
+                    </div>
+                  </div>
+                </div>
+                
               </div>
             </div>
           </div>
@@ -1209,12 +1154,6 @@ export default {
     }, 2000)
   },
 
-  // destroyed () {
-  //   this.$store.commit('loading/SET_LOADING', {
-  //     loading: true
-  //   })
-  // },
-
   data: () => {
     return {
       isShownModal: false,
@@ -1225,7 +1164,63 @@ export default {
         limit: 20,
         offset: 0,
         total: 60
-      }
+      },
+
+      SelectData: {
+        transport: null,
+        company: null,
+        model: null,
+        province: null,
+        condition: null,
+        design: null,
+        fuel: null,
+        minPrice: null,
+        maxPrice: null
+      },
+      transportOptions: [
+        { value: null, text: 'Chọn phương tiện'},
+        { value: 'cars', text: 'Ô tô'},
+        { value: 'motobike', text: 'Xe máy'},
+        { value: 'bicycle', text: 'Xe đạp'},
+      ],
+      companyOptions: [
+        { value: null, text: 'Chọn hãng' },
+        { value: 'status 1', text: 'Status 1' },
+        { value: 'status 2', text: 'Status 2' },
+        { value: 'status 3', text: 'Status 3' },
+        { value: 'status 4', text: 'Status 4' },
+      ],
+      modelOptions: [
+        { value: null, text: 'Chọn Series' },
+        { value: 'status 1', text: 'Model 1' },
+        { value: 'status 2', text: 'Model 2' },
+        { value: 'status 3', text: 'Model 3' },
+      ],
+      provinceOptions: [
+        { value: null, text: 'Chọn tỉnh thành' },
+        { value: 'HN', text: 'Hà Nội' },
+        { value: 'HCM', text: 'Hồ chí minh' }
+      ],
+      conditionOptions:[
+        { value: null, text: 'Chọn tình trạng' },
+        { value: 'NEW', text: 'Xe mới' },
+        { value: 'USED', text: 'Xe đã qua sử dụng' }
+      ],
+      designOptions: [
+        { value: null, text: 'Chọn kiểu dáng' },
+        { value: 'Sedan', text: 'Sedan' },
+        { value: 'Hatchback', text: 'Hatchback' },
+        { value: 'Fastback', text: 'Fastback' },
+        { value: 'Hard-top', text: 'Hard-top' },
+        { value: 'Minivan', text: 'Minivan' }
+      ],
+      fuelOptions: [
+        { value: null, text: 'Chọn nhiên liệu' },
+        { value: 'gasoline', text: 'Xăng' },
+        { value: 'oil', text: 'Dầu' },
+        { value: 'electric', text: 'Điện' },
+        { value: 'gasElectric', text: 'Xăng + Điện' }
+      ]
     }
   },
 
@@ -1331,8 +1326,34 @@ export default {
       const loadscript17 = document.createElement('script')
       loadscript17.setAttribute('src', 'js/custom.js')
       document.body.appendChild(loadscript17)
+    },
+
+    submitSearch() {
+      this.SelectData.minPrice = Number(document.querySelector('.irs-from').innerText.replace(' ', ''))
+      this.SelectData.maxPrice = Number(document.querySelector('.irs-to').innerText.replace(' ', ''))
+      console.log(this.SelectData)
+    },
+
+    changePrice () {
+      const stylePrice = window.getComputedStyle(document.querySelector('.irs-bar')).width
+      console.log(stylePrice)
+      console.log('price')
     }
   }
 }
 </script>
-<style scoped></style>
+<style scoped>
+.impl_select_boxes {
+  display: flex !important;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.select-box {
+  width: 29%; display: block !important;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
+}
+.impl_search_btn {
+  width: 100%;
+}
+</style>

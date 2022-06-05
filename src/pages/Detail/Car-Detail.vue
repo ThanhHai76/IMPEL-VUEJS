@@ -336,6 +336,7 @@ export default {
   padding-top: 0;
 }
 
+
 @media screen and (min-width: 1200px) {
   .impl_contact_box {
     height: 18rem;
@@ -372,6 +373,9 @@ export default {
   }
   .impl_con_data {
     width: 60%;
+  }
+  .impl_heading {
+    margin-top: 3rem;
   }
 }
 </style>

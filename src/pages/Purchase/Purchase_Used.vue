@@ -829,4 +829,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.impl_fea_car_data ul li span.impl_fea_title {
+  width: 50%;
+}
+</style>
