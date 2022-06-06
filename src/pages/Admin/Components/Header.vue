@@ -181,7 +181,11 @@
 
 <script>
   export default {
-    
+    data () {
+      return {
+        dataUser: JSON.parse(localStorage.getItem('userData'))
+      }
+    },
   }
 </script>
 

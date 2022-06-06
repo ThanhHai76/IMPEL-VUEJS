@@ -63,49 +63,45 @@
                               </ul>
                           </div>
                       </li><!-- .dropdown -->
-                      <b-dropdown class="dropdown user-dropdown" variant="link">
-                          <template #button-content>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <div class="user-toggle">
-                                    <div class="user-avatar sm">
-                                        <em class="icon ni ni-user-alt"></em>
-                                    </div>
-                                    <div class="user-info d-none d-md-block">
-                                        <div class="user-status">Administrator</div>
-                                        <div class="user-name dropdown-indicator">{{ dataUser.username }}</div>
-                                    </div>
-                                </div>
-                            </a>
-                          </template>
-                          <b-dropdown-item href="#">
-                            <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
-                                <div class="user-card">
-                                    <div class="user-avatar">
-                                        <span>AB</span>
-                                    </div>
-                                    <div class="user-info">
-                                        <span class="lead-text">{{ dataUser.username }}</span>
-                                        <span class="sub-text">{{ dataUser.email }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                          </b-dropdown-item>
-                          <b-dropdown-item href="#">
-                            <div class="dropdown-inner">
-                                <ul class="link-list">
-                                    <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                    <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                    <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="dropdown-inner">
-                                <ul class="link-list">
-                                    <li><a href="javascript:void(0)" @click="logout()"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
-                                </ul>
-                            </div>
-                          </b-dropdown-item>
-                        </b-dropdown>
+                      <li class="dropdown user-dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <div class="user-toggle">
+                                  <div class="user-avatar sm">
+                                      <em class="icon ni ni-user-alt"></em>
+                                  </div>
+                                  <div class="user-info d-none d-md-block">
+                                      <div class="user-status">Administrator</div>
+                                      <div class="user-name dropdown-indicator">{{ dataUser.username }}</div>
+                                  </div>
+                              </div>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-md dropdown-menu-right dropdown-menu-s1">
+                              <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
+                                  <div class="user-card">
+                                      <div class="user-avatar">
+                                          <span>AB</span>
+                                      </div>
+                                      <div class="user-info">
+                                          <span class="lead-text">{{ dataUser.username }}</span>
+                                          <span class="sub-text">{{ dataUser.email }}</span>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="dropdown-inner">
+                                  <ul class="link-list">
+                                      <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
+                                      <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                      <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
+                                      <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                  </ul>
+                              </div>
+                              <div class="dropdown-inner">
+                                  <ul class="link-list">
+                                      <li><a href="javascript:void(0)" @click="logout()"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </li><!-- .dropdown -->
                       <li class="dropdown notification-dropdown mr-n1">
                           <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-toggle="dropdown">
                               <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
@@ -184,14 +180,13 @@
       </div><!-- .container-fliud -->
     </div>
     
-    <Content></Content>
-
+    <FormInput></FormInput>
+    
  </div>
 </template>
 
 <script>
-import Header from './Components/Header.vue'
-import Content from './Components/Content.vue'
+import FormInput from '../Components/FormInput.vue'
 export default {
   data () {
     return {
@@ -200,8 +195,7 @@ export default {
   },
 
   components: {
-    Header,
-    Content
+    FormInput
   },
 
   mounted () {

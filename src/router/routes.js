@@ -20,14 +20,80 @@ import { DOMAIN_TITLE } from '../.env'
 
 //CMS
 import adminHome from '@/pages/Admin/index.vue'
+import createTransport from '@/pages/Admin/TransportController/create-transport.vue'
+import editTransport from '@/pages/Admin/TransportController/edit-transport.vue'
 
 export const routes = [
   {
     path: '/',
     name: 'index',
     component: homePage,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | home` }
+    meta: { title: `${DOMAIN_TITLE} | home`, layout: 'default' }
   },
+  {
+    path: '*',
+    component: notFoundPage,
+    meta: { title: `${DOMAIN_TITLE} | not found`, layout: 'default' }
+  },
+
+  {
+    path: '/transport_car',
+    name: 'cars',
+    component: cars,
+    meta: { title: `${DOMAIN_TITLE} | Cars`, layout: 'default' }
+  },
+  {
+    path: '/transport_motorcycle',
+    name: 'motorbike',
+    component: motorbike,
+    meta: { title: `${DOMAIN_TITLE} | Motorcycle`, layout: 'default' }
+  },
+  {
+    path: '/transport_bicycle',
+    name: 'bicycle',
+    component: bicycle,
+    meta: { title: `${DOMAIN_TITLE} | Bicycle`, layout: 'default' }
+  },
+
+  {
+    path: '/transport',
+    name: 'transport',
+    component: purchaseNew,
+    meta: { title: `${DOMAIN_TITLE} | Cars`, layout: 'default' }
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: detailTransport,
+    meta: { title: `${DOMAIN_TITLE} | Detail`, layout: 'default' }
+  },
+
+  {
+    path: '/sell-step',
+    name: 'sell-step',
+    component: sellStep,
+    meta: { title: `${DOMAIN_TITLE} | Sell Step`, layout: 'default' }
+  },
+  {
+    path: '/purchase-new',
+    name: 'purchaseNew',
+    component: purchaseNew,
+    meta: { title: `${DOMAIN_TITLE} | Purchase New`, layout: 'default' }
+  },
+  {
+    path: '/purchase-used',
+    name: 'purchaseUsed',
+    component: purchaseUsed,
+    meta: { title: `${DOMAIN_TITLE} | Purchase Used`, layout: 'default' }
+  },
+  {
+    path: '/service',
+    name: 'service',
+    component: service,
+    meta: { title: `${DOMAIN_TITLE} | Service`, layout: 'default' }
+  },
+
+  // Admin
   {
     path: '/login',
     name: 'login',
@@ -41,74 +107,22 @@ export const routes = [
     meta: { title: `${DOMAIN_TITLE} | register`, layout: 'login' }
   },
   {
-    path: '*',
-    component: notFoundPage,
-    meta: { title: `${DOMAIN_TITLE} | not found` }
-  },
-
-  {
-    path: '/transport_car',
-    name: 'cars',
-    component: cars,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Cars` }
-  },
-  {
-    path: '/transport_motorcycle',
-    name: 'motorbike',
-    component: motorbike,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Motorcycle` }
-  },
-  {
-    path: '/transport_bicycle',
-    name: 'bicycle',
-    component: bicycle,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Bicycle` }
-  },
-
-  {
-    path: '/transport',
-    name: 'transport',
-    component: purchaseNew,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Cars` }
-  },
-  {
-    path: '/detail',
-    name: 'detail',
-    component: detailTransport,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Detail` }
-  },
-
-  {
-    path: '/sell-step',
-    name: 'sell-step',
-    component: sellStep,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Sell Step` }
-  },
-  {
-    path: '/purchase-new',
-    name: 'purchaseNew',
-    component: purchaseNew,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Purchase New` }
-  },
-  {
-    path: '/purchase-used',
-    name: 'purchaseUsed',
-    component: purchaseUsed,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Purchase Used` }
-  },
-  {
-    path: '/service',
-    name: 'service',
-    component: service,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | Service` }
-  },
-
-  // Admin
-  {
     path: '/admin',
     name: 'adminHome',
     component: adminHome,
-    meta: { title: `${DOMAIN_TITLE} | admin`, layout: 'admin' }
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | admin`, layout: 'admin' }
+  },
+  {
+    path: '/admin/create-transport',
+    name: 'createTransport',
+    component: createTransport,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | create transport`, layout: 'admin' }
+  },
+  {
+    path: '/admin/edit-transport',
+    name: 'editTransport',
+    component: editTransport,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | edit transport`, layout: 'admin' }
   }
   
 ]

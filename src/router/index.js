@@ -17,6 +17,6 @@ const router = new Router({
 
 // router.beforeEach(getLocalDataMiddleware)
 router.beforeEach(getEndpointConfigMiddleware)
-// router.beforeEach(checkAccessMiddleware)
+router.beforeEach(checkAccessMiddleware)
 
 export default router

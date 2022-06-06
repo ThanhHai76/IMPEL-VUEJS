@@ -1349,11 +1349,25 @@ export default {
   width: 100%;
 }
 .select-box {
-  width: 29%; display: block !important;
+  width: 29%;
+  display: block !important;
   margin-right: 2rem;
   margin-bottom: 1.5rem;
 }
 .impl_search_btn {
   width: 100%;
+}
+@media screen and (max-width: 992px) {
+  .select-box {
+    width: 100%;
+    text-align: center;
+    margin-left: 2rem;
+  }
+  .select-box {
+    margin-bottom: 1rem;
+  }
+  .impl_select_boxes .price_range:first-child {
+    margin-bottom: 1.5rem;
+  }
 }
 </style>
