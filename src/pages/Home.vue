@@ -725,7 +725,7 @@
           <div class="col-lg-12 col-md-12">
             <div class="impl_search_box custom_select">
               <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                   <div class="impl_select_boxes">
                     <b-form-select class="select-box" v-model="SelectData.transport" :options="transportOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="SelectData.company" :options="companyOptions"></b-form-select>
@@ -810,7 +810,7 @@
                   </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                   <div class="impl_select_boxes">
                     <div class="impl_search_btn" @click="submitSearch()">
                       <button class="impl_btn">Tìm kiếm xe</button>
