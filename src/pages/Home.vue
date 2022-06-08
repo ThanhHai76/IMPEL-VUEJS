@@ -727,8 +727,19 @@
               <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                   <div class="impl_select_boxes">
-                    <b-form-select class="select-box" v-model="SelectData.transport" :options="transportOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.company" :options="companyOptions"></b-form-select>
+                    <b-form-select
+                      class="select-box"
+                      v-model="SelectData.transport"
+                      :options="transportOptions"
+                      @change="getListCompany"
+                    >
+                    </b-form-select>
+                    <b-form-select
+                      class="select-box"
+                      v-model="SelectData.company"
+                      :options="companyOptions"
+                    >
+                    </b-form-select>
                     <b-form-select class="select-box" v-model="SelectData.model" :options="modelOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="SelectData.province" :options="provinceOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="SelectData.condition" :options="conditionOptions"></b-form-select>
@@ -815,7 +826,7 @@
                     <div class="impl_search_btn" @click="submitSearch()">
                       <button class="impl_btn">Tìm kiếm xe</button>
                     </div>
-                    <div class="impl_search_btn">
+                    <div class="impl_search_btn" @click="clearSearch()">
                       <button class="impl_btn">Xoá tìm kiếm</button>
                     </div>
                   </div>
@@ -831,22 +842,22 @@
     <!------ Featured Cars Start ------>
     <div class="impl_featured_wrappar">
       <div class="container">
-        <div class="row">
+        <div class="row" style="min-height: 20rem">
           <div class="col-lg-12 col-md-12">
             <div class="impl_heading">
               <h1>Kết quả tìm kiếm</h1>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6" v-for="item in dataVehicleList" :key="item.id">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
                 <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/24326/logomercedes-c300-amg-2020-sedan-01.jpg"
+                  :src="item.avatar"
                   alt=""
                   class="img-fluid impl_frst_car_img"
                 />
                 <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/24326/mercedes-c300-amg-2020-sedan-03.jpg"
+                  :src="item.subAvatar"
                   alt=""
                   class="img-fluid impl_hover_car_img"
                 />
@@ -856,8 +867,8 @@
               </div>
               <div class="impl_fea_car_data">
                 <h2 class="line-clamp">
-                  <a href="javascript:void(0)" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')"
-                    >Bán xe MERCEDES C300 2020, GIẢM GIÁ TIỀN MẶT KHỦNG</a
+                  <a href="javascript:void(0)" @click="$router.push(`/detail?id=${item.id}`)"
+                    >{{ item.titleSell }}</a
                   >
                 </h2>
                 <ul>
@@ -868,23 +879,35 @@
                   </li>
                   <li>
                     <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Mới</span
+                      >Tình Trạng : {{ item.statusVehicle }}</span
                     >
                   </li>
                   <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2020</span>
+                    <span class="impl_fea_title ellipsis">Năm SX : {{ item.manufactureYear }}</span>
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
-                  <button class="impl_btn" @click="$router.push('/detail?id=628f007a3928fd6e2b101733')">
-                    <span class="impl_doller">1 Tỷ 929 Triệu Đồng </span
+                  <button class="impl_btn" @click="$router.push(`/detail?id=${item.id}`)">
+                    <span class="impl_doller">{{ item.price | formatPriceToText }} </span
                     ><span class="impl_bnw">Xem ngay</span>
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <!--2-->
+        </div>
+      </div>
+    </div>
+
+    <!-------- Mau xe quan tam -------->
+    <div class="impl_featured_wrappar">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="impl_heading">
+              <h1>MẪU XE ĐƯỢC QUAN TÂM</h1>
+            </div>
+          </div>
           <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
@@ -932,7 +955,6 @@
               </div>
             </div>
           </div>
-          <!--3-->
           <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
@@ -978,7 +1000,6 @@
               </div>
             </div>
           </div>
-          <!--4-->
           <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
@@ -1024,19 +1045,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-------- Mau xe quan tam -------->
-    <div class="impl_featured_wrappar">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <div class="impl_heading">
-              <h1>MẪU XE ĐƯỢC QUAN TÂM</h1>
-            </div>
-          </div>
           <div class="col-lg-3 col-md-6">
             <div class="impl_fea_car_box">
               <div class="impl_fea_car_img">
@@ -1082,54 +1090,6 @@
               </div>
             </div>
           </div>
-          <!--2-->
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/logolincoln-navigator-2019-suv-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/lincoln-navigator-2019-suv-05.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="purchase_new.html"
-                    >Bán xe Lincoln Navigator L 2019</a
-                  >
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Hà Nội</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Mới</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2019</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">7 Tỷ 660 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -1138,6 +1098,8 @@
 
 <script>
 // import selectSearch from './Select-box/select-search.vue'
+import { TransportService } from '@/services/transport.service'
+import { VehicleService } from '@/services/vehicle.service'
 export default {
   name: 'IndexPage',
 
@@ -1152,20 +1114,14 @@ export default {
         loading: false
       })
     }, 2000)
+    this.SelectData.transport = 'transport_car'
+    this.getListTransport()
+    this.getListCompany(this.SelectData.transport)
+    this.submitSearch()
   },
 
   data: () => {
     return {
-      isShownModal: false,
-      inputError: false,
-      checkboxState: false,
-
-      pagination: {
-        limit: 20,
-        offset: 0,
-        total: 60
-      },
-
       SelectData: {
         transport: null,
         company: null,
@@ -1179,17 +1135,8 @@ export default {
       },
       transportOptions: [
         { value: null, text: 'Chọn phương tiện'},
-        { value: 'cars', text: 'Ô tô'},
-        { value: 'motobike', text: 'Xe máy'},
-        { value: 'bicycle', text: 'Xe đạp'},
       ],
-      companyOptions: [
-        { value: null, text: 'Chọn hãng' },
-        { value: 'status 1', text: 'Status 1' },
-        { value: 'status 2', text: 'Status 2' },
-        { value: 'status 3', text: 'Status 3' },
-        { value: 'status 4', text: 'Status 4' },
-      ],
+      companyOptions: [],
       modelOptions: [
         { value: null, text: 'Chọn Series' },
         { value: 'status 1', text: 'Model 1' },
@@ -1220,7 +1167,14 @@ export default {
         { value: 'oil', text: 'Dầu' },
         { value: 'electric', text: 'Điện' },
         { value: 'gasElectric', text: 'Xăng + Điện' }
-      ]
+      ],
+      dataVehicleList: []
+    }
+  },
+
+  filters: {
+    transformNumber (data) {
+      return data ? data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') : ''
     }
   },
 
@@ -1328,10 +1282,71 @@ export default {
       document.body.appendChild(loadscript17)
     },
 
-    submitSearch() {
-      this.SelectData.minPrice = Number(document.querySelector('.irs-from').innerText.replace(' ', ''))
-      this.SelectData.maxPrice = Number(document.querySelector('.irs-to').innerText.replace(' ', ''))
-      console.log(this.SelectData)
+    async getListTransport () {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: 'transport'
+        })
+        response.data.transportListRes.map((e) => {
+          this.transportOptions.push({ value: e.code, text: e.name })
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async getListCompany (code) {
+      try {
+        this.companyOptions = []
+        this.SelectData.company = null
+        this.companyOptions.push({ value: null, text: 'Chọn hãng' })
+        const response = await TransportService.getListTransport({
+          codeParent: code
+        })
+        response.data.transportListRes.shift()
+        response.data.transportListRes.map((e) => {
+          this.companyOptions.push({ value: e.code, text: e.name })
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async submitSearch() {
+      try {
+        this.SelectData.minPrice = Number(document.querySelector('.irs-from').innerText.replace(' ', ''))
+        this.SelectData.maxPrice = Number(document.querySelector('.irs-to').innerText.replace(' ', ''))
+
+        // this.SelectData.limit = 20
+        // this.SelectData.page = 1
+        const response = await VehicleService.getVehicleList({
+          codeTransport: this.SelectData.company ? this.SelectData.company : this.SelectData.transport,
+          limit: 20,
+          page: 1
+        })
+        if (response.code === 1000) {
+          this.dataVehicleList = response.data.vehicleList
+        } else {
+          this.dataVehicleList = []
+        }
+      } catch (error) {
+        console.log(error)
+      }
+      
+    },
+
+    clearSearch () {
+      this.SelectData = {
+        transport: null,
+        company: null,
+        model: null,
+        province: null,
+        condition: null,
+        design: null,
+        fuel: null,
+        minPrice: null,
+        maxPrice: null
+      }
     },
 
     changePrice () {

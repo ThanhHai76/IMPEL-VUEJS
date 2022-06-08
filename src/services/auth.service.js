@@ -16,14 +16,31 @@ export class AuthService {
   static async makeLogin (authData = { username: '', password: '' }) {
     try {
       const response = await axios.post(`${API_URL}/auth/signin`, authData)
-      _setAuthData({
-        accessToken: response.data.data.token,
-        userData: response.data.data
-      })
+      // _setAuthData({
+      //   accessToken: response.data.data.token,
+      //   userData: response.data.data
+      // })
       return new ResponseWrapper(response, response.data)
     } catch (error) {
       throw new ErrorWrapper(error)
     }
+  }
+
+  static async signUp (authData = { username: '', password: '' }) {
+    try {
+      const response = await axios.post(`${API_URL}/auth/signup`, authData)
+      return new ResponseWrapper(response, response.data)
+    } catch (error) {
+      throw new ErrorWrapper(error)
+    }
+  }
+
+  static async _setAuthData ({ accessToken, userData } = {}) {
+    // AuthService.setRefreshToken('true')
+    localStorage.setItem('token', accessToken)
+    localStorage.setItem('userData', JSON.stringify(userData))
+    AuthService.setBearer(accessToken)
+    $store.commit('user/SET_CURRENT_USER', userData)
   }
 
   static async makeLogout () {

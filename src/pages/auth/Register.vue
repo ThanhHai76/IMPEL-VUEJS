@@ -18,54 +18,53 @@
                             <div class="card-inner card-inner-lg">
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h4 class="nk-block-title">Register</h4>
+                                        <h4 class="nk-block-title">Đăng ký</h4>
                                         <div class="nk-block-des">
-                                            <p>Create New Dashlite Account</p>
+                                            <!-- <p>Create New Dashlite Account</p> -->
                                         </div>
                                     </div>
                                 </div>
-                                <form action="html/pages/auths/auth-success-v2.html">
+                                <form @submit.prevent="register()">
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Name</label>
+                                        <label class="form-label" for="name">Tên</label>
                                         <div class="form-control-wrap">
-                                            <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter your name">
+                                            <input v-model="authData.username" type="text" class="form-control form-control-lg" id="name" placeholder="Nhập tên">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="email">Email or Username</label>
+                                        <label class="form-label" for="email">Email</label>
                                         <div class="form-control-wrap">
-                                            <input type="text" class="form-control form-control-lg" id="email" placeholder="Enter your email address or username">
+                                            <input v-model="authData.email" type="email" class="form-control form-control-lg" id="email" placeholder="Nhập email">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="password">Passcode</label>
+                                        <label class="form-label" for="password">Mật khẩu</label>
                                         <div class="form-control-wrap">
-                                            <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
-                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                                                <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
+                                            <a href="javascript:void(0)" @click="typePassword === 'password' ? typePassword = 'text' : typePassword = 'password'"
+                                              class="form-icon form-icon-right passcode-switch lg" data-target="password"
+                                            >
+                                                <em v-if="typePassword === 'password'" class="passcode-icon icon-show icon ni ni-eye"></em>
+                                                <em v-else class="passcode-icon icon-show icon ni ni-eye-off"></em>
                                             </a>
-                                            <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter your passcode">
+                                            <input v-model="authData.password" :type="typePassword" class="form-control form-control-lg" id="password" placeholder="Nhập mật khẩu">
                                         </div>
                                     </div>
+                                    <p class="text-center text-danger mt-2 fs-6" v-show="messageErr">{{ messageErr }}</p>
                                     <div class="form-group">
-                                        <div class="custom-control custom-control-xs custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="checkbox">
-                                            <label class="custom-control-label" for="checkbox">I agree to Dashlite <a href="#">Privacy Policy</a> &amp; <a href="#"> Terms.</a></label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Register</button>
+                                        <button class="btn btn-lg btn-primary btn-block">Đăng ký</button>
                                     </div>
                                 </form>
-                                <div class="form-note-s2 text-center pt-4"> Already have an account? <a href="javascript:void(0)" @click="$router.push('/login')"><strong>Sign in instead</strong></a>
+                                <div class="form-note-s2 d-flex justify-content-between pt-4 px-3">
+                                  <a href="/">Trang chủ</a>
+                                  <a href="javascript:void(0)" @click="$router.push('/login')"><strong>Đăng nhập</strong></a>
                                 </div>
-                                <div class="text-center pt-4 pb-3">
+                                <!-- <div class="text-center pt-4 pb-3">
                                     <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
                                 </div>
                                 <ul class="nav justify-center gx-8">
                                     <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
@@ -130,14 +129,56 @@
             <!-- content @e -->
         </div>
         <!-- main @e -->
+
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    
+import { AuthService } from '@/services/auth.service'
+export default {
+  data () {
+    return {
+      authData: {
+        username: null,
+        password: null,
+        email: null
+      },
+      messageErr: null,
+      typePassword: 'password'
+    }
+  },
+  methods: {
+    async register () {
+      try {
+
+        if (!this.authData.username || !this.authData.password) return
+
+        const { data } = await AuthService.signUp({
+          username: this.authData.username,
+          email: this.authData.email,
+          password: this.authData.password
+        })
+        if (data.code === 1000) {
+          this.$bvToast.toast('Đăng ký tài khoản thành công', {
+            title: `Thông báo`,
+            variant: 'success',
+            solid: true
+          })
+          setTimeout(() => {
+            this.$router.push('/login')
+          }, 1000);
+        } else {
+          this.messageErr = data.message
+        }
+      } catch (error) {
+        // this.$refs.observer.setErrors({
+        //   email: [error.message]
+        // })
+      }
+    }
   }
+}
 </script>
 
 <style src="@/assets/auth-css/css/dashlite.css" scoped></style>

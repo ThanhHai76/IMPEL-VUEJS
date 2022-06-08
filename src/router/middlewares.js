@@ -65,6 +65,7 @@ export function checkAccessMiddleware (to, from, next) {
   const isAuthRoute = to.matched.some(item => item.meta.isAuth && item.meta.layout === 'admin')
   if (isUser) return next()
   if (isAuthRoute && userData) return next()
+  if (isAuthRoute && !userData) return next({ name: 'login' })
   if (userData && to.name === 'login') next({ name: 'adminHome' })
   if (isAuthRoute) return next({ name: 'adminHome' })
   next()

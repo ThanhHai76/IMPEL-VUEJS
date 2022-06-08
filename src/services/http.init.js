@@ -21,14 +21,14 @@ export class Http {
     if (this.isAuth) {
       const token = 'Bearer ' + TOKEN_INSIDE
       this.instance.interceptors.request.use(request => {
-        request.headers.Authorization = token
-        // request.headers.Authorization = AuthService.getBearer()
+        if (AuthService.getBearer()) request.headers.Authorization = AuthService.getBearer()
+        else request.headers.Authorization = token
         // if access token expired and refreshToken is exist >> go to API and get new access token
         if (AuthService.isAccessTokenExpired() && AuthService.hasRefreshToken()) {
           return AuthService.debounceRefreshTokens()
             .then(response => {
-              AuthService.setBearer(token)
-              // AuthService.setBearer(response.data.accessToken)
+              if (response.data.accessToken) AuthService.setBearer(response.data.accessToken)
+              else AuthService.setBearer(token)
               request.headers.authorization = AuthService.getBearer()
               return request
             }).catch(error => Promise.reject(error))

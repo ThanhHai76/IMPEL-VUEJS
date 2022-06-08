@@ -18,47 +18,75 @@
                             <div class="card-inner card-inner-lg">
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h4 class="nk-block-title">Sign-In</h4>
+                                        <h4 class="nk-block-title">Đăng nhập</h4>
                                         <div class="nk-block-des">
-                                            <p>Access the CryptoLite panel using your email and passcode.</p>
+                                            <!-- <p>Access the CryptoLite panel using your email and passcode.</p> -->
                                         </div>
                                     </div>
                                 </div>
-                                <form @submit.prevent="makeLogin">
-                                    <div class="form-group">
-                                        <div class="form-label-group">
-                                            <label class="form-label" for="default-01">Email or Username</label>
-                                        </div>
-                                        <div class="form-control-wrap">
-                                            <input type="text" v-model="authData.username" class="form-control form-control-lg" id="default-01" placeholder="Enter your email address or username">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-label-group">
-                                            <label class="form-label" for="password">Passcode</label>
-                                            <a class="link link-primary link-sm" href="html/pages/auths/auth-reset-v2.html">Forgot Code?</a>
-                                        </div>
-                                        <div class="form-control-wrap">
-                                            <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
-                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                                                <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
-                                            </a>
-                                            <input type="password" v-model="authData.password" class="form-control form-control-lg" id="password" placeholder="Enter your passcode">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Sign in</button>
-                                    </div>
-                                </form>
-                                <div class="form-note-s2 text-center pt-4"> New on our platform? <a href="javascript:void(0)" @click="$router.push('/register')">Create an account</a>
+                                <ValidationObserver ref="observer">
+                                  <form @submit.prevent="validate().then(makeLogin)" slot-scope="{ validate }">
+                                    <ValidationProvider rules="required" vid="email" name="Email">
+                                      <div class="form-group" slot-scope="{ valid, errors }" label="Email">
+                                          <div class="form-label-group">
+                                              <label class="form-label" for="default-01">Email hoặc tên</label>
+                                          </div>
+                                          <div class="form-control-wrap">
+                                              <input type="text"
+                                                v-model="authData.username"
+                                                v-on:keyup.enter="validate().then(makeLogin)"
+                                                :state="errors[0] ? false : (valid ? true : null)"
+                                                class="form-control form-control-lg" id="default-01"
+                                                placeholder="Nhập email hoặc tên"
+                                              >
+                                              <div class="invalid-feedback">
+                                                {{ errors[0] }}
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </ValidationProvider>
+                                    <ValidationProvider rules="required" name="Password">
+                                      <div class="form-group mt-2" slot-scope="{ valid, errors }" label="Password">
+                                          <div class="form-label-group">
+                                              <label class="form-label" for="password">Mật khẩu</label>
+                                              <!-- <a class="link link-primary link-sm" href="html/pages/auths/auth-reset-v2.html">Forgot Code?</a> -->
+                                          </div>
+                                          <div class="form-control-wrap">
+                                              <a href="javascript:void(0)" @click="typePassword === 'password' ? typePassword = 'text' : typePassword = 'password'" class="form-icon form-icon-right passcode-switch lg" data-target="password">
+                                                  <em v-if="typePassword === 'password'" class="passcode-icon icon-show icon ni ni-eye"></em>
+                                                  <em v-else class="passcode-icon icon-show icon ni ni-eye-off"></em>
+                                              </a>
+                                              <input
+                                                :type="typePassword"
+                                                v-model="authData.password"
+                                                v-on:keyup.enter="validate().then(makeLogin)"
+                                                :state="errors[0] ? false : (valid ? true : null)"
+                                                class="form-control form-control-lg" id="password"
+                                                placeholder="Nhập mật khẩu"
+                                              >
+                                              <div class="invalid-feedback">
+                                                {{ errors[0] }}
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </ValidationProvider>
+                                      <p class="text-center text-danger mt-2 fs-6" v-show="messageErr">{{ messageErr }}</p>
+                                      <div class="form-group mt-2">
+                                          <button class="btn btn-lg btn-primary btn-block">Đăng nhập</button>
+                                      </div>
+                                  </form>
+                                </ValidationObserver>
+                                <div class="form-note-s2 d-flex justify-content-between pt-4 px-3">
+                                  <a href="/">Trang chủ</a>
+                                  <a href="javascript:void(0)" @click="$router.push('/register')">Tạo tài khoản</a>
                                 </div>
-                                <div class="text-center pt-4 pb-3">
+                                <!-- <div class="text-center pt-4 pb-3">
                                     <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
                                 </div>
                                 <ul class="nav justify-center gx-4">
                                     <li class="nav-item"><a class="nav-link" href="#">Facebook</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">Google</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
@@ -135,18 +163,30 @@ import { AuthService } from '@/services/auth.service'
         authData: {
           username: null,
           password: null
-        }
+        },
+        messageErr: null,
+        typePassword: 'password'
       }
     },
 
     methods: {
       async makeLogin () {
         try {
-          await AuthService.makeLogin({
+          if (!this.authData.username || !this.authData.password) return
+
+          const { data } = await AuthService.makeLogin({
             username: this.authData.username,
             password: this.authData.password
           })
-          window.location.href = '/admin'
+          if (data.code === 1000) {
+            AuthService._setAuthData({
+              accessToken: data.data.token,
+              userData: data.data
+            })
+            window.location.href = '/admin'
+          } else {
+            this.messageErr = data.message
+          }
         } catch (error) {
           this.$refs.observer.setErrors({
             email: [error.message]

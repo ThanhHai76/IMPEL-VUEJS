@@ -25,6 +25,8 @@ import '@/assets/css/style.css'
 
 import '@/assets/css/style_2.css'
 
+import "bootstrap-vue/dist/bootstrap-vue.css"
+
 new Vue({
   name: 'Root',
   router,
