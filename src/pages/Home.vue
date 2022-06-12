@@ -719,7 +719,7 @@
       </div>
     </div>
     <!------ Search Box Start ------>
-    <div class="impl_searchbox_wrapper">
+    <div class="impl_searchbox_wrapper mt-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 col-md-12">
@@ -741,26 +741,35 @@
                     >
                     </b-form-select>
                     <b-form-select class="select-box" v-model="SelectData.model" :options="modelOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.province" :options="provinceOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.condition" :options="conditionOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.codeCity" :options="provinceOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="SelectData.status" :options="statusOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="SelectData.design" :options="designOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="SelectData.fuel" :options="fuelOptions"></b-form-select>
                   </div>
 
                   <div class="impl_select_boxes">
-                    <div class="price_range">
+                    <div class="price_range price_select">
                       <label>Chọn giá</label>
                       <input
                         type="text"
                         id="range_24"
-                        v-model="SelectData.price"
                         @change="changePrice()"
                         name="ionRangeSlider"
                         value=""
                       />
                     </div>
 
-                    <div class="price_range">
+                    <div class="price_range year_select">
+                      <label>Chọn năm</label>
+                      <input
+                        type="text"
+                        id="range_25"
+                        name="ionRangeSlider_2"
+                        value=""
+                      />
+                    </div>
+
+                    <!-- <div class="price_range">
                       <label>Chọn năm</label>
                       <span class="irs js-irs-0"
                         ><span class="irs"
@@ -811,13 +820,7 @@
                           style="left: 77.002%"
                         ></span
                       ></span>
-                      <!-- <input
-                        type="text"
-                        id="range_24"
-                        name="ionRangeSlider"
-                        value=""
-                      /> -->
-                    </div>
+                    </div> -->
                   </div>
                 </div>
 
@@ -874,7 +877,7 @@
                 <ul>
                   <li>
                     <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Tp. Hồ Chí Minh</span
+                      >Nơi Bán : {{ item.nameCity }}</span
                     >
                   </li>
                   <li>
@@ -1100,6 +1103,7 @@
 // import selectSearch from './Select-box/select-search.vue'
 import { TransportService } from '@/services/transport.service'
 import { VehicleService } from '@/services/vehicle.service'
+import { ConfigService } from '@/services/config.service'
 export default {
   name: 'IndexPage',
 
@@ -1118,6 +1122,7 @@ export default {
     this.getListTransport()
     this.getListCompany(this.SelectData.transport)
     this.submitSearch()
+    this.getListCity()
   },
 
   data: () => {
@@ -1126,12 +1131,14 @@ export default {
         transport: null,
         company: null,
         model: null,
-        province: null,
-        condition: null,
+        codeCity: null,
+        status: null,
         design: null,
         fuel: null,
         minPrice: null,
-        maxPrice: null
+        maxPrice: null,
+        minManufactureYear: null,
+        maxManufactureYear: null
       },
       transportOptions: [
         { value: null, text: 'Chọn phương tiện'},
@@ -1144,11 +1151,9 @@ export default {
         { value: 'status 3', text: 'Model 3' },
       ],
       provinceOptions: [
-        { value: null, text: 'Chọn tỉnh thành' },
-        { value: 'HN', text: 'Hà Nội' },
-        { value: 'HCM', text: 'Hồ chí minh' }
+        { value: null, text: 'Chọn tỉnh thành' }
       ],
-      conditionOptions:[
+      statusOptions:[
         { value: null, text: 'Chọn tình trạng' },
         { value: 'NEW', text: 'Xe mới' },
         { value: 'USED', text: 'Xe đã qua sử dụng' }
@@ -1312,15 +1317,37 @@ export default {
       }
     },
 
+    async getListCity () {
+      try {
+        const { data } = ConfigService.getCityList()
+        const provinceOptions = data.map((e) => {
+          return {
+            value: e.code,
+            text: e.name
+          }
+        })
+        this.provinceOptions = [...provinceOptions]
+      } catch (error) {
+        
+      }
+    },
+
     async submitSearch() {
       try {
-        this.SelectData.minPrice = Number(document.querySelector('.irs-from').innerText.replace(' ', ''))
-        this.SelectData.maxPrice = Number(document.querySelector('.irs-to').innerText.replace(' ', ''))
+        this.SelectData.minPrice = document.querySelector('.irs-from') ? Number(document.querySelector('.irs-from').innerText.replace(' ', '')) : null
+        this.SelectData.maxPrice = document.querySelector('.irs-to') ? Number(document.querySelector('.irs-to').innerText.replace(' ', '')) : null
+        
+        this.SelectData.minManufactureYear = document.querySelector('.price_range.year_select .irs-from') ? Number(document.querySelector('.price_range.year_select .irs-from').innerText.replace(' ', '')) : null
+        this.SelectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').innerText.replace(' ', '')) : null
 
-        // this.SelectData.limit = 20
-        // this.SelectData.page = 1
         const response = await VehicleService.getVehicleList({
           codeTransport: this.SelectData.company ? this.SelectData.company : this.SelectData.transport,
+          // codeCity: this.SelectData.codeCity,
+          // minPrice: this.SelectData.minPrice,
+          // maxPrice: this.SelectData.maxPrice,
+          // minManufactureYear: this.SelectData.minManufactureYear,
+          // maxManufactureYear: this.SelectData.maxManufactureYear,
+          // status: this.SelectData.status,
           limit: 20,
           page: 1
         })
@@ -1340,19 +1367,20 @@ export default {
         transport: null,
         company: null,
         model: null,
-        province: null,
-        condition: null,
+        codeCity: null,
+        status: null,
         design: null,
         fuel: null,
         minPrice: null,
-        maxPrice: null
+        maxPrice: null,
+        minManufactureYear: null,
+        maxManufactureYear: null
       }
     },
 
     changePrice () {
       const stylePrice = window.getComputedStyle(document.querySelector('.irs-bar')).width
       console.log(stylePrice)
-      console.log('price')
     }
   }
 }

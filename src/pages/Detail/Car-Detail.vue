@@ -357,7 +357,7 @@ export default {
     margin-bottom: 40px;
   }
   .img-item {
-    height: 280px;
+    height: 260px;
   }
   .impl_contact_wrapper {
     padding: 0;

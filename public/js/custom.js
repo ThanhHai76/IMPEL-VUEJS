@@ -28,6 +28,7 @@ Assigned to: ThemeForest
             this.Home_Slider();
             this.Bottom_Scroll();
             this.RangeSlider();
+            this.RangeSlider_2();
             this.Video_popup();
             this.Counter();
             this.Testimonial();
@@ -230,6 +231,21 @@ Assigned to: ThemeForest
                     max: 2000,
                     from: 1200,
                     to: 1800,
+                    hide_min_max: true,
+                    hide_from_to: false,
+                    grid: false
+                });
+            }
+        },
+
+        RangeSlider_2: function() {
+            if ($('#range_25').length > 0) {
+                $("#range_25").ionRangeSlider({
+                    type: "double",
+                    min: 2012,
+                    max: 2022,
+                    from: 2014,
+                    to: 2020,
                     hide_min_max: true,
                     hide_from_to: false,
                     grid: false

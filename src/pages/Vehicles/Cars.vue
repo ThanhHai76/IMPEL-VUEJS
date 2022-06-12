@@ -4,7 +4,7 @@
     <BreadcrumbStart ref="menuStart" name="Ô tô" code="transport_car"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
-    <PurchaseNew v-show="typeTab === 'NEW'" @typeTab="changeTab"></PurchaseNew>
+    <PurchaseNew v-show="typeTab === 'NEW'" :dataVehicleList="dataVehicleList" @typeTab="changeTab"></PurchaseNew>
 
     <PurchaseUsed v-show="typeTab === 'USED'" @typeTab="changeTab"></PurchaseUsed>
 
@@ -91,6 +91,7 @@ import { TransportService } from '@/services/transport.service'
 import { mapGetters } from 'vuex'
 import PurchaseNew from '../Purchase/Purchase_New.vue'
 import PurchaseUsed from '../Purchase/Purchase_Used.vue'
+import { VehicleService } from '@/services/vehicle.service'
 
 export default {
   data () {
@@ -105,7 +106,8 @@ export default {
       ],
       menuSearch: [],
       levelMenu: 0,
-      typeTab: 'NEW'
+      typeTab: 'NEW',
+      dataVehicleList: []
     }
   },
 
@@ -130,12 +132,7 @@ export default {
 
   mounted () {
     this.$refs.menuStart.getTransportMenu('transport_car')
-    // setTimeout(() => {
-    //   this.$store.commit('loading/SET_LOADING', {
-    //     loading: false,
-    //     time: 1000
-    //   })
-    // }, 1000)
+    this.submitSearch()
   },
 
   methods: {
@@ -154,6 +151,23 @@ export default {
     },
     changeTab (type) {
       this.typeTab = type
+    },
+
+    async submitSearch() {
+      try {
+        const response = await VehicleService.getVehicleList({
+          codeTransport: 'transport_car',
+          limit: 20,
+          page: 1
+        })
+        if (response.code === 1000) {
+          this.dataVehicleList = response.data.vehicleList
+        } else {
+          this.dataVehicleList = []
+        }
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
