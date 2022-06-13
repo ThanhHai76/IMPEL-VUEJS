@@ -1150,9 +1150,7 @@ export default {
         { value: 'status 2', text: 'Model 2' },
         { value: 'status 3', text: 'Model 3' },
       ],
-      provinceOptions: [
-        { value: null, text: 'Chọn tỉnh thành' }
-      ],
+      provinceOptions: [],
       statusOptions:[
         { value: null, text: 'Chọn tình trạng' },
         { value: 'NEW', text: 'Xe mới' },
@@ -1319,16 +1317,16 @@ export default {
 
     async getListCity () {
       try {
-        const { data } = ConfigService.getCityList()
+        const { data } = await ConfigService.getCityList({})
         const provinceOptions = data.map((e) => {
           return {
             value: e.code,
             text: e.name
           }
         })
-        this.provinceOptions = [...provinceOptions]
+        this.provinceOptions = [{ value: null, text: 'Chọn tỉnh thành' }, ...provinceOptions]
       } catch (error) {
-        
+        console.log(error)
       }
     },
 
@@ -1342,12 +1340,12 @@ export default {
 
         const response = await VehicleService.getVehicleList({
           codeTransport: this.SelectData.company ? this.SelectData.company : this.SelectData.transport,
-          // codeCity: this.SelectData.codeCity,
+          codeCity: this.SelectData.codeCity,
           // minPrice: this.SelectData.minPrice,
           // maxPrice: this.SelectData.maxPrice,
           // minManufactureYear: this.SelectData.minManufactureYear,
           // maxManufactureYear: this.SelectData.maxManufactureYear,
-          // status: this.SelectData.status,
+          status: this.SelectData.status,
           limit: 20,
           page: 1
         })
@@ -1376,6 +1374,7 @@ export default {
         minManufactureYear: null,
         maxManufactureYear: null
       }
+      this.submitSearch()
     },
 
     changePrice () {
