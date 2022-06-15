@@ -224,31 +224,33 @@ Assigned to: ThemeForest
 
         // Range Slider
         RangeSlider: function() {
+            const priceRange = JSON.parse(localStorage.getItem('PriceYearRange')).price
             if ($('#range_24').length > 0) {
                 $("#range_24").ionRangeSlider({
                     type: "double",
-                    min: 1000,
-                    max: 2000,
-                    from: 1200,
-                    to: 1800,
+                    min: priceRange.minValue,
+                    max: priceRange.maxValue,
+                    from: priceRange.minValue,
+                    to: priceRange.maxValue,
                     hide_min_max: true,
                     hide_from_to: false,
-                    grid: false
+                    grid: true
                 });
             }
         },
 
         RangeSlider_2: function() {
+          const yearRange = JSON.parse(localStorage.getItem('PriceYearRange')).year
             if ($('#range_25').length > 0) {
                 $("#range_25").ionRangeSlider({
                     type: "double",
-                    min: 2012,
-                    max: 2022,
-                    from: 2014,
-                    to: 2020,
+                    min: yearRange.minValue,
+                    max: yearRange.maxValue,
+                    from: yearRange.minValue,
+                    to: yearRange.maxValue,
                     hide_min_max: true,
                     hide_from_to: false,
-                    grid: false
+                    grid: true
                 });
             }
         },

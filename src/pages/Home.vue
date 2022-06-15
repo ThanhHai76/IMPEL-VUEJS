@@ -748,17 +748,23 @@
                   </div>
 
                   <div class="impl_select_boxes">
-                    <div class="price_range price_select">
-                      <label>Chọn giá</label>
+                    <div class="price_range price_select d-flex">
+                      <label>Chọn giá (Triệu)</label>
                       <input
                         type="text"
                         id="range_24"
-                        @change="changePrice()"
                         name="ionRangeSlider"
                         value=""
                       />
                     </div>
+                  </div>
 
+                  <!-- <div class="impl_select_boxes mt-3">
+                    <div class="price_range year_select">
+                      <label>Chọn năm</label>
+                    </div>
+                  </div> -->
+                  <div class="impl_select_boxes">
                     <div class="price_range year_select">
                       <label>Chọn năm</label>
                       <input
@@ -768,60 +774,8 @@
                         value=""
                       />
                     </div>
-
-                    <!-- <div class="price_range">
-                      <label>Chọn năm</label>
-                      <span class="irs js-irs-0"
-                        ><span class="irs"
-                          ><span class="irs-line" tabindex="0"
-                            ><span class="irs-line-left"></span
-                            ><span class="irs-line-mid"></span
-                            ><span class="irs-line-right"></span></span
-                          ><span
-                            class="irs-min"
-                            style="display: none; visibility: visible"
-                            >0</span
-                          ><span
-                            class="irs-max"
-                            style="display: none; visibility: visible"
-                            >1</span
-                          ><span
-                            class="irs-from"
-                            style="visibility: visible; left: 17.8481%"
-                            >2010</span
-                          ><span
-                            class="irs-to"
-                            style="visibility: visible; left: 77.6058%"
-                            >2022</span
-                          ><span
-                            class="irs-single"
-                            style="visibility: hidden; left: 38.8248%"
-                            >2010 — 2022</span
-                          ></span
-                        ><span class="irs-grid"></span
-                        ><span
-                          class="irs-bar"
-                          style="left: 23.4781%; width: 59.3207%"
-                        ></span
-                        ><span
-                          class="irs-shadow shadow-from"
-                          style="display: none"
-                        ></span
-                        ><span
-                          class="irs-shadow shadow-to"
-                          style="display: none"
-                        ></span
-                        ><span
-                          class="irs-slider from"
-                          style="left: 17.6813%"
-                        ></span
-                        ><span
-                          class="irs-slider to type_last"
-                          style="left: 77.002%"
-                        ></span
-                      ></span>
-                    </div> -->
                   </div>
+                  
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -896,6 +850,43 @@
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <!--pagination start-->
+          <div class="col-lg-12 col-md-12">
+            <div class="impl_pagination_wrapper">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#"
+                      ><i
+                        class="fa fa-angle-left"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link active" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#"
+                      ><i
+                        class="fa fa-angle-right"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
@@ -1094,6 +1085,42 @@
             </div>
           </div>
         </div>
+         <!--pagination start-->
+        <div class="row mt-3">
+          <div class="col-lg-12 col-md-12">
+            <div class="impl_pagination_wrapper">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#"
+                      ><i
+                        class="fa fa-angle-left"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link active" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#"
+                      ><i
+                        class="fa fa-angle-right"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1111,7 +1138,7 @@ export default {
     // selectSearch
   },
 
-  mounted () {
+  async mounted () {
     // this.loadScriptAll()
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
@@ -1119,10 +1146,11 @@ export default {
       })
     }, 2000)
     this.SelectData.transport = 'transport_car'
-    this.getListTransport()
-    this.getListCompany(this.SelectData.transport)
+    await this.getListTransport()
+    await this.getListCompany(this.SelectData.transport)
+    await this.getListCity()
+    await this.getPriceYearRange()
     this.submitSearch()
-    this.getListCity()
   },
 
   data: () => {
@@ -1171,7 +1199,8 @@ export default {
         { value: 'electric', text: 'Điện' },
         { value: 'gasElectric', text: 'Xăng + Điện' }
       ],
-      dataVehicleList: []
+      dataVehicleList: [],
+      configRange: {}
     }
   },
 
@@ -1330,21 +1359,41 @@ export default {
       }
     },
 
+    async getPriceYearRange () {
+      try {
+        const [configPrice, configYear] = await
+          Promise.all([
+            ConfigService.getPriceYearRange({code: 'RANGE_PRICE'}),
+            ConfigService.getPriceYearRange({code: 'RANGE_YEAR'})
+          ])
+        this.configRange = {
+          price: configPrice.data,
+          year: configYear.data
+        }
+        localStorage.setItem('PriceYearRange', JSON.stringify(this.configRange))
+        
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
     async submitSearch() {
       try {
-        this.SelectData.minPrice = document.querySelector('.irs-from') ? Number(document.querySelector('.irs-from').innerText.replace(' ', '')) : null
-        this.SelectData.maxPrice = document.querySelector('.irs-to') ? Number(document.querySelector('.irs-to').innerText.replace(' ', '')) : null
+        const { price, year } = this.configRange
+
+        this.SelectData.minPrice = document.querySelector('.irs-from') ? Number(document.querySelector('.irs-from').innerText.replace(' ', '')) : price.minValue
+        this.SelectData.maxPrice = document.querySelector('.irs-to') ? Number(document.querySelector('.irs-to').innerText.replace(' ', '')) : price.maxValue
         
-        this.SelectData.minManufactureYear = document.querySelector('.price_range.year_select .irs-from') ? Number(document.querySelector('.price_range.year_select .irs-from').innerText.replace(' ', '')) : null
-        this.SelectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').innerText.replace(' ', '')) : null
+        this.SelectData.minManufactureYear = document.querySelector('.price_range.year_select .irs-from') ? Number(document.querySelector('.price_range.year_select .irs-from').innerText.replace(' ', '')) : year.minValue
+        this.SelectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').innerText.replace(' ', '')) : year.maxValue
 
         const response = await VehicleService.getVehicleList({
           codeTransport: this.SelectData.company ? this.SelectData.company : this.SelectData.transport,
           codeCity: this.SelectData.codeCity,
-          // minPrice: this.SelectData.minPrice,
-          // maxPrice: this.SelectData.maxPrice,
-          // minManufactureYear: this.SelectData.minManufactureYear,
-          // maxManufactureYear: this.SelectData.maxManufactureYear,
+          minPrice: this.SelectData.minPrice * 1000000,
+          maxPrice: this.SelectData.maxPrice * 1000000,
+          minManufactureYear: this.SelectData.minManufactureYear,
+          maxManufactureYear: this.SelectData.maxManufactureYear,
           status: this.SelectData.status,
           limit: 20,
           page: 1
@@ -1399,6 +1448,11 @@ export default {
 .impl_search_btn {
   width: 100%;
 }
+.price_range {
+  width: 80%;
+}
+
+
 @media screen and (max-width: 992px) {
   .select-box {
     width: 100%;
@@ -1411,5 +1465,14 @@ export default {
   .impl_select_boxes .price_range:first-child {
     margin-bottom: 1.5rem;
   }
+}
+</style>
+
+<style>
+.price_range.year_select > span {
+  margin-left: 7rem !important;
+}
+.price_range .irs.js-irs-0 {
+  width: 100% !important;
 }
 </style>
