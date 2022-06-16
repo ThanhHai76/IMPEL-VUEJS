@@ -729,22 +729,30 @@
                   <div class="impl_select_boxes">
                     <b-form-select
                       class="select-box"
-                      v-model="SelectData.transport"
+                      v-model="selectData.transport"
                       :options="transportOptions"
                       @change="getListCompany"
                     >
                     </b-form-select>
                     <b-form-select
                       class="select-box"
-                      v-model="SelectData.company"
+                      v-model="selectData.company"
                       :options="companyOptions"
+                      @change="getListSeries"
                     >
                     </b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.model" :options="modelOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.codeCity" :options="provinceOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.status" :options="statusOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.design" :options="designOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="SelectData.fuel" :options="fuelOptions"></b-form-select>
+                    <b-form-select
+                      class="select-box"
+                      v-model="selectData.series"
+                      :options="seriesOptions"
+                      @change="getListModel"
+                    >
+                    </b-form-select>
+                    <b-form-select class="select-box" v-model="selectData.model" :options="modelOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="selectData.codeCity" :options="provinceOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="selectData.status" :options="statusOptions"></b-form-select>
+                    <!-- <b-form-select class="select-box" v-model="selectData.design" :options="designOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="selectData.fuel" :options="fuelOptions"></b-form-select> -->
                   </div>
 
                   <div class="impl_select_boxes">
@@ -807,7 +815,7 @@
           </div>
           <div class="col-lg-3 col-md-6" v-for="item in dataVehicleList" :key="item.id">
             <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
+              <div class="impl_fea_car_img" @click="$router.push(`/detail?id=${item.id}`)">
                 <img
                   :src="item.avatar"
                   alt=""
@@ -1145,9 +1153,9 @@ export default {
         loading: false
       })
     }, 2000)
-    this.SelectData.transport = 'transport_car'
+    this.selectData.transport = 'transport_car'
     await this.getListTransport()
-    await this.getListCompany(this.SelectData.transport)
+    await this.getListCompany(this.selectData.transport)
     await this.getListCity()
     await this.getPriceYearRange()
     this.submitSearch()
@@ -1155,9 +1163,10 @@ export default {
 
   data: () => {
     return {
-      SelectData: {
+      selectData: {
         transport: null,
         company: null,
+        series: null,
         model: null,
         codeCity: null,
         status: null,
@@ -1169,14 +1178,14 @@ export default {
         maxManufactureYear: null
       },
       transportOptions: [
-        { value: null, text: 'Chọn phương tiện'},
+        { value: null, text: 'Chọn phương tiện'}
       ],
       companyOptions: [],
       modelOptions: [
-        { value: null, text: 'Chọn Series' },
-        { value: 'status 1', text: 'Model 1' },
-        { value: 'status 2', text: 'Model 2' },
-        { value: 'status 3', text: 'Model 3' },
+        { value: null, text: 'Chọn model'}
+      ],
+      seriesOptions: [
+        { value: null, text: 'Chọn Series'}
       ],
       provinceOptions: [],
       statusOptions:[
@@ -1330,15 +1339,62 @@ export default {
     async getListCompany (code) {
       try {
         this.companyOptions = []
-        this.SelectData.company = null
+        this.selectData.company = null
         this.companyOptions.push({ value: null, text: 'Chọn hãng' })
         const response = await TransportService.getListTransport({
-          codeParent: code
+          codeParent: code ? code : ''
         })
         response.data.transportListRes.shift()
         response.data.transportListRes.map((e) => {
           this.companyOptions.push({ value: e.code, text: e.name })
         })
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.seriesOptions = [{ value: null, text: 'Chọn Series'}]
+        this.modelOptions = [{ value: null, text: 'Chọn model'}]
+      }
+    },
+
+    async getListSeries (code) {
+      try {
+        this.seriesOptions = []
+        this.selectData.series = null
+        const { data } = await TransportService.getListTransport({
+          codeParent: code ? code : ''
+        })
+        const seriesOptions = data.transportListRes.map((e) => {
+          return { value: e.code, text: e.name }
+        })
+        if (seriesOptions.length > 0) {
+          seriesOptions.shift()
+          this.seriesOptions = [{ value: null, text: 'Chọn Series' }, ...seriesOptions]
+        } else {
+          this.seriesOptions = [{ value: null, text: 'Chọn Series' }]
+        }
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.modelOptions = [{ value: null, text: 'Chọn model'}]
+      }
+    },
+
+    async getListModel (code) {
+      try {
+        this.modelOptions = []
+        this.selectData.model = null
+        const { data } = await TransportService.getListTransport({
+          codeParent: code ? code : ''
+        })
+        const modelOptions = data.transportListRes.map((e) => {
+          return { value: e.code, text: e.name }
+        })
+        if (modelOptions.length > 0) {
+          modelOptions.shift()
+          this.modelOptions = [{ value: null, text: 'Chọn Model' }, ...modelOptions]
+        } else {
+          this.modelOptions = [{ value: null, text: 'Chọn Model' }]
+        }
       } catch (error) {
         console.log(error)
       }
@@ -1371,7 +1427,6 @@ export default {
           year: configYear.data
         }
         localStorage.setItem('PriceYearRange', JSON.stringify(this.configRange))
-        
       } catch (error) {
         console.log(error)
       }
@@ -1381,20 +1436,20 @@ export default {
       try {
         const { price, year } = this.configRange
 
-        this.SelectData.minPrice = document.querySelector('.irs-from') ? Number(document.querySelector('.irs-from').innerText.replace(' ', '')) : price.minValue
-        this.SelectData.maxPrice = document.querySelector('.irs-to') ? Number(document.querySelector('.irs-to').innerText.replace(' ', '')) : price.maxValue
+        this.selectData.minPrice = document.querySelector('.irs-from') ? Number(document.querySelector('.irs-from').innerText.replace(' ', '')) : price.minValue
+        this.selectData.maxPrice = document.querySelector('.irs-to') ? Number(document.querySelector('.irs-to').innerText.replace(' ', '')) : price.maxValue
         
-        this.SelectData.minManufactureYear = document.querySelector('.price_range.year_select .irs-from') ? Number(document.querySelector('.price_range.year_select .irs-from').innerText.replace(' ', '')) : year.minValue
-        this.SelectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').innerText.replace(' ', '')) : year.maxValue
+        this.selectData.minManufactureYear = document.querySelector('.price_range.year_select .irs-from') ? Number(document.querySelector('.price_range.year_select .irs-from').innerText.replace(' ', '')) : year.minValue
+        this.selectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').innerText.replace(' ', '')) : year.maxValue
 
         const response = await VehicleService.getVehicleList({
-          codeTransport: this.SelectData.company ? this.SelectData.company : this.SelectData.transport,
-          codeCity: this.SelectData.codeCity,
-          minPrice: this.SelectData.minPrice * 1000000,
-          maxPrice: this.SelectData.maxPrice * 1000000,
-          minManufactureYear: this.SelectData.minManufactureYear,
-          maxManufactureYear: this.SelectData.maxManufactureYear,
-          status: this.SelectData.status,
+          codeTransport: this.selectData.company ? this.selectData.company : this.selectData.transport,
+          codeCity: this.selectData.codeCity,
+          minPrice: this.selectData.minPrice * 1000000,
+          maxPrice: this.selectData.maxPrice * 1000000,
+          minManufactureYear: this.selectData.minManufactureYear,
+          maxManufactureYear: this.selectData.maxManufactureYear,
+          status: this.selectData.status,
           limit: 20,
           page: 1
         })
@@ -1410,9 +1465,10 @@ export default {
     },
 
     clearSearch () {
-      this.SelectData = {
+      this.selectData = {
         transport: null,
         company: null,
+        series: null,
         model: null,
         codeCity: null,
         status: null,
@@ -1450,6 +1506,9 @@ export default {
 }
 .price_range {
   width: 80%;
+}
+.impl_fea_car_img:hover {
+  cursor: pointer;
 }
 
 

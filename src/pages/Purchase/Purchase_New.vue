@@ -278,7 +278,7 @@
                   <div class="row">
                     <div class="col-lg-4 col-md-6" v-for="item in dataVehicleList" :key="item.id">
                       <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
+                        <div class="impl_fea_car_img" @click="$router.push(`/detail?id=${item.id}`)">
                           <img
                             :src="item.avatar"
                             alt=""
@@ -386,11 +386,7 @@
 export default {
   props: ['dataVehicleList'],
   mounted () {
-    setTimeout(() => {
-      this.$store.commit('loading/SET_LOADING', {
-        loading: false
-      })
-    }, 1000)
+
   },
   data () {
     return {
@@ -404,5 +400,8 @@ export default {
 <style scoped>
 .impl_fea_car_data ul li span.impl_fea_title {
   width: 50%;
+}
+.impl_fea_car_img:hover {
+  cursor: pointer;
 }
 </style>

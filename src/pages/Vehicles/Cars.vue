@@ -4,9 +4,9 @@
     <BreadcrumbStart ref="menuStart" name="Ô tô" code="transport_car"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
-    <PurchaseNew v-show="typeTab === 'NEW'" :dataVehicleList="dataVehicleList" @typeTab="changeTab"></PurchaseNew>
+    <PurchaseNew v-show="typeTab === 'NEW'" :dataVehicleList="dataVehicleListNew" @typeTab="changeTab"></PurchaseNew>
 
-    <PurchaseUsed v-show="typeTab === 'USED'" @typeTab="changeTab"></PurchaseUsed>
+    <PurchaseUsed v-show="typeTab === 'USED'" :dataVehicleList="dataVehicleListUsed" @typeTab="changeTab"></PurchaseUsed>
 
     <!------ About our company Start ------>
     <div class="impl_about_wrapper">
@@ -107,7 +107,8 @@ export default {
       menuSearch: [],
       levelMenu: 0,
       typeTab: 'NEW',
-      dataVehicleList: []
+      dataVehicleListNew: [],
+      dataVehicleListUsed: []
     }
   },
 
@@ -133,6 +134,7 @@ export default {
   mounted () {
     this.$refs.menuStart.getTransportMenu('transport_car')
     this.submitSearch()
+    this.searchVehicleUsed()
   },
 
   methods: {
@@ -157,13 +159,32 @@ export default {
       try {
         const response = await VehicleService.getVehicleList({
           codeTransport: 'transport_car',
+          status: 'NEW',
           limit: 20,
           page: 1
         })
         if (response.code === 1000) {
-          this.dataVehicleList = response.data.vehicleList
+          this.dataVehicleListNew = response.data.vehicleList
         } else {
-          this.dataVehicleList = []
+          this.dataVehicleListNew = []
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async searchVehicleUsed() {
+      try {
+        const response = await VehicleService.getVehicleList({
+          codeTransport: 'transport_car',
+          status: 'USED',
+          limit: 20,
+          page: 1
+        })
+        if (response.code === 1000) {
+          this.dataVehicleListUsed = response.data.vehicleList
+        } else {
+          this.dataVehicleListUsed = []
         }
       } catch (error) {
         console.log(error)

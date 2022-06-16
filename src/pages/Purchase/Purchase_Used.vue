@@ -22,7 +22,7 @@
           <div class="col-lg-12 col-md-12">
             <div class="impl_purchase_inner">
               <div class="row">
-                <div class="col-lg-3 col-md-3">
+                <div class="col-lg-3 col-md-4">
                   <div class="impl_sidebar">
                     <div class="impl_product_search widget woocommerce">
                       <div class="impl_footer_subs">
@@ -248,12 +248,16 @@
                     <div class="impl_product_price widget woocommerce">
                       <h2 class="widget-title">price range</h2>
                       <div class="price_range">
-                        <input
+                        <!-- <input
                           type="text"
                           id="range_24"
                           name="ionRangeSlider"
                           value=""
-                        />
+                        /> -->
+                         <b-form-input id="range-1" v-model="minPrice" type="range" min="1000" max="2000"></b-form-input>
+                         <div class="mt-2">Min: {{ minPrice }}</div>
+                         <b-form-input id="range-1" v-model="maxPrice" type="range" min="1000" max="2000"></b-form-input>
+                         <div class="mt-2">Max: {{ maxPrice }}</div>
                       </div>
                     </div>
                     <!--Car Type-->
@@ -270,78 +274,25 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-9 col-md-9">
+                <div class="col-lg-9 col-md-8">
                   <div class="row">
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" v-for="item in dataVehicleList" :key="item.id">
                       <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
+                        <div class="impl_fea_car_img" @click="$router.push(`/detail?id=${item.id}`)">
                           <img
-                            src="http://via.placeholder.com/370x320"
+                            :src="item.avatar"
                             alt=""
                             class="img-fluid impl_frst_car_img"
+                            width="370"
+                            height="320"
                           />
                           <img
-                            src="http://via.placeholder.com/370x320/fff"
+                            :src="item.subAvatar"
                             alt=""
                             class="img-fluid impl_hover_car_img"
                           />
                           <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2><a href="purchase_old_single.html">Aurora</a></h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Aurora </span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2014</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">grey</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--2-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
+                            ><a href="javascript:void(0)" @click="$router.push(`/detail?id=${item.id}`)"
                               ><i
                                 class="fa fa-exchange"
                                 aria-hidden="true"
@@ -350,428 +301,42 @@
                         </div>
                         <div class="impl_fea_car_data">
                           <h2>
-                            <a href="purchase_old_single.html">Serpent</a>
+                            <a href="javascript:void(0)" @click="$router.push(`/detail?id=${item.id}`)">
+                              {{ item.titleSell }}
+                            </a>
                           </h2>
                           <ul>
-                            <li>
+                            <!-- <li>
                               <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Serpent</span>
+                              <span class="impl_fea_name">Aurora 811</span>
+                            </li> -->
+                            <li>
+                              <span class="impl_fea_title">Nơi bán</span>
+                              <span class="impl_fea_name">{{ item.nameCity }}</span>
                             </li>
                             <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
+                              <span class="impl_fea_title">Tình trạng</span>
+                              <span class="impl_fea_name">{{ item.statusVehicle }}</span>
                             </li>
                             <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2017</span>
+                              <span class="impl_fea_title">Năm SX</span>
+                              <span class="impl_fea_name">{{ item.manufactureYear }}</span>
                             </li>
                             <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">yellow</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
+                              <span class="impl_fea_title">Số dặm</span>
+                              <span class="impl_fea_name">{{ item.odometer | transformNumber }}</span>
                             </li>
                           </ul>
                           <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
+                            <button class="impl_btn" @click="$router.push(`/detail?id=${item.id}`)">
+                              <span class="impl_doller">{{ item.price | formatPriceToText }} </span
+                              ><span class="impl_bnw">Mua ngay</span>
                             </button>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <!--3-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2>
-                            <a href="purchase_old_single.html">Basilisk</a>
-                          </h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Basilisk</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2016</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">white</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--4-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2><a href="purchase_old_single.html">Mirage</a></h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Mirage</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2016</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">white</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--5-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2><a href="purchase_old_single.html">Realm</a></h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Realm</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2016</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">white</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--6-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2><a href="purchase_old_single.html">Empire</a></h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">EmpireZ06</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2016</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">white</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--7-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2>
-                            <a href="purchase_old_single.html">Universe</a>
-                          </h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Universe</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2016</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">white</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--8-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2><a href="purchase_old_single.html">Dawn</a></h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Dawn</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2016</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">white</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!--9-->
-                    <div class="col-lg-4 col-md-6">
-                      <div class="impl_fea_car_box">
-                        <div class="impl_fea_car_img">
-                          <img
-                            src="http://via.placeholder.com/370x320"
-                            alt=""
-                            class="img-fluid impl_frst_car_img"
-                          />
-                          <img
-                            src="http://via.placeholder.com/370x320/fff"
-                            alt=""
-                            class="img-fluid impl_hover_car_img"
-                          />
-                          <span class="impl_img_tag" title="compare"
-                            ><a href="compare.html"
-                              ><i
-                                class="fa fa-exchange"
-                                aria-hidden="true"
-                              ></i></a
-                          ></span>
-                        </div>
-                        <div class="impl_fea_car_data">
-                          <h2><a href="purchase_old_single.html">Crux</a></h2>
-                          <ul>
-                            <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Crux Z06</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Vehicle Status</span>
-                              <span class="impl_fea_name">old</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">year</span>
-                              <span class="impl_fea_name">2016</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">Color</span>
-                              <span class="impl_fea_name">white</span>
-                            </li>
-                            <li>
-                              <span class="impl_fea_title">driven</span>
-                              <span class="impl_fea_name">8000 km</span>
-                            </li>
-                          </ul>
-                          <div class="impl_fea_btn">
-                            <button class="impl_btn">
-                              <span class="impl_doller">$ 72000 </span
-                              ><span class="impl_bnw">buy now</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
                     <!--pagination start-->
                     <div class="col-lg-12 col-md-12">
                       <div class="impl_pagination_wrapper">
@@ -819,12 +384,15 @@
 
 <script>
 export default {
+  props: ['dataVehicleList'],
   mounted () {
-    setTimeout(() => {
-      this.$store.commit('loading/SET_LOADING', {
-        loading: false
-      })
-    }, 1000)
+
+  },
+  data () {
+    return {
+      minPrice: null,
+      maxPrice: null
+    }
   }
 }
 </script>
@@ -832,5 +400,8 @@ export default {
 <style scoped>
 .impl_fea_car_data ul li span.impl_fea_title {
   width: 50%;
+}
+.impl_fea_car_img:hover {
+  cursor: pointer;
 }
 </style>
