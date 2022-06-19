@@ -234,7 +234,7 @@ Assigned to: ThemeForest
                     to: priceRange.maxValue,
                     hide_min_max: true,
                     hide_from_to: false,
-                    grid: true
+                    grid: false
                 });
             }
         },
@@ -250,7 +250,7 @@ Assigned to: ThemeForest
                     to: yearRange.maxValue,
                     hide_min_max: true,
                     hide_from_to: false,
-                    grid: true
+                    grid: false
                 });
             }
         },

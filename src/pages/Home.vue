@@ -751,39 +751,9 @@
                     <b-form-select class="select-box" v-model="selectData.model" :options="modelOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="selectData.codeCity" :options="provinceOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="selectData.status" :options="statusOptions"></b-form-select>
-                    <!-- <b-form-select class="select-box" v-model="selectData.design" :options="designOptions"></b-form-select>
-                    <b-form-select class="select-box" v-model="selectData.fuel" :options="fuelOptions"></b-form-select> -->
+                    <b-form-select class="select-box" v-model="selectData.design" :options="designOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="selectData.fuel" :options="fuelOptions"></b-form-select>
                   </div>
-
-                  <div class="impl_select_boxes">
-                    <div class="price_range price_select d-flex">
-                      <label>Chọn giá (Triệu)</label>
-                      <input
-                        type="text"
-                        id="range_24"
-                        name="ionRangeSlider"
-                        value=""
-                      />
-                    </div>
-                  </div>
-
-                  <!-- <div class="impl_select_boxes mt-3">
-                    <div class="price_range year_select">
-                      <label>Chọn năm</label>
-                    </div>
-                  </div> -->
-                  <div class="impl_select_boxes">
-                    <div class="price_range year_select">
-                      <label>Chọn năm</label>
-                      <input
-                        type="text"
-                        id="range_25"
-                        name="ionRangeSlider_2"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  
                 </div>
 
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -798,6 +768,32 @@
                 </div>
                 
               </div>
+
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="impl_select_boxes">
+                    <div class="price_range price_select d-flex">
+                      <label>Chọn giá (Triệu)</label>
+                      <input
+                        type="text"
+                        id="range_24"
+                        name="ionRangeSlider"
+                        value=""
+                      />
+                    </div>
+                    <div class="price_range year_select">
+                      <label>Chọn năm</label>
+                      <input
+                        type="text"
+                        id="range_25"
+                        name="ionRangeSlider_2"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -867,7 +863,15 @@
           <div class="col-lg-12 col-md-12">
             <div class="impl_pagination_wrapper">
               <nav aria-label="Page navigation example">
-                <ul class="pagination">
+                <div class="overflow-auto">
+                  <b-pagination
+                    v-model="search.page"
+                    :total-rows="search.total"
+                    :per-page="search.limit"
+                  ></b-pagination>
+                </div>
+
+                <!-- <ul class="pagination">
                   <li class="page-item">
                     <a class="page-link" href="#"
                       ><i
@@ -876,14 +880,10 @@
                       ></i
                     ></a>
                   </li>
-                  <li class="page-item">
-                    <a class="page-link active" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">3</a>
+                  <li class="page-item" v-for="item in totalPage" :key="item">
+                    <a class="page-link" @click="changePage(item)" :class="{ 'active': item === search.page }" href="javascript:void(0)">
+                      {{ item }}
+                    </a>
                   </li>
                   <li class="page-item">
                     <a class="page-link" href="#"
@@ -893,7 +893,7 @@
                       ></i
                     ></a>
                   </li>
-                </ul>
+                </ul> -->
               </nav>
             </div>
           </div>
@@ -910,16 +910,16 @@
               <h1>MẪU XE ĐƯỢC QUAN TÂM</h1>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6" v-for="item in dataVehicleFavorite" :key="item.id">
             <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
+              <div class="impl_fea_car_img" @click="$router.push(`/detail?id=${item.id}`)">
                 <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/logolincoln-navigator-2019-suv-01.jpg"
+                  :src="item.avatar"
                   alt=""
                   class="img-fluid impl_frst_car_img"
                 />
                 <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/22636/lincoln-navigator-2019-suv-05.jpg"
+                  :src="item.subAvatar"
                   alt=""
                   class="img-fluid impl_hover_car_img"
                 />
@@ -929,163 +929,28 @@
               </div>
               <div class="impl_fea_car_data">
                 <h2 class="line-clamp">
-                  <a href="javascript:void(0)" @click="$router.push('/detail?id=6299f4d02186836100ffe0d6')"
-                    >Bán xe Lincoln Navigator L 2019</a
+                  <a href="javascript:void(0)" @click="$router.push(`/detail?id=${item.id}`)"
+                    >{{ item.titleSell }}</a
                   >
                 </h2>
                 <ul>
                   <li>
                     <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Hà Nội</span
+                      >Nơi Bán : {{ item.nameCity }}</span
                     >
                   </li>
                   <li>
                     <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Mới</span
+                      >Tình Trạng : {{ item.statusVehicle }}</span
                     >
                   </li>
                   <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2019</span>
+                    <span class="impl_fea_title ellipsis">Năm SX : {{ item.manufactureYear }}</span>
                   </li>
                 </ul>
                 <div class="impl_fea_btn">
-                  <button class="impl_btn" @click="$router.push('/detail?id=6299f4d02186836100ffe0d6')">
-                    <span class="impl_doller">7 Tỷ 660 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/logolexus-gx-460-2010-suv-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/lexus-gx-460-2010-suv-04.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="purchase_new.html">Bán xe Lexus GX 460 2010</a>
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Tp. Hồ Chí Minh</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Qua Sử Dụng</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2010</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">2 Tỷ 70 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/19946/logobmw-730li-2018-sedan-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/19946/bmw-730li-2018-sedan-03.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="purchase_new.html">Bán xe BMW 730Li 2020</a>
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Tp. Hồ Chí Minh</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Mới</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2020</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">499 Triệu Đồng </span
-                    ><span class="impl_bnw">Xem ngay</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="impl_fea_car_box">
-              <div class="impl_fea_car_img">
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/logolexus-gx-460-2010-suv-01.jpg"
-                  alt=""
-                  class="img-fluid impl_frst_car_img"
-                />
-                <img
-                  src="http://sanxesang.com/faces/images/muaban/xehoi/23022/lexus-gx-460-2010-suv-04.jpg"
-                  alt=""
-                  class="img-fluid impl_hover_car_img"
-                />
-                <span class="impl_img_tag" title="compare"
-                  ><i class="fa fa-exchange" aria-hidden="true"></i
-                ></span>
-              </div>
-              <div class="impl_fea_car_data">
-                <h2 class="line-clamp">
-                  <a href="purchase_new.html">Bán xe Lexus GX 460 2010</a>
-                </h2>
-                <ul>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Nơi Bán : Tp. Hồ Chí Minh</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis"
-                      >Tình Trạng : Xe Qua Sử Dụng</span
-                    >
-                  </li>
-                  <li>
-                    <span class="impl_fea_title ellipsis">Năm SX : 2010</span>
-                  </li>
-                </ul>
-                <div class="impl_fea_btn">
-                  <button class="impl_btn">
-                    <span class="impl_doller">2 Tỷ 70 Triệu Đồng </span
+                  <button class="impl_btn" @click="$router.push(`/detail?id=${item.id}`)">
+                    <span class="impl_doller">{{ item.price | formatPriceToText }} </span
                     ><span class="impl_bnw">Xem ngay</span>
                   </button>
                 </div>
@@ -1098,7 +963,12 @@
           <div class="col-lg-12 col-md-12">
             <div class="impl_pagination_wrapper">
               <nav aria-label="Page navigation example">
-                <ul class="pagination">
+                <b-pagination
+                  v-model="searchFavorite.page"
+                  :total-rows="searchFavorite.total"
+                  :per-page="searchFavorite.limit"
+                ></b-pagination>
+                <!-- <ul class="pagination">
                   <li class="page-item">
                     <a class="page-link" href="#"
                       ><i
@@ -1124,7 +994,7 @@
                       ></i
                     ></a>
                   </li>
-                </ul>
+                </ul> -->
               </nav>
             </div>
           </div>
@@ -1146,21 +1016,6 @@ export default {
     // selectSearch
   },
 
-  async mounted () {
-    // this.loadScriptAll()
-    setTimeout(() => {
-      this.$store.commit('loading/SET_LOADING', {
-        loading: false
-      })
-    }, 2000)
-    this.selectData.transport = 'transport_car'
-    await this.getListTransport()
-    await this.getListCompany(this.selectData.transport)
-    await this.getListCity()
-    await this.getPriceYearRange()
-    this.submitSearch()
-  },
-
   data: () => {
     return {
       selectData: {
@@ -1176,6 +1031,16 @@ export default {
         maxPrice: null,
         minManufactureYear: null,
         maxManufactureYear: null
+      },
+      search: {
+        page: 1,
+        limit: 10,
+        total: 0
+      },
+      searchFavorite: {
+        page: 1,
+        limit: 10,
+        total: 0
       },
       transportOptions: [
         { value: null, text: 'Chọn phương tiện'}
@@ -1209,7 +1074,34 @@ export default {
         { value: 'gasElectric', text: 'Xăng + Điện' }
       ],
       dataVehicleList: [],
-      configRange: {}
+      configRange: {},
+      dataVehicleFavorite: [],
+      totalPage: null
+    }
+  },
+
+  async mounted () {
+    // this.loadScriptAll()
+    setTimeout(() => {
+      this.$store.commit('loading/SET_LOADING', {
+        loading: false
+      })
+    }, 2000)
+    this.selectData.transport = 'transport_car'
+    await this.getListTransport()
+    await this.getListCompany(this.selectData.transport)
+    await this.getListCity()
+    await this.getPriceYearRange()
+    this.submitSearch()
+    this.getListFavorite()
+  },
+
+  watch: {
+    'search.page': function () {
+      this.submitSearch()
+    },
+    'searchFavorite.page': function () {
+      this.getListFavorite()
     }
   },
 
@@ -1450,11 +1342,13 @@ export default {
           minManufactureYear: this.selectData.minManufactureYear,
           maxManufactureYear: this.selectData.maxManufactureYear,
           status: this.selectData.status,
-          limit: 20,
-          page: 1
+          limit: this.search.limit,
+          page: this.search.page
         })
         if (response.code === 1000) {
           this.dataVehicleList = response.data.vehicleList
+          this.search.total = response.totalPage.total
+          this.totalPage = Math.floor(this.search.total / this.search.limit) + 1
         } else {
           this.dataVehicleList = []
         }
@@ -1462,6 +1356,21 @@ export default {
         console.log(error)
       }
       
+    },
+
+    async getListFavorite () {
+      try {
+        const { data } = await VehicleService.getVehicleList({
+          codeTransport: 'transport_car',
+          isFavorites: true,
+          limit: 20,
+          page: 1
+        })
+        this.dataVehicleFavorite = data.vehicleList
+        this.searchFavorite.total = response.totalPage.total
+      } catch (error) {
+        console.log(error)
+      }
     },
 
     clearSearch () {
@@ -1485,6 +1394,10 @@ export default {
     changePrice () {
       const stylePrice = window.getComputedStyle(document.querySelector('.irs-bar')).width
       console.log(stylePrice)
+    },
+
+    changePage (page) {
+      this.search.page = page
     }
   }
 }
@@ -1494,6 +1407,8 @@ export default {
   display: flex !important;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 2rem;
+  padding-right: 2rem;
 }
 .select-box {
   width: 29%;
@@ -1503,12 +1418,16 @@ export default {
 }
 .impl_search_btn {
   width: 100%;
+  padding-top: 20px;
 }
 .price_range {
-  width: 80%;
+  width: 50%;
 }
 .impl_fea_car_img:hover {
   cursor: pointer;
+}
+.impl_search_box {
+  padding: 30px 30px 0 30px;
 }
 
 
@@ -1521,8 +1440,14 @@ export default {
   .select-box {
     margin-bottom: 1rem;
   }
+  .impl_select_boxes {
+    padding-top: 0;
+  }
   .impl_select_boxes .price_range:first-child {
     margin-bottom: 1.5rem;
+  }
+  .price_range {
+    width: 100%;
   }
 }
 </style>
@@ -1533,5 +1458,11 @@ export default {
 }
 .price_range .irs.js-irs-0 {
   width: 100% !important;
+}
+.page-item:hover {
+  cursor: pointer !important;
+}
+.impl_doller {
+  font-size: 12px;
 }
 </style>
