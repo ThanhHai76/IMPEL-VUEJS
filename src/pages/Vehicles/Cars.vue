@@ -160,7 +160,7 @@ export default {
         const response = await VehicleService.getVehicleList({
           codeTransport: 'transport_car',
           status: 'NEW',
-          limit: 20,
+          limit: 9,
           page: 1
         })
         if (response.code === 1000) {

@@ -388,6 +388,11 @@ export default {
   mounted () {
 
   },
+  filters: {
+    transformNumber (data) {
+      return data ? data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') : ''
+    }
+  },
   data () {
     return {
       minPrice: null,

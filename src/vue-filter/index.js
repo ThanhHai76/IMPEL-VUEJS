@@ -462,3 +462,7 @@ Vue.filter('fomatTextService', (data, listSerive) => {
   const dataReturn = listSerive.find(e => e.service === data)
   if (dataReturn) return dataReturn.name
 })
+
+Vue.filter('transformNumber', (data) => {
+  return data ? data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') : ''
+})

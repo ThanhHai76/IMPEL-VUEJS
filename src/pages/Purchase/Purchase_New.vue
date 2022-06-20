@@ -31,7 +31,7 @@
                           class="form-control"
                           placeholder="Search..."
                         />
-                        <button class="foo_subs_btn">
+                        <button class="foo_subs_btn" @click="searchCar()">
                           <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
                       </div>
@@ -40,143 +40,11 @@
                     <div class="impl_product_brand widget woocommerce">
                       <h2 class="widget-title">brands</h2>
                       <ul>
-                        <li>
+                        <li v-for="item in transportOptions" :key="item.id">
                           <label class="brnds_check_label">
-                            Paradox
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Voyage
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Passion
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Curiosity
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Ivory
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Dawn
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Temper
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Thunder
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Blade
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Origin
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Titan
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Dominion
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Ferocity
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Tempest
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Flow
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Prime
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Grit
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Nimbus
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Essence
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            Aura
-                            <input type="checkbox" name="check" />
+                            {{ item.text }}
+                            <input :value="item.id" type="checkbox" v-model="selectedBrand" name="check" />
+                            <!-- <b-form-checkbox :value="item.id" v-model="selectedBrand" name="check"></b-form-checkbox> -->
                             <span class="label-text"></span>
                           </label>
                         </li>
@@ -254,10 +122,10 @@
                           name="ionRangeSlider"
                           value=""
                         /> -->
-                         <b-form-input id="range-1" v-model="minPrice" type="range" min="1000" max="2000"></b-form-input>
-                         <div class="mt-2">Min: {{ minPrice }}</div>
-                         <b-form-input id="range-1" v-model="maxPrice" type="range" min="1000" max="2000"></b-form-input>
-                         <div class="mt-2">Max: {{ maxPrice }}</div>
+                         <b-form-input id="range-1" v-model="selectData.minPrice" type="range" min="500" max="5000"></b-form-input>
+                         <div class="mt-2">Min: {{ selectData.minPrice }}</div>
+                         <b-form-input id="range-1" v-model="selectData.maxPrice" type="range" min="500" max="5000"></b-form-input>
+                         <div class="mt-2">Max: {{ selectData.maxPrice }}</div>
                       </div>
                     </div>
                     <!--Car Type-->
@@ -341,7 +209,12 @@
                     <div class="col-lg-12 col-md-12">
                       <div class="impl_pagination_wrapper">
                         <nav aria-label="Page navigation example">
-                          <ul class="pagination">
+                          <b-pagination
+                            v-model="search.page"
+                            :total-rows="search.total"
+                            :per-page="search.limit"
+                          ></b-pagination>
+                          <!-- <ul class="pagination">
                             <li class="page-item">
                               <a class="page-link" href="#"
                                 ><i
@@ -367,7 +240,7 @@
                                 ></i
                               ></a>
                             </li>
-                          </ul>
+                          </ul> -->
                         </nav>
                       </div>
                     </div>
@@ -383,16 +256,90 @@
 </template>
 
 <script>
+import { TransportService } from '@/services/transport.service'
+import { VehicleService } from '@/services/vehicle.service'
 export default {
-  props: ['dataVehicleList'],
-  mounted () {
-
+  // props: ['dataVehicleList'],
+  created () {
+    this.getListTransport()
+    this.searchCar()
   },
   data () {
     return {
-      minPrice: null,
-      maxPrice: null
+      dataVehicleList: [],
+      dataSelect: {},
+      transportOptions: [],
+      selectedBrand: [],
+      selectData: {
+        transport: null,
+        company: null,
+        series: null,
+        model: null,
+        codeCity: null,
+        status: null,
+        design: null,
+        fuel: null,
+        minPrice: 500,
+        maxPrice: 5000,
+        minManufactureYear: null,
+        maxManufactureYear: null
+      },
+      search: {
+        page: 1,
+        limit: 9,
+        total: 0
+      }
     }
+  },
+
+  filters: {
+    transformNumber (data) {
+      return data ? data.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') : ''
+    }
+  },
+
+  watch: {
+    'search.page': function () {
+      this.searchCar()
+    }
+  },
+
+  methods: {
+    async getListTransport () {
+      try {
+        const response = await TransportService.getListTransport({
+          codeParent: 'transport_car'
+        })
+        this.transportOptions = response.data.transportListRes.map((e) => {
+          return { id: e.code, text: e.name }
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async searchCar() {
+      try {
+        const response = await VehicleService.getVehicleList({
+          codeTransport: this.selectedBrand.length > 0 ? this.selectedBrand[0] : 'transport_car',
+          minPrice: this.selectData.minPrice * 1000000,
+          maxPrice: this.selectData.maxPrice * 1000000,
+          minManufactureYear: this.selectData.minManufactureYear,
+          maxManufactureYear: this.selectData.maxManufactureYear,
+          status: 'NEW',
+          limit: this.search.limit,
+          page: this.search.page
+        })
+        if (response.code === 1000) {
+          this.dataVehicleList = response.data.vehicleList
+          this.search.total = response.totalPage.total
+          this.totalPage = Math.floor(this.search.total / this.search.limit) + 1
+        } else {
+          this.dataVehicleList = []
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    },
   }
 }
 </script>

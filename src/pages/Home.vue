@@ -1034,12 +1034,12 @@ export default {
       },
       search: {
         page: 1,
-        limit: 10,
+        limit: 8,
         total: 0
       },
       searchFavorite: {
         page: 1,
-        limit: 10,
+        limit: 8,
         total: 0
       },
       transportOptions: [
@@ -1355,7 +1355,6 @@ export default {
       } catch (error) {
         console.log(error)
       }
-      
     },
 
     async getListFavorite () {
