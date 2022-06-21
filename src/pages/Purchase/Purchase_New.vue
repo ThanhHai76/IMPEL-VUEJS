@@ -51,7 +51,7 @@
                       </ul>
                     </div>
                     <!--Colors-->
-                    <div class="impl_product_color widget woocommerce">
+                    <!-- <div class="impl_product_color widget woocommerce">
                       <h2 class="widget-title">color</h2>
                       <ul>
                         <li>
@@ -111,7 +111,7 @@
                           </label>
                         </li>
                       </ul>
-                    </div>
+                    </div> -->
                     <!--Price Range-->
                     <div class="impl_product_price widget woocommerce">
                       <h2 class="widget-title">price range</h2>
