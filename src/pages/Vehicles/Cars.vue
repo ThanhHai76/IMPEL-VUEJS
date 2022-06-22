@@ -4,9 +4,9 @@
     <BreadcrumbStart ref="menuStart" name="Ô tô" code="transport_car"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
-    <PurchaseNew v-show="typeTab === 'NEW'" :dataVehicleList="dataVehicleListNew" @typeTab="changeTab"></PurchaseNew>
+    <PurchaseNew :dataVehicleList="dataVehicleListNew"></PurchaseNew>
 
-    <PurchaseUsed v-show="typeTab === 'USED'" :dataVehicleList="dataVehicleListUsed" @typeTab="changeTab"></PurchaseUsed>
+    <!-- <PurchaseUsed v-show="typeTab === 'USED'" :dataVehicleList="dataVehicleListUsed" @typeTab="changeTab"></PurchaseUsed> -->
 
   </div>
 </template>

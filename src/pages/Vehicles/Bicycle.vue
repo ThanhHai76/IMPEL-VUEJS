@@ -4,9 +4,9 @@
      <BreadcrumbStart ref="menuStart" name="Xe đạp" code="transport_bicycle"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
-    <PurchaseNew v-show="typeTab === 'NEW'" :dataVehicleList="dataVehicleListNew" @typeTab="changeTab"></PurchaseNew>
+    <PurchaseNew :dataVehicleList="dataVehicleListNew"></PurchaseNew>
 
-    <PurchaseUsed v-show="typeTab === 'USED'" :dataVehicleList="dataVehicleListUsed" @typeTab="changeTab"></PurchaseUsed>
+    <!-- <PurchaseUsed v-show="typeTab === 'USED'" :dataVehicleList="dataVehicleListUsed" @typeTab="changeTab"></PurchaseUsed> -->
 
     <!------ About our company Start ------>
     <div class="impl_about_wrapper">
@@ -88,7 +88,7 @@
 <script>
 import { TransportService } from '@/services/transport.service'
 import BreadcrumbStart from '../Components/Breadcrumbs_Start.vue'
-import PurchaseNew from '../Purchase/Purchase_New.vue'
+import PurchaseNew from '../Purchase/Purchase_Bicycle.vue'
 import PurchaseUsed from '../Purchase/Purchase_Used.vue'
 import { VehicleService } from '@/services/vehicle.service'
 export default {

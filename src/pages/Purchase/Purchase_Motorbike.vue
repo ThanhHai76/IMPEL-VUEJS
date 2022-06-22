@@ -43,75 +43,14 @@
                         <li v-for="item in transportOptions" :key="item.id">
                           <label class="brnds_check_label">
                             {{ item.text }}
-                            <input :value="item.id" type="checkbox" @change="searchCar()" v-model="selectedBrand" name="check" />
+                            <input :value="item.id" type="checkbox" v-model="selectedBrand" name="check" />
                             <!-- <b-form-checkbox :value="item.id" v-model="selectedBrand" name="check"></b-form-checkbox> -->
                             <span class="label-text"></span>
                           </label>
                         </li>
                       </ul>
                     </div>
-                    <!--Colors-->
-                    <!-- <div class="impl_product_color widget woocommerce">
-                      <h2 class="widget-title">color</h2>
-                      <ul>
-                        <li>
-                          <label class="brnds_check_label">
-                            black
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            blue
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            white
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            yellow
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            red
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            grey
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            brown
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                        <li>
-                          <label class="brnds_check_label">
-                            orange
-                            <input type="checkbox" name="check" />
-                            <span class="label-text"></span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div> -->
+
                     <!--Price Range-->
                     <div class="impl_product_price widget woocommerce">
                       <h2 class="widget-title">price range</h2>
@@ -131,18 +70,7 @@
                          <div class="mt-2">Max: {{ selectData.maxManufactureYear }}</div>
                       </div>
                     </div>
-                    <!--Car Type-->
-                    <!-- <div class="impl_product_type widget woocommerce">
-                      <h2 class="widget-title">car type</h2>
-                      <ul>
-                        <li><a href="#">Hatchback</a></li>
-                        <li><a href="#">Sedan</a></li>
-                        <li><a href="#">MPV</a></li>
-                        <li><a href="#">SUV</a></li>
-                        <li><a href="#">Couple</a></li>
-                        <li><a href="#">Convertible</a></li>
-                      </ul>
-                    </div> -->
+
                   </div>
                 </div>
                 <div class="col-lg-9 col-md-8">
@@ -323,7 +251,7 @@ export default {
     async getListTransport () {
       try {
         const response = await TransportService.getListTransport({
-          codeParent: 'transport_car'
+          codeParent: 'transport_motorcycle'
         })
         this.transportOptions = response.data.transportListRes.map((e) => {
           return { id: e.code, text: e.name }
@@ -335,7 +263,7 @@ export default {
     async searchCar(status) {
       try {
         const response = await VehicleService.getVehicleList({
-          codeTransport: this.selectedBrand.length > 0 ? this.selectedBrand[0] : 'transport_car',
+          codeTransport: this.selectedBrand.length > 0 ? this.selectedBrand[0] : 'transport_motorcycle',
           minPrice: this.selectData.minPrice * 1000000,
           maxPrice: this.selectData.maxPrice * 1000000,
           minManufactureYear: this.selectData.minManufactureYear,
