@@ -748,7 +748,7 @@
                       @change="getListModel"
                     >
                     </b-form-select>
-                    <b-form-select class="select-box" v-model="selectData.model" :options="modelOptions"></b-form-select>
+                    <b-form-select class="select-box" v-model="selectData.model" :options="modelOptions" @change="changeModel"></b-form-select>
                     <b-form-select class="select-box" v-model="selectData.codeCity" :options="provinceOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="selectData.status" :options="statusOptions"></b-form-select>
                     <b-form-select class="select-box" v-model="selectData.design" :options="designOptions"></b-form-select>
@@ -1019,6 +1019,7 @@ export default {
   data: () => {
     return {
       selectData: {
+        codeTransport: null,
         transport: null,
         company: null,
         series: null,
@@ -1230,6 +1231,7 @@ export default {
 
     async getListCompany (code) {
       try {
+        this.selectData.codeTransport = code
         this.companyOptions = []
         this.selectData.company = null
         this.companyOptions.push({ value: null, text: 'Chọn hãng' })
@@ -1250,8 +1252,10 @@ export default {
 
     async getListSeries (code) {
       try {
+        this.selectData.codeTransport = code
         this.seriesOptions = []
         this.selectData.series = null
+        this.selectData.model = null
         const { data } = await TransportService.getListTransport({
           codeParent: code ? code : ''
         })
@@ -1273,6 +1277,7 @@ export default {
 
     async getListModel (code) {
       try {
+        this.selectData.codeTransport = code
         this.modelOptions = []
         this.selectData.model = null
         const { data } = await TransportService.getListTransport({
@@ -1290,6 +1295,10 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+
+    changeModel (code) {
+      this.selectData.codeTransport = code
     },
 
     async getListCity () {
@@ -1335,7 +1344,7 @@ export default {
         this.selectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').innerText.replace(' ', '')) : year.maxValue
 
         const response = await VehicleService.getVehicleList({
-          codeTransport: this.selectData.company ? this.selectData.company : this.selectData.transport,
+          codeTransport: this.selectData.codeTransport,
           codeCity: this.selectData.codeCity,
           minPrice: this.selectData.minPrice * 1000000,
           maxPrice: this.selectData.maxPrice * 1000000,
@@ -1359,13 +1368,13 @@ export default {
 
     async getListFavorite () {
       try {
-        const { data } = await VehicleService.getVehicleList({
+        const response = await VehicleService.getVehicleList({
           codeTransport: 'transport_car',
           isFavorites: true,
           limit: 20,
           page: 1
         })
-        this.dataVehicleFavorite = data.vehicleList
+        this.dataVehicleFavorite = response.data.vehicleList
         this.searchFavorite.total = response.totalPage.total
       } catch (error) {
         console.log(error)
