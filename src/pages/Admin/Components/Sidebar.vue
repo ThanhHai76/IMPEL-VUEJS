@@ -37,12 +37,12 @@
                           <b-collapse id="my-collapse">
                             <ul class="nk-menu-sub">
                                 <li class="nk-menu-item">
-                                  <router-link class="nk-menu-link" to="/admin/create-transport">
+                                  <router-link class="nk-menu-link" to="/admin/create-vehicle">
                                     <span class="nk-menu-text">Thêm</span>
                                   </router-link>
                                 </li>
                                 <li class="nk-menu-item">
-                                  <router-link class="nk-menu-link" to="/admin/edit-transport">
+                                  <router-link class="nk-menu-link" to="/admin/edit-vehicle">
                                     <span class="nk-menu-text">Sửa</span>
                                   </router-link>
                                 </li>

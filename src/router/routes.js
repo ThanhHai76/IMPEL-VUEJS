@@ -23,6 +23,9 @@ import adminHome from '@/pages/Admin/index.vue'
 import createTransport from '@/pages/Admin/TransportController/create-transport.vue'
 import editTransport from '@/pages/Admin/TransportController/edit-transport.vue'
 
+import createVehicle from '@/pages/Admin/VehicleController/create-vehicle.vue'
+import editVehicle from '@/pages/Admin/VehicleController/edit-vehicle.vue'
+
 export const routes = [
   {
     path: '/',
@@ -123,6 +126,19 @@ export const routes = [
     name: 'editTransport',
     component: editTransport,
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | edit transport`, layout: 'admin' }
+  },
+
+  {
+    path: '/admin/create-vehicle',
+    name: 'createVehicle',
+    component: createVehicle,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | create vehicle`, layout: 'admin' }
+  },
+  {
+    path: '/admin/edit-vehicle',
+    name: 'editVehicle',
+    component: editVehicle,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | edit vehicle`, layout: 'admin' }
   }
   
 ]
