@@ -6,16 +6,16 @@
         <div class="row">
           <div class="col-lg-6 col-md-6">
             <div class="impl_sorting_text custom_select">
-              <span class="impl_show"> Showing {{ dataVehicleList.length }} of {{ search.total }} Results</span>
+              <span class="impl_show"> Hiển thị {{ dataVehicleList.length }} trên {{ search.total }} kết quả</span>
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="impl_category_type">
               <a href="javascript:void(0)" @click="changeTab('NEW')" :class="{'active':currentTab === 'NEW'}" class="impl_btn">
-                New car
+                Xe mới
               </a>
               <a href="javascript:void(0)" @click="changeTab('USED')" :class="{'active':currentTab === 'USED'}" class="impl_btn impl_used_car">
-                Used car
+                Xe đã sử dụng
               </a>
             </div>
           </div>

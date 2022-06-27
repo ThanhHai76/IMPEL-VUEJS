@@ -4,7 +4,7 @@
     <BreadcrumbStart ref="menuStart" name="Ô tô" code="transport_car"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
-    <PurchaseNew :dataVehicleList="dataVehicleListNew"></PurchaseNew>
+    <PurchaseCar :dataVehicleList="dataVehicleListNew"></PurchaseCar>
 
     <!-- <PurchaseUsed v-show="typeTab === 'USED'" :dataVehicleList="dataVehicleListUsed" @typeTab="changeTab"></PurchaseUsed> -->
 
@@ -15,7 +15,7 @@
 import BreadcrumbStart from '../Components/Breadcrumbs_Start.vue'
 import { TransportService } from '@/services/transport.service'
 import { mapGetters } from 'vuex'
-import PurchaseNew from '../Purchase/Purchase_New.vue'
+import PurchaseCar from '../Purchase/Purchase_Car.vue'
 import PurchaseUsed from '../Purchase/Purchase_Used.vue'
 import { VehicleService } from '@/services/vehicle.service'
 
@@ -53,7 +53,7 @@ export default {
 
   components: {
     BreadcrumbStart,
-    PurchaseNew,
+    PurchaseCar,
     PurchaseUsed
   },
 

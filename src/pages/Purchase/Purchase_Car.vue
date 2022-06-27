@@ -6,16 +6,16 @@
         <div class="row">
           <div class="col-lg-6 col-md-6">
             <div class="impl_sorting_text custom_select">
-              <span class="impl_show"> Showing {{ dataVehicleList.length }} of {{ search.total }} Results</span>
+              <span class="impl_show"> Hiển thị {{ dataVehicleList.length }} trên {{ search.total }} kết quả</span>
             </div>
           </div>
           <div class="col-lg-6 col-md-6">
             <div class="impl_category_type">
               <a href="javascript:void(0)" @click="changeTab('NEW')" :class="{'active':currentTab === 'NEW'}" class="impl_btn">
-                New car
+                Xe mới
               </a>
               <a href="javascript:void(0)" @click="changeTab('USED')" :class="{'active':currentTab === 'USED'}" class="impl_btn impl_used_car">
-                Used car
+                Xe đã sử dụng
               </a>
             </div>
           </div>
@@ -38,7 +38,7 @@
                     </div>
                     <!--Brands-->
                     <div class="impl_product_brand widget woocommerce">
-                      <h2 class="widget-title">brands</h2>
+                      <h2 class="widget-title">Hãng</h2>
                       <ul>
                         <li v-for="item in transportOptions" :key="item.id">
                           <label class="brnds_check_label">
@@ -114,7 +114,7 @@
                     </div> -->
                     <!--Price Range-->
                     <div class="impl_product_price widget woocommerce">
-                      <h2 class="widget-title">price range</h2>
+                      <h2 class="widget-title">Chọn giá</h2>
                       <div class="price_range">
                          <b-form-input id="range-1" v-model="selectData.minPrice" type="range" :min="dataRange.price.minValue" :max="dataRange.price.maxValue"></b-form-input>
                          <div class="mt-2">Min: {{ selectData.minPrice }}</div>
@@ -123,7 +123,7 @@
                       </div>
                     </div>
                     <div class="impl_product_price widget woocommerce">
-                      <h2 class="widget-title">Year range</h2>
+                      <h2 class="widget-title">Chọn năm</h2>
                       <div class="price_range">
                          <b-form-input id="range-1" v-model="selectData.minManufactureYear" type="range" :min="dataRange.year.minValue" :max="dataRange.year.maxValue"></b-form-input>
                          <div class="mt-2">Min: {{ selectData.minManufactureYear }}</div>
@@ -177,10 +177,6 @@
                             </a>
                           </h2>
                           <ul>
-                            <!-- <li>
-                              <span class="impl_fea_title">model</span>
-                              <span class="impl_fea_name">Aurora 811</span>
-                            </li> -->
                             <li>
                               <span class="impl_fea_title">Nơi bán</span>
                               <span class="impl_fea_name">{{ item.nameCity }}</span>

@@ -12,7 +12,7 @@ import detailTransport from '@/pages/Detail/Car-Detail.vue'
 
 import sellStep from '@/pages/Sell_Step.vue'
 
-import purchaseNew from '@/pages/Purchase/Purchase_New.vue'
+import purchaseNew from '@/pages/Purchase/Purchase_Car.vue'
 import purchaseUsed from '@/pages/Purchase/Purchase_Used.vue'
 import service from '@/pages/Service.vue'
 
@@ -24,7 +24,8 @@ import createTransport from '@/pages/Admin/TransportController/create-transport.
 import editTransport from '@/pages/Admin/TransportController/edit-transport.vue'
 
 import createVehicle from '@/pages/Admin/VehicleController/create-vehicle.vue'
-import editVehicle from '@/pages/Admin/VehicleController/edit-vehicle.vue'
+
+import createBrand from '@/pages/Admin/BrandController/create-brand.vue'
 
 export const routes = [
   {
@@ -135,10 +136,10 @@ export const routes = [
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | create vehicle`, layout: 'admin' }
   },
   {
-    path: '/admin/edit-vehicle',
-    name: 'editVehicle',
-    component: editVehicle,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | edit vehicle`, layout: 'admin' }
-  }
+    path: '/admin/create-brand',
+    name: 'createBrand',
+    component: createBrand,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | create brand`, layout: 'admin' }
+  },
   
 ]
