@@ -23,9 +23,7 @@ import adminHome from '@/pages/Admin/index.vue'
 import createTransport from '@/pages/Admin/TransportController/create-transport.vue'
 import editTransport from '@/pages/Admin/TransportController/edit-transport.vue'
 
-import createVehicle from '@/pages/Admin/VehicleController/create-vehicle.vue'
-
-import createBrand from '@/pages/Admin/BrandController/create-brand.vue'
+import createBrand from '@/pages/Admin/VehicleController/config-vehicle.vue'
 
 export const routes = [
   {
@@ -130,13 +128,7 @@ export const routes = [
   },
 
   {
-    path: '/admin/create-vehicle',
-    name: 'createVehicle',
-    component: createVehicle,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | create vehicle`, layout: 'admin' }
-  },
-  {
-    path: '/admin/create-brand',
+    path: '/admin/config-vehicle',
     name: 'createBrand',
     component: createBrand,
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | create brand`, layout: 'admin' }

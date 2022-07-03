@@ -50,8 +50,8 @@
                                 </li> -->
 
                                 <li class="nk-menu-item">
-                                  <router-link class="nk-menu-link" to="/admin/create-brand">
-                                    <span class="nk-menu-text">Thêm hãng</span>
+                                  <router-link class="nk-menu-link" to="/admin/config-vehicle">
+                                    <span class="nk-menu-text">Cấu hình phương tiện</span>
                                   </router-link>
                                 </li>
 

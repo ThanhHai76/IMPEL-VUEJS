@@ -37,107 +37,6 @@
                                           </div> -->
                                       </div><!-- .form-inline -->
                                   </div><!-- .card-tools -->
-                                  <!-- <div class="card-tools mr-n1">
-                                      <ul class="btn-toolbar gx-1">
-                                          <li>
-                                              <a href="#" class="btn btn-icon search-toggle toggle-search" data-target="search"><em class="icon ni ni-search"></em></a>
-                                          </li>
-                                          <li class="btn-toolbar-sep"></li>
-                                          <li>
-                                              <div class="toggle-wrap">
-                                                  <a href="#" class="btn btn-icon btn-trigger toggle" data-target="cardTools"><em class="icon ni ni-menu-right"></em></a>
-                                                  <div class="toggle-content" data-content="cardTools">
-                                                      <ul class="btn-toolbar gx-1">
-                                                          <li class="toggle-close">
-                                                              <a href="#" class="btn btn-icon btn-trigger toggle" data-target="cardTools"><em class="icon ni ni-arrow-left"></em></a>
-                                                          </li>
-                                                          <li>
-                                                              <div class="dropdown">
-                                                                  <a href="#" class="btn btn-trigger btn-icon dropdown-toggle" data-toggle="dropdown">
-                                                                      <div class="dot dot-primary"></div>
-                                                                      <em class="icon ni ni-filter-alt"></em>
-                                                                  </a>
-                                                                  <div class="filter-wg dropdown-menu dropdown-menu-xl dropdown-menu-right">
-                                                                      <div class="dropdown-head">
-                                                                          <span class="sub-title dropdown-title">Filter Users</span>
-                                                                      </div>
-                                                                      <div class="dropdown-body dropdown-body-rg">
-                                                                          <div class="row gx-6 gy-3">
-                                                                              <div class="col-6">
-                                                                                  <div class="custom-control custom-control-sm custom-checkbox">
-                                                                                      <input type="checkbox" class="custom-control-input" id="hasBalance">
-                                                                                      <label class="custom-control-label" for="hasBalance"> Have Balance</label>
-                                                                                  </div>
-                                                                              </div>
-                                                                              <div class="col-6">
-                                                                                  <div class="custom-control custom-control-sm custom-checkbox">
-                                                                                      <input type="checkbox" class="custom-control-input" id="hasKYC">
-                                                                                      <label class="custom-control-label" for="hasKYC"> KYC Verified</label>
-                                                                                  </div>
-                                                                              </div>
-                                                                              <div class="col-6">
-                                                                                  <div class="form-group">
-                                                                                      <label class="overline-title overline-title-alt">Role</label>
-                                                                                      <select class="form-select">
-                                                                                          <option value="any">Any Role</option>
-                                                                                          <option value="investor">Investor</option>
-                                                                                          <option value="seller">Seller</option>
-                                                                                          <option value="buyer">Buyer</option>
-                                                                                      </select>
-                                                                                  </div>
-                                                                              </div>
-                                                                              <div class="col-6">
-                                                                                  <div class="form-group">
-                                                                                      <label class="overline-title overline-title-alt">Status</label>
-                                                                                      <select class="form-select">
-                                                                                          <option value="any">Any Status</option>
-                                                                                          <option value="active">Active</option>
-                                                                                          <option value="pending">Pending</option>
-                                                                                          <option value="suspend">Suspend</option>
-                                                                                          <option value="deleted">Deleted</option>
-                                                                                      </select>
-                                                                                  </div>
-                                                                              </div>
-                                                                              <div class="col-12">
-                                                                                  <div class="form-group">
-                                                                                      <button type="button" class="btn btn-secondary">Filter</button>
-                                                                                  </div>
-                                                                              </div>
-                                                                          </div>
-                                                                      </div>
-                                                                      <div class="dropdown-foot between">
-                                                                          <a class="clickable" href="#">Reset Filter</a>
-                                                                          <a href="#">Save Filter</a>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="dropdown">
-                                                                  <a href="#" class="btn btn-trigger btn-icon dropdown-toggle" data-toggle="dropdown">
-                                                                      <em class="icon ni ni-setting"></em>
-                                                                  </a>
-                                                                  <div class="dropdown-menu dropdown-menu-xs dropdown-menu-right">
-                                                                      <ul class="link-check">
-                                                                          <li><span>Show</span></li>
-                                                                          <li class="active"><a href="#">10</a></li>
-                                                                          <li><a href="#">20</a></li>
-                                                                          <li><a href="#">50</a></li>
-                                                                      </ul>
-                                                                      <ul class="link-check">
-                                                                          <li><span>Order</span></li>
-                                                                          <li class="active"><a href="#">DESC</a></li>
-                                                                          <li><a href="#">ASC</a></li>
-                                                                      </ul>
-                                                                  </div>
-                                                              </div>
-                                                          </li>
-                                                      </ul>
-                                                  </div>
-                                              </div>
-                                          </li>
-                                      </ul>
-                                  </div> -->
                               </div><!-- .card-title-group -->
                               <div class="card-search search-wrap" data-search="search">
                                   <div class="card-body">
@@ -229,65 +128,48 @@
     </div>
 
     <b-modal id="modalAdd" centered size="lg" hide-footer>
-      <div class="modal-body modal-body-md">
-          <h5 class="modal-title">Thêm hãng</h5>
-          <form action="#" class="mt-2">
-              <div class="row g-gs">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label class="form-label" for="add-id">ID</label>
-                          <div class="form-control-wrap">
-                              <input type="text" class="form-control" id="add-id" placeholder="ID" required>
+      <div class="modal-body-md">
+          <!-- <h5 class="modal-title">Cấu hình</h5> -->
+          <b-tabs content-class="mt-3">
+            <b-tab title="Hãng" active>
+              <form action="#" class="mt-2">
+                  <div class="row g-gs">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label class="form-label" for="add-amount">Name</label>
+                              <div class="form-control-wrap">
+                                  <input type="text" class="form-control" id="add-amount" placeholder="$ Amount">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-12">
+                          <div class="form-group">
+                              <button type="submit" data-dismiss="modal" class="btn btn-primary">Thêm hãng</button>
                           </div>
                       </div>
                   </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label class="form-label" for="add-account">Account</label>
-                          <div class="form-control-wrap">
-                              <input type="text" class="form-control" id="add-account" placeholder="Account" required>
+              </form>
+            </b-tab>
+            <b-tab title="Series">
+              <form action="#" class="mt-2">
+                  <div class="row g-gs">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label class="form-label" for="add-amount">Name</label>
+                              <div class="form-control-wrap">
+                                  <input type="text" class="form-control" id="add-amount" placeholder="$ Amount">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-12">
+                          <div class="form-group">
+                              <button type="submit" data-dismiss="modal" class="btn btn-primary">Thêm Series</button>
                           </div>
                       </div>
                   </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label class="form-label" for="add-amount">Amount</label>
-                          <div class="form-control-wrap">
-                              <input type="text" class="form-control" id="add-amount" placeholder="$ Amount">
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label class="form-label" for="add-status">Status</label>
-                          <div class="form-control-wrap">
-                              <input type="text" class="form-control" id="add-amount" placeholder="$ Amount">
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label class="form-label" for="add-amount">Amount</label>
-                          <div class="form-control-wrap">
-                              <input type="text" class="form-control" id="add-amount" placeholder="$ Amount">
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label class="form-label" for="add-status">Status</label>
-                          <div class="form-control-wrap">
-                              <input type="text" class="form-control" id="add-amount" placeholder="$ Amount">
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-12">
-                      <div class="form-group">
-                          <button type="submit" data-dismiss="modal" class="btn btn-primary">Thêm hãng</button>
-                      </div>
-                  </div>
-              </div>
-          </form>
+              </form>
+            </b-tab>
+          </b-tabs>
       </div>
     </b-modal>
 
@@ -316,6 +198,7 @@ export default {
         { value: null, text: 'Chọn phương tiện'}
       ],
       brandData: [],
+      dataCreateTransport: []
     }
   },
   methods: {
@@ -344,6 +227,21 @@ export default {
         console.log(error)
       }
     },
+
+    async createTransport (idParent, code) {
+      try {
+        const response = await TransportService.createTransport({
+          idParent: idParent,
+          codeParent: code,
+          transportList: [{
+            name: '',
+            priority: 1
+          }]
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 }
 </script>
