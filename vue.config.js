@@ -15,6 +15,7 @@ module.exports = {
   },
 
   devServer: {
+    disableHostCheck: true,
     watchOptions: {
       clientLogLevel: 'warning'
     }

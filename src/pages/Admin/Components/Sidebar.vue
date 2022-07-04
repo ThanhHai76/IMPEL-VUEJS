@@ -3,8 +3,19 @@
       <div class="nk-sidebar-element nk-sidebar-head">
           <div class="nk-menu-trigger">
               <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em class="icon ni ni-arrow-left"></em></a>
-              <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+              <a href="#" @click="showSidebarAction()" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
           </div>
+
+          <b-sidebar v-model="showSidebar" id="sidebar-1" title="Sidebar" shadow>
+            <div class="px-3 py-2">
+              <p>
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+              </p>
+              <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img>
+            </div>
+          </b-sidebar>
+
           <div class="nk-sidebar-brand">
               <a href="html/index.html" class="logo-link nk-sidebar-logo">
                   <img class="logo-light logo-img" src="@/assets/auth-css/images/logo.png" srcset="@/assets/auth-css/images/logo2x.png 2x" alt="logo">
@@ -75,7 +86,7 @@
   export default {
     data () {
       return {
-        
+        showSidebar: false
       }
     },
     created () {
@@ -98,6 +109,10 @@
         loadscript3.setAttribute('src', 'admin-js/gd-default.js')
         document.body.appendChild(loadscript3)
       },
+
+      showSidebarAction () {
+        // this.showSidebar = true
+      }
     }
   }
 </script>

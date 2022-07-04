@@ -54,15 +54,12 @@
                         <b-dropdown-item href="#">
                           <div class="dropdown-inner">
                               <ul class="link-list">
-                                  <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                  <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                  <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                                  <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                  <li><a href="#" @click="goBackHome"><em class="icon ni ni-home"></em><span>Trang chủ</span></a></li>
                               </ul>
                           </div>
                           <div class="dropdown-inner">
                               <ul class="link-list">
-                                  <li><a href="javascript:void(0)" @click="logout()"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                  <li><a href="javascript:void(0)" @click="logout()"><em class="icon ni ni-signout"></em><span>Đăng xuất</span></a></li>
                               </ul>
                           </div>
                         </b-dropdown-item>
@@ -145,7 +142,7 @@
       </div><!-- .container-fliud -->
     </div>
     
-    <FormTable titleForm="Tạo hãng"></FormTable>
+    <FormTable ref="configTable" titleForm="Cấu hình phương tiện"></FormTable>
     
  </div>
 </template>
@@ -165,6 +162,7 @@ export default {
 
   mounted () {
     // this.loadScripts()
+    this.$refs.configTable.getListBrand('transport_car')
   },
 
   methods: {
@@ -172,6 +170,9 @@ export default {
       await this.$store.dispatch('user/clear')
       this.$store.dispatch('auth/logout')
       window.location.href = '/login'
+    },
+    goBackHome () {
+      window.location.href = '/'
     }
   }
 }

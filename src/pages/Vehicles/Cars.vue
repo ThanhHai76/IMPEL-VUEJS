@@ -4,7 +4,7 @@
     <BreadcrumbStart ref="menuStart" name="Ô tô" code="transport_car"></BreadcrumbStart>
 
     <!------ Featured Cars Start ------>
-    <PurchaseCar :dataVehicleList="dataVehicleListNew"></PurchaseCar>
+    <PurchaseCar ref="purchaseCar" :dataVehicleList="dataVehicleListNew"></PurchaseCar>
 
     <!-- <PurchaseUsed v-show="typeTab === 'USED'" :dataVehicleList="dataVehicleListUsed" @typeTab="changeTab"></PurchaseUsed> -->
 
@@ -59,6 +59,7 @@ export default {
 
   mounted () {
     this.$refs.menuStart.getTransportMenu('transport_car')
+    this.$refs.purchaseCar.searchCar('NEW')
     this.submitSearch()
     this.searchVehicleUsed()
   },
