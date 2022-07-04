@@ -48,7 +48,7 @@
                                                       <p>In last 30 days revenue from subscription.</p>
                                                   </div>
                                                   <div class="card-tools">
-                                                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Revenue from subscription"></em>
+                                                      <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left"></em>
                                                   </div>
                                               </div>
                                               <div class="align-end gy-3 gx-5 flex-wrap flex-md-nowrap flex-lg-wrap flex-xxl-nowrap">
@@ -78,9 +78,9 @@
                                                           <div class="card-title">
                                                               <h6 class="title">Active Subscriptions</h6>
                                                           </div>
-                                                          <div class="card-tools">
+                                                          <!-- <div class="card-tools">
                                                               <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Total active subscription"></em>
-                                                          </div>
+                                                          </div> -->
                                                       </div>
                                                       <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
                                                           <div class="nk-sale-data">
@@ -102,7 +102,7 @@
                                                               <h6 class="title">Avg Subscriptions</h6>
                                                           </div>
                                                           <div class="card-tools">
-                                                              <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Daily Avg. subscription"></em>
+                                                              <!-- <em class="card-hint icon ni ni-help-fill" data-toggle="tooltip" data-placement="left" title="Daily Avg. subscription"></em> -->
                                                           </div>
                                                       </div>
                                                       <div class="align-end flex-sm-wrap g-4 flex-md-nowrap">
