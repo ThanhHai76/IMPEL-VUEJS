@@ -100,7 +100,7 @@
                                             </td>
                                             <td class="tb-tnx-action">
                                                 <b-dropdown>
-                                                  <b-dropdown-item @click="deleteTransport(item)">Xoá</b-dropdown-item>
+                                                  <b-dropdown-item @click="beforeDeleteTransport(item)">Xoá</b-dropdown-item>
                                                 </b-dropdown>
                                                   <!-- <div class="dropdown">
                                                     <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
@@ -226,6 +226,21 @@
       @close="showModalNoti = false"
     ></Notification>
 
+    <b-modal v-model="showModalAskBeforeDelete" class="modal-noti" title="Thông báo" centered>
+      <div class="text-center">
+        <b-icon icon="exclamation-circle-fill" class="noti-icon" variant="warning"></b-icon>
+        <h5 class="text-noti mt-3 mb-2">{{ messNoti }}</h5>
+      </div>
+      <template #modal-footer="{ cancel }">
+        <b-button size="sm" variant="primary" @click="deleteTransport()">
+          Xác nhận
+        </b-button>
+        <b-button size="sm" variant="light" @click="cancel()">
+          Đóng
+        </b-button>
+      </template>
+    </b-modal>
+
 </div>
 </template>
 
@@ -283,6 +298,8 @@ export default {
       seriesOptions: [
         { value: null, text: 'Chọn Series'}
       ],
+      showModalAskBeforeDelete: false,
+      itemSelected: null
     }
   },
   watch: {
@@ -423,11 +440,17 @@ export default {
       }
     },
 
-    async deleteTransport (item) {
+    beforeDeleteTransport (item) {
+      this.showModalAskBeforeDelete = true
+      this.messNoti = 'Bạn có chắc chắn muốn xoá không ?'
+      this.itemSelected = item
+    },
+
+    async deleteTransport () {
       try {
         const response = await TransportService.actionTransport({
           action: 'DELETE',
-          id: item.id
+          id: this.itemSelected.id
         })
         if (response.code === 1000) {
           this.showModalNoti = true
@@ -440,7 +463,9 @@ export default {
         }
         this.getListBrand('transport_car')
       } catch (error) {
-        
+        console.log(error)
+      } finally {
+        this.showModalAskBeforeDelete = false
       }
     }
 
@@ -451,9 +476,9 @@ export default {
 <style src="@/assets/auth-css/css/dashlite.css" scoped></style>
 <style src="@/assets/auth-css/css/theme.css" scoped></style>
 
-<style>
-.modal-title, .nav-tabs .nav-link, .modal-body {
-  color: black;
+<style scoped>
+::v-deep .modal-title, ::v-deep .nav-tabs .nav-link, ::v-deep .modal-body {
+  color: black !important ;
 }
 .modal-noti .modal-body {
   text-align: center;
@@ -462,5 +487,11 @@ export default {
   font-size: 60px;
   text-align: center;
   margin-top: 1rem;
+}
+::v-deep .btn.dropdown-toggle.btn-secondary {
+  padding: 5px 10px !important;
+}
+::v-deep .dropdown-menu {
+  transform: translate3d(-100px, 35px, 0px) !important;
 }
 </style>

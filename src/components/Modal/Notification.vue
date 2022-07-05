@@ -7,9 +7,9 @@
         <h5 class="text-noti mt-3 mb-2">{{ messNoti }}</h5>
       </div>
       <template #modal-footer="{}">
-        <b-button size="sm" variant="primary" @click="confirm()">
+        <!-- <b-button size="sm" variant="primary" @click="confirm()">
           Xác nhận
-        </b-button>
+        </b-button> -->
         <b-button size="sm" variant="light" @click="confirm()">
           Đóng
         </b-button>

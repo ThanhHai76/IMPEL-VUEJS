@@ -5,7 +5,7 @@
       <div class="container-fluid">
           <div class="nk-header-wrap">
               <div class="nk-menu-trigger d-xl-none ml-n1">
-                  <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                  <a href="#" @click="showSidebar()" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
               </div>
               <div class="nk-header-brand d-xl-none">
                   <a href="html/index.html" class="logo-link">
@@ -93,15 +93,12 @@
                         <b-dropdown-item href="#">
                           <div class="dropdown-inner">
                               <ul class="link-list">
-                                  <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                  <li><a href="html/user-profile-setting.html"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                  <li><a href="html/user-profile-activity.html"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                                  <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                  <li><a href="#" @click="goBackHome"><em class="icon ni ni-home"></em><span>Trang chủ</span></a></li>
                               </ul>
                           </div>
                           <div class="dropdown-inner">
                               <ul class="link-list">
-                                  <li><a href="javascript:void(0)" @click="logout()"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
+                                  <li><a href="javascript:void(0)" @click="logout()"><em class="icon ni ni-signout"></em><span>Đăng xuất</span></a></li>
                               </ul>
                           </div>
                         </b-dropdown-item>
@@ -191,6 +188,7 @@
 
 <script>
 import FormInput from '../Components/FormInput.vue'
+import EventBus from '../Components/EventBus'
 export default {
   data () {
     return {
@@ -211,6 +209,12 @@ export default {
       await this.$store.dispatch('user/clear')
       this.$store.dispatch('auth/logout')
       window.location.href = '/login'
+    },
+    goBackHome () {
+      window.location.href = '/'
+    },
+    showSidebar () {
+      EventBus.$emit('showSidebar', true);
     }
   }
 }

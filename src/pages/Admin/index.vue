@@ -5,7 +5,7 @@
       <div class="container-fluid">
           <div class="nk-header-wrap">
               <div class="nk-menu-trigger d-xl-none ml-n1">
-                  <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
+                  <a href="#" @click="showSidebar()" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
               </div>
               <div class="nk-header-brand d-xl-none">
                   <a href="html/index.html" class="logo-link">
@@ -189,6 +189,7 @@
 <script>
 import Header from './Components/Header.vue'
 import Content from './Components/Content.vue'
+import EventBus from './Components/EventBus'
 export default {
   data () {
     return {
@@ -214,6 +215,10 @@ export default {
 
     goBackHome () {
       window.location.href = '/'
+    },
+
+    showSidebar () {
+      EventBus.$emit('showSidebar', true);
     }
   }
 }

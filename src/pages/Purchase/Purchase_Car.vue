@@ -213,33 +213,6 @@
                             :total-rows="search.total"
                             :per-page="search.limit"
                           ></b-pagination>
-                          <!-- <ul class="pagination">
-                            <li class="page-item">
-                              <a class="page-link" href="#"
-                                ><i
-                                  class="fa fa-angle-left"
-                                  aria-hidden="true"
-                                ></i
-                              ></a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link active" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                              <a class="page-link" href="#"
-                                ><i
-                                  class="fa fa-angle-right"
-                                  aria-hidden="true"
-                                ></i
-                              ></a>
-                            </li>
-                          </ul> -->
                         </nav>
                       </div>
                     </div>
@@ -261,7 +234,7 @@ export default {
   // props: ['dataVehicleList'],
   created () {
     this.getListTransport()
-    this.searchCar('NEW')
+    // this.searchCar('NEW')
 
     this.dataRange = JSON.parse(localStorage.getItem('PriceYearRange'))
     this.selectData.minPrice = this.dataRange.price.minValue

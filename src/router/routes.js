@@ -21,7 +21,6 @@ import { DOMAIN_TITLE } from '../.env'
 //CMS
 import adminHome from '@/pages/Admin/index.vue'
 import createTransport from '@/pages/Admin/TransportController/create-transport.vue'
-import editTransport from '@/pages/Admin/TransportController/edit-transport.vue'
 
 import createBrand from '@/pages/Admin/VehicleController/config-vehicle.vue'
 
@@ -119,12 +118,6 @@ export const routes = [
     name: 'createTransport',
     component: createTransport,
     meta: { isAuth: true, title: `${DOMAIN_TITLE} | create transport`, layout: 'admin' }
-  },
-  {
-    path: '/admin/edit-transport',
-    name: 'editTransport',
-    component: editTransport,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | edit transport`, layout: 'admin' }
   },
 
   {
