@@ -40,28 +40,9 @@
                           </a>
                           <b-collapse id="my-collapse">
                             <ul class="nk-menu-sub">
-
-                                <!-- <li class="nk-menu-item">
-                                  <a href="#" v-b-toggle.brand-collapse class="nk-menu-link nk-menu-toggle">
-                                      <span class="nk-menu-icon"><em class="icon ni ni-tile-thumb"></em></span>
-                                      <span class="nk-menu-text">Hãng</span>
-                                  </a>
-                                  <b-collapse id="brand-collapse">
-                                    <ul class="nk-menu-sub">
-                                      
-                                    </ul>
-                                  </b-collapse>
-                                </li> -->
-
                                 <li class="nk-menu-item">
                                   <router-link class="nk-menu-link" to="/admin/config-vehicle">
                                     <span class="nk-menu-text">Cấu hình phương tiện</span>
-                                  </router-link>
-                                </li>
-
-                                <li class="nk-menu-item">
-                                  <router-link class="nk-menu-link" to="/admin/create-vehicle">
-                                    <span class="nk-menu-text">Thêm phương tiện</span>
                                   </router-link>
                                 </li>
                             </ul><!-- .nk-menu-sub -->
@@ -86,7 +67,7 @@ export default {
     }
   },
   created () {
-    this.loadScripts()
+    // this.loadScripts()
   },
 
   mounted() {

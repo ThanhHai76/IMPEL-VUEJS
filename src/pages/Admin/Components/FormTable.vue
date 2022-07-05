@@ -54,30 +54,34 @@
                               </div><!-- .card-search -->
                           </div><!-- .card-inner -->
                             <div class="card-inner p-0">
-                                <table class="table table-tranx">
+
+                                 <table class="table table-tranx">
                                     <thead>
-                                        <tr class="tb-tnx-head">
+                                        <tr class="tb-tnx-head text-center">
                                             <th class="tb-tnx-id"><span class="">STT</span></th>
                                             <th class="tb-tnx-info">
                                                 <span class="tb-tnx-desc d-none d-sm-inline-block">
                                                     <span>Tên hãng</span>
                                                 </span>
                                                 <span class="tb-tnx-date d-md-inline-block d-none">
+                                                    <span class="d-md-none">Ngày</span>
                                                     <span class="d-none d-md-block">
-                                                        <span>Độ ưu tiên</span>
+                                                        <span>Ngày tạo</span>
+                                                        <span>Ngày cập nhật</span>
                                                     </span>
                                                 </span>
                                             </th>
                                             <th class="tb-tnx-amount is-alt">
+                                                <span class="tb-tnx-total">Độ ưu tiên</span>
                                                 <span class="tb-tnx-status d-none d-md-inline-block">Trạng thái</span>
                                             </th>
                                             <th class="tb-tnx-action">
                                                 <span>&nbsp;</span>
                                             </th>
-                                        </tr><!-- tb-tnx-item -->
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="tb-tnx-item" v-for="(item, index) in brandData" :key="item.id">
+                                        <tr class="tb-tnx-item text-center" v-for="(item, index) in brandData" :key="item.id">
                                             <td class="tb-tnx-id">
                                                 <a href="#"><span>{{ index + 1 }}</span></a>
                                             </td>
@@ -86,34 +90,25 @@
                                                     <span class="title">{{ item.name }}</span>
                                                 </div>
                                                 <div class="tb-tnx-date">
-                                                    <!-- <span class="date">10-05-2021</span> -->
-                                                    <span class="date">{{ item.priority }}</span>
+                                                    <span class="date">{{ item.dateCreate | formatDateTime1 }}</span>
+                                                    <span class="date">{{ item.dateModified | formatDateTime1 }}</span>
                                                 </div>
                                             </td>
                                             <td class="tb-tnx-amount is-alt">
-                                                <!-- <div class="tb-tnx-total">
+                                                <div class="tb-tnx-total">
                                                     <span class="amount">{{ item.priority }}</span>
-                                                </div> -->
+                                                </div>
                                                 <div class="tb-tnx-status">
                                                     <span class="badge badge-dot badge-warning">{{ item.status }}</span>
                                                 </div>
                                             </td>
                                             <td class="tb-tnx-action">
                                                 <b-dropdown>
+                                                  <b-dropdown-item @click="showEditTransport(item)">Sửa</b-dropdown-item>
                                                   <b-dropdown-item @click="beforeDeleteTransport(item)">Xoá</b-dropdown-item>
                                                 </b-dropdown>
-                                                  <!-- <div class="dropdown">
-                                                    <a class="text-soft dropdown-toggle btn btn-icon btn-trigger" data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
-                                                        <ul class="link-list-opt no-bdr">
-                                                            <li><a href="#"><em class="icon ni ni-eye"></em><span>View</span></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#editPayment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                            <li><a href="#" data-toggle="modal" data-target="#deletePayment"><em class="icon ni ni-delete"></em><span>Delete</span></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div> -->
                                             </td>
-                                        </tr><!-- tb-tnx-item -->
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div><!-- .card-inner -->
@@ -178,13 +173,38 @@
               </form>
             </b-tab>
             <b-tab title="Series">
-              <form action="#" class="mt-2">
+              <div class="card-title-group">
+                  <div class="card-tools">
+                      <div class="form-inline flex-nowrap gx-3">
+                          <div class="form-wrap w-150px">
+                              <b-form-select v-model="selectData.transport" :options="transportOptions" @change="getListBrand"></b-form-select>
+                          </div>
+                          <div class="form-wrap w-150px">
+                              <b-form-select v-model="selectData.company" :options="companyOptions" @change="getListSeries"></b-form-select>
+                          </div>
+                      </div><!-- .form-inline -->
+                  </div><!-- .card-tools -->
+              </div><!-- .card-title-group -->
+              <form action="#" class="mt-3" @submit.prevent="createSeries">
                   <div class="row g-gs">
                       <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group mt-2">
                               <label class="form-label" for="add-amount">Tên Series</label>
                               <div class="form-control-wrap">
-                                  <input type="text" class="form-control" id="add-amount" placeholder="Nhập tên Series">
+                                  <input type="text" v-model="createData.series.name" class="form-control" placeholder="Nhập tên Series">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="add-amount"></label>
+                              <div class="form-control-wrap">
+                                <input class="mr-1" v-model="createData.series.checkPriority" type="checkbox" value="">
+                                <label class="form-label" for="add-amount">Chọn độ ưu tiên ?</label>
+                              </div>
+                          </div>
+                          <div class="form-group" v-show="createData.series.checkPriority">
+                              <label class="form-label" for="add-amount">Độ ưu tiên</label>
+                              <div class="form-control-wrap">
+                                  <input type="text" v-model="createData.series.priority" class="form-control" id="add-amount" placeholder="Nhập độ ưu tiên">
                               </div>
                           </div>
                       </div>
@@ -197,13 +217,41 @@
               </form>
             </b-tab>
             <b-tab title="Model">
-              <form action="#" class="mt-2">
+              <div class="card-title-group">
+                  <div class="card-tools">
+                      <div class="form-inline flex-nowrap gx-3">
+                          <div class="form-wrap w-150px">
+                              <b-form-select v-model="selectData.transport" :options="transportOptions" @change="getListBrand"></b-form-select>
+                          </div>
+                          <div class="form-wrap w-150px">
+                              <b-form-select v-model="selectData.company" :options="companyOptions" @change="getListSeries"></b-form-select>
+                          </div>
+                          <div class="form-wrap w-150px">
+                              <b-form-select v-model="selectData.series" :options="seriesOptions" @change="getListModel"></b-form-select>
+                          </div>
+                      </div><!-- .form-inline -->
+                  </div><!-- .card-tools -->
+              </div><!-- .card-title-group -->
+              <form action="#" class="mt-3" @submit.prevent="createModel">
                   <div class="row g-gs">
                       <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group mt-2">
                               <label class="form-label" for="add-amount">Tên Model</label>
                               <div class="form-control-wrap">
-                                  <input type="text" class="form-control" id="add-amount" placeholder="Nhập tên Model">
+                                  <input type="text" v-model="createData.model.name" class="form-control" placeholder="Nhập tên Model">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="add-amount"></label>
+                              <div class="form-control-wrap">
+                                <input class="mr-1" v-model="createData.model.checkPriority" type="checkbox" value="">
+                                <label class="form-label" for="add-amount">Chọn độ ưu tiên ?</label>
+                              </div>
+                          </div>
+                          <div class="form-group" v-show="createData.model.checkPriority">
+                              <label class="form-label" for="add-amount">Độ ưu tiên</label>
+                              <div class="form-control-wrap">
+                                  <input type="text" v-model="createData.model.priority" class="form-control" id="add-amount" placeholder="Nhập độ ưu tiên">
                               </div>
                           </div>
                       </div>
@@ -241,16 +289,25 @@
       </template>
     </b-modal>
 
+    <editVehicle
+      :showModalEdit="showModalEdit"
+      :editData="editData"
+      @close="showModalEdit = false"
+    >
+    </editVehicle>
+
 </div>
 </template>
 
 <script>
 import { VueEditor } from 'vue2-quill-editor'
 import { TransportService } from '@/services/transport.service'
+import editVehicle from '../Components/Modal/editVehicle.vue'
 export default {
   props: ['titleForm'],
   components: {
-    VueEditor
+    VueEditor,
+    editVehicle
   },
   async mounted () {
     await this.getListTransport()
@@ -282,6 +339,16 @@ export default {
           name: null,
           priority: null,
           checkPriority: false
+        },
+        series: {
+          name: null,
+          priority: null,
+          checkPriority: false
+        },
+        model: {
+          name: null,
+          priority: null,
+          checkPriority: false
         }
       },
       messAlert: null,
@@ -299,7 +366,25 @@ export default {
         { value: null, text: 'Chọn Series'}
       ],
       showModalAskBeforeDelete: false,
-      itemSelected: null
+      itemSelected: null,
+      showModalEdit: false,
+      editData: {
+        company: {
+          name: null,
+          priority: null,
+          checkPriority: false
+        },
+        series: {
+          name: null,
+          priority: null,
+          checkPriority: false
+        },
+        model: {
+          name: null,
+          priority: null,
+          checkPriority: false
+        }
+      },
     }
   },
   watch: {
@@ -350,6 +435,7 @@ export default {
     async getListSeries (code) {
       try {
         this.selectData.codeTransport = code
+        this.selectData.idParent = this.brandData.find(e => e.code === code).id
         this.seriesOptions = []
         this.selectData.series = null
         this.selectData.model = null
@@ -377,6 +463,7 @@ export default {
     async getListModel (code) {
       try {
         this.selectData.codeTransport = code
+        this.selectData.idParent = this.brandData.find(e => e.code === code).id
         this.modelOptions = []
         this.selectData.model = null
         const response = await TransportService.getListTransport({
@@ -413,7 +500,7 @@ export default {
           codeParent: this.selectData.codeTransport,
           transportList: [{
             name: this.createData.company.name,
-            priority: this.createData.company.checkPriority ? Number(this.createData.company.priority) : 1,
+            priority: this.createData.company.checkPriority ? Number(this.createData.company.priority) : null,
             icon: ''
           }]
         })
@@ -426,13 +513,72 @@ export default {
           this.notiSuccess = false
           this.messNoti = response.message
         }
-
         this.getListBrand('transport_car')
-
         setTimeout(() => {
           this.showModalNoti = false
         }, 2000);
-        
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.showModalAdd = false
+      }
+    },
+
+    async createSeries () {
+      try {
+        const response = await TransportService.createTransport({
+          idParent: this.selectData.idParent,
+          codeParent: this.selectData.codeTransport,
+          transportList: [{
+            name: this.createData.series.name,
+            priority: this.createData.series.checkPriority ? Number(this.createData.series.priority) : null,
+            icon: ''
+          }]
+        })
+        if (response.code === 1000) {
+          this.showModalNoti = true
+          this.notiSuccess = true
+          this.messNoti = 'Tạo thành công'
+        } else {
+          this.showModalNoti = true
+          this.notiSuccess = false
+          this.messNoti = response.message
+        }
+        this.getListBrand('transport_car')
+        setTimeout(() => {
+          this.showModalNoti = false
+        }, 2000);
+      } catch (error) {
+        console.log(error)
+      } finally {
+        this.showModalAdd = false
+      }
+    },
+
+    async createModel () {
+      try {
+        const response = await TransportService.createTransport({
+          idParent: this.selectData.idParent,
+          codeParent: this.selectData.codeTransport,
+          transportList: [{
+            name: this.createData.model.name,
+            priority: this.createData.model.checkPriority ? Number(this.createData.model.priority) : null,
+            icon: ''
+          }]
+        })
+        if (response.code === 1000) {
+          this.showModalNoti = true
+          this.notiSuccess = true
+          this.messNoti = 'Tạo thành công'
+        } else {
+          this.showModalNoti = true
+          this.notiSuccess = false
+          this.messNoti = response.message
+        }
+        this.getListBrand('transport_car')
+        setTimeout(() => {
+          this.showModalNoti = false
+        }, 2000);
       } catch (error) {
         console.log(error)
       } finally {
@@ -466,6 +612,23 @@ export default {
         console.log(error)
       } finally {
         this.showModalAskBeforeDelete = false
+      }
+    },
+
+    showEditTransport (item) {
+      this.showModalEdit = true
+      this.getDataTransport(item)
+    },
+
+    async getDataTransport (item) {
+      try {
+        const { data } = await TransportService.getDataTransport({
+          id: item.id
+        })
+        console.log(data)
+        // this.editData = data
+      } catch (error) {
+        console.log(error)
       }
     }
 

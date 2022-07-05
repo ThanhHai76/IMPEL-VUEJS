@@ -1081,8 +1081,11 @@ export default {
     }
   },
 
+  created () {
+    this.loadScriptAll()
+  },
+
   async mounted () {
-    // this.loadScriptAll()
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
         loading: false
@@ -1115,105 +1118,8 @@ export default {
   methods: {
     loadScriptAll () {
       const loadscript = document.createElement('script')
-      loadscript.setAttribute('src', 'js/jquery.js')
+      loadscript.setAttribute('src', 'js/ion.rangeSlider.min.js')
       document.body.appendChild(loadscript)
-
-      const loadscript2 = document.createElement('script')
-      loadscript2.setAttribute('src', 'js/popper.js')
-      document.body.appendChild(loadscript2)
-
-      const loadscript3 = document.createElement('script')
-      loadscript3.setAttribute('src', 'js/bootstrap.min.js')
-      document.body.appendChild(loadscript3)
-
-      const loadscript4 = document.createElement('script')
-      loadscript4.setAttribute('src', 'js/ion.rangeSlider.min.js')
-      document.body.appendChild(loadscript4)
-
-      const loadscript5 = document.createElement('script')
-      loadscript5.setAttribute(
-        'src',
-        'js/plugin/magnific/jquery.magnific-popup.min.js'
-      )
-      document.body.appendChild(loadscript5)
-
-      const loadscript6 = document.createElement('script')
-      loadscript6.setAttribute('src', 'js/plugin/slick/slick.min.js')
-      document.body.appendChild(loadscript6)
-
-      const loadscript7 = document.createElement('script')
-      loadscript7.setAttribute(
-        'src',
-        'js/plugin/nice_select/jquery.nice-select.min.js'
-      )
-      document.body.appendChild(loadscript7)
-
-      const loadscript8 = document.createElement('script')
-      loadscript8.setAttribute(
-        'src',
-        'js/plugin/revolution/js/jquery.themepunch.revolution.min.js'
-      )
-      document.body.appendChild(loadscript8)
-
-      const loadscript9 = document.createElement('script')
-      loadscript9.setAttribute(
-        'src',
-        'js/plugin/revolution/js/jquery.themepunch.tools.min.js'
-      )
-      document.body.appendChild(loadscript9)
-
-      const loadscript10 = document.createElement('script')
-      loadscript10.setAttribute(
-        'src',
-        'js/plugin/revolution/js/revolution.extension.kenburn.min.js'
-      )
-      document.body.appendChild(loadscript10)
-
-      const loadscript11 = document.createElement('script')
-      loadscript11.setAttribute(
-        'src',
-        'js/plugin/revolution/js/revolution.extension.layeranimation.min.js'
-      )
-      document.body.appendChild(loadscript11)
-
-      const loadscript12 = document.createElement('script')
-      loadscript12.setAttribute(
-        'src',
-        'js/plugin/revolution/js/revolution.extension.navigation.min.js'
-      )
-      document.body.appendChild(loadscript12)
-
-      const loadscript13 = document.createElement('script')
-      loadscript13.setAttribute(
-        'src',
-        'js/plugin/revolution/js/revolution.extension.parallax.min.js'
-      )
-      document.body.appendChild(loadscript13)
-
-      const loadscript14 = document.createElement('script')
-      loadscript14.setAttribute(
-        'src',
-        'js/plugin/revolution/js/revolution.extension.actions.min.js'
-      )
-      document.body.appendChild(loadscript14)
-
-      const loadscript15 = document.createElement('script')
-      loadscript15.setAttribute(
-        'src',
-        'js/plugin/revolution/js/revolution.addon.slicey.min.js'
-      )
-      document.body.appendChild(loadscript15)
-
-      const loadscript16 = document.createElement('script')
-      loadscript16.setAttribute(
-        'src',
-        'js/plugin/revolution/js/revolution.extension.slideanims.min.js'
-      )
-      document.body.appendChild(loadscript16)
-
-      const loadscript17 = document.createElement('script')
-      loadscript17.setAttribute('src', 'js/custom.js')
-      document.body.appendChild(loadscript17)
     },
 
     async getListTransport () {
