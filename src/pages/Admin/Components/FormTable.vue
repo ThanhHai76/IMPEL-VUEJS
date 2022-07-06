@@ -293,6 +293,7 @@
       :showModalEdit="showModalEdit"
       :editData="editData"
       @close="showModalEdit = false"
+      @reloadList="getListBrand('transport_car')"
     >
     </editVehicle>
 
@@ -368,23 +369,7 @@ export default {
       showModalAskBeforeDelete: false,
       itemSelected: null,
       showModalEdit: false,
-      editData: {
-        company: {
-          name: null,
-          priority: null,
-          checkPriority: false
-        },
-        series: {
-          name: null,
-          priority: null,
-          checkPriority: false
-        },
-        model: {
-          name: null,
-          priority: null,
-          checkPriority: false
-        }
-      },
+      editData: {},
     }
   },
   watch: {
@@ -625,8 +610,13 @@ export default {
         const { data } = await TransportService.getDataTransport({
           id: item.id
         })
-        console.log(data)
-        // this.editData = data
+        this.editData = {
+          id: data.id,
+          name: data.name,
+          priority: data.priority,
+          icon: data.icon,
+          checkPriority: true
+        }
       } catch (error) {
         console.log(error)
       }

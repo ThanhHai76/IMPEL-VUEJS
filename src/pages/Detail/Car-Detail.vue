@@ -186,8 +186,8 @@
                           <i class="fa fa-cogs" style="color: #f15b5b;"></i> {{ itemVehicle.name }}
                       </h3>
                       <p v-for="(itemParam, indexParam) in itemVehicle.lstVehicleParameters" :key="indexParam">
-                        <span class="xq title-row mr-2">{{ itemParam.parameters }} : </span>
-                        <span class="value-row text-nowrap">{{ itemParam.transportColumnName }}</span>
+                        <span class="xq title-row mr-2">{{ itemParam.transportColumnName }} : </span>
+                        <span class="value-row text-nowrap">{{ itemParam.parameters }}</span>
                       </p>
                     </div>
                   </div>

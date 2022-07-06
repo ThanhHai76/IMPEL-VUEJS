@@ -1243,11 +1243,11 @@ export default {
       try {
         const { price, year } = this.configRange
 
-        this.selectData.minPrice = document.querySelector('.irs-from') ? Number(document.querySelector('.irs-from').innerText.replace(' ', '')) : price.minValue
-        this.selectData.maxPrice = document.querySelector('.irs-to') ? Number(document.querySelector('.irs-to').innerText.replace(' ', '')) : price.maxValue
+        this.selectData.minPrice = document.querySelector('.irs-from') ? Number(document.querySelector('.irs-from').textContent.replace(' ', '')) : price.minValue
+        this.selectData.maxPrice = document.querySelector('.irs-to') ? Number(document.querySelector('.irs-to').textContent.replace(' ', '')) : price.maxValue
         
-        this.selectData.minManufactureYear = document.querySelector('.price_range.year_select .irs-from') ? Number(document.querySelector('.price_range.year_select .irs-from').innerText.replace(' ', '')) : year.minValue
-        this.selectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').innerText.replace(' ', '')) : year.maxValue
+        this.selectData.minManufactureYear = document.querySelector('.price_range.year_select .irs-from') ? Number(document.querySelector('.price_range.year_select .irs-from').textContent.replace(' ', '')) : year.minValue
+        this.selectData.maxManufactureYear = document.querySelector('.price_range.year_select .irs-to') ? Number(document.querySelector('.price_range.year_select .irs-to').textContent.replace(' ', '')) : year.maxValue
 
         const response = await VehicleService.getVehicleList({
           codeTransport: this.selectData.codeTransport,

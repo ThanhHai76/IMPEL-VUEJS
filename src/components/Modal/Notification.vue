@@ -30,6 +30,9 @@
 </script>
 
 <style scoped>
+::v-deep .modal-title {
+  color: black !important ;
+}
 .text-noti {
   color: black;
 }
