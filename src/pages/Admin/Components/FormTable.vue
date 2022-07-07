@@ -61,7 +61,7 @@
                                             <th class="tb-tnx-id"><span class="">STT</span></th>
                                             <th class="tb-tnx-info">
                                                 <span class="tb-tnx-desc d-none d-sm-inline-block">
-                                                    <span>Tên hãng</span>
+                                                    <span>Tên</span>
                                                 </span>
                                                 <span class="tb-tnx-date d-md-inline-block d-none">
                                                     <span class="d-md-none">Ngày</span>
@@ -293,6 +293,7 @@
       :showModalEdit="showModalEdit"
       :editData="editData"
       @close="showModalEdit = false"
+      :title="titleEditTransport"
       @reloadList="getListBrand('transport_car')"
     >
     </editVehicle>
@@ -370,6 +371,7 @@ export default {
       itemSelected: null,
       showModalEdit: false,
       editData: {},
+      titleEditTransport: null
     }
   },
   watch: {
@@ -602,6 +604,9 @@ export default {
 
     showEditTransport (item) {
       this.showModalEdit = true
+      if (this.selectData.transport && !this.selectData.company) this.titleEditTransport = 'Hãng'
+      if (this.selectData.company && !this.selectData.series) this.titleEditTransport = 'Series'
+      if (this.selectData.series && !this.selectData.model) this.titleEditTransport = 'Model'
       this.getDataTransport(item)
     },
 

@@ -5,7 +5,7 @@
         <!-- <b-button size="sm" class="float-right" variant="outline-secondary" @click="$emit('close')">
           x
         </b-button> -->
-        <h5>Sửa phương tiện</h5>
+        <h5>Sửa {{ title }}</h5>
         <button
           type="button"
           class="close"
@@ -16,7 +16,7 @@
       </template>
       <div class="modal-body">
           <b-tabs content-class="mt-3">
-            <b-tab title="Hãng" active>
+            <b-tab :title="title" active>
               <form action="#" class="mt-3" @submit.prevent="updateTransport">
                   <div class="row g-gs">
                       <div class="col-md-6">
@@ -65,7 +65,7 @@
 <script>
 import { TransportService } from '@/services/transport.service'
 export default {
-  props: ['showModalEdit', 'editData'],
+  props: ['showModalEdit', 'editData', 'title'],
   data () {
     return {
       showModalNoti: false,

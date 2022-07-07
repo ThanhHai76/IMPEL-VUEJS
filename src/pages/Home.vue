@@ -1081,11 +1081,8 @@ export default {
     }
   },
 
-  created () {
-    this.loadScriptAll()
-  },
-
   async mounted () {
+    // this.loadScriptAll()
     setTimeout(() => {
       this.$store.commit('loading/SET_LOADING', {
         loading: false
