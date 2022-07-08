@@ -22,7 +22,8 @@ import { DOMAIN_TITLE } from '../.env'
 import adminHome from '@/pages/Admin/index.vue'
 import createTransport from '@/pages/Admin/TransportController/create-transport.vue'
 
-import createBrand from '@/pages/Admin/VehicleController/config-vehicle.vue'
+import configVehicle from '@/pages/Admin/VehicleController/config-vehicle.vue'
+import listVehicle from '@/pages/Admin/VehicleController/list-vehicle.vue'
 
 export const routes = [
   {
@@ -122,9 +123,15 @@ export const routes = [
 
   {
     path: '/admin/config-vehicle',
-    name: 'createBrand',
-    component: createBrand,
-    meta: { isAuth: true, title: `${DOMAIN_TITLE} | create brand`, layout: 'admin' }
+    name: 'configVehicle',
+    component: configVehicle,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | config vehicle`, layout: 'admin' }
+  },
+  {
+    path: '/admin/list-vehicle',
+    name: 'listVehicle',
+    component: listVehicle,
+    meta: { isAuth: true, title: `${DOMAIN_TITLE} | list vehicle`, layout: 'admin' }
   },
   
 ]

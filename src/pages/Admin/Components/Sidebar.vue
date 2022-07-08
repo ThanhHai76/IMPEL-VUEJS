@@ -45,6 +45,11 @@
                                     <span class="nk-menu-text">Cấu hình phương tiện</span>
                                   </router-link>
                                 </li>
+                                <li class="nk-menu-item">
+                                  <router-link class="nk-menu-link" to="/admin/list-vehicle">
+                                    <span class="nk-menu-text">Danh sách phương tiện</span>
+                                  </router-link>
+                                </li>
                             </ul><!-- .nk-menu-sub -->
                           </b-collapse>
                       </li><!-- .nk-menu-item -->
