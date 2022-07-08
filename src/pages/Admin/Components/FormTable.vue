@@ -26,21 +26,24 @@
                         <div class="card-inner-group">
                             <div class="card-inner position-relative card-tools-toggle">
                               <div class="card-title-group">
-                                  <div class="card-tools">
-                                      <div class="form-inline flex-nowrap gx-3">
-                                          <div class="form-wrap w-150px">
-                                              <b-form-select v-model="selectData.transport" :options="transportOptions" @change="getListBrand"></b-form-select>
+                                  <div class="card-tools d-flex justify-between w-100">
+                                      <div class="form-inline">
+                                          <div class="form-wrap w-150px ml-2">
+                                              <b-form-select class="w-100" v-model="selectData.transport" :options="transportOptions" @change="getListBrand"></b-form-select>
                                           </div>
-                                          <div class="form-wrap w-150px">
-                                              <b-form-select v-model="selectData.company" :options="companyOptions" @change="getListSeries"></b-form-select>
+                                          <div class="form-wrap w-150px ml-2">
+                                              <b-form-select class="w-100" v-model="selectData.company" :options="companyOptions" @change="getListSeries"></b-form-select>
                                           </div>
-                                          <div class="form-wrap w-150px">
-                                              <b-form-select v-model="selectData.series" :options="seriesOptions" @change="getListModel"></b-form-select>
+                                          <div class="form-wrap w-150px ml-2">
+                                              <b-form-select class="w-100" v-model="selectData.series" :options="seriesOptions" @change="getListModel"></b-form-select>
                                           </div>
-                                          <div class="form-wrap w-150px">
-                                              <b-form-select v-model="selectData.model" :options="modelOptions" @change="changeModel"></b-form-select>
+                                          <div class="form-wrap w-150px ml-2">
+                                              <b-form-select class="w-100" v-model="selectData.model" :options="modelOptions" @change="changeModel"></b-form-select>
                                           </div>
                                       </div><!-- .form-inline -->
+                                      <div class="form-inline">
+                                        <b-button @click="clearSearch()" variant="primary">Xoá tìm kiếm</b-button>
+                                      </div>
                                   </div><!-- .card-tools -->
                               </div><!-- .card-title-group -->
                               <div class="card-search search-wrap" data-search="search">
@@ -294,7 +297,7 @@
       :editData="editData"
       @close="showModalEdit = false"
       :title="titleEditTransport"
-      @reloadList="getListBrand('transport_car')"
+      @reloadList="getReloadList(codeParentItemSelected)"
     >
     </editVehicle>
 
@@ -371,7 +374,11 @@ export default {
       itemSelected: null,
       showModalEdit: false,
       editData: {},
-      titleEditTransport: null
+      titleEditTransport: null,
+      dataAllCompany: [],
+      dataAllSeries: [],
+      dataAllModel: [],
+      codeParentItemSelected: null
     }
   },
   watch: {
@@ -406,11 +413,13 @@ export default {
 
         this.companyOptions = [{ value: null, text: 'Chọn hãng'}]
         this.selectData.company = null
+        this.selectData.series = null
         response.data.transportListRes.map((e) => {
           this.companyOptions.push({ value: e.code, text: e.name })
         })
 
         this.brandData = response.data.transportListRes
+        this.dataAllCompany = response.data.transportListRes
       } catch (error) {
         console.log(error)
       } finally {
@@ -422,7 +431,7 @@ export default {
     async getListSeries (code) {
       try {
         this.selectData.codeTransport = code
-        this.selectData.idParent = this.brandData.find(e => e.code === code).id
+        this.selectData.idParent = this.dataAllCompany.find(e => e.code === code).id
         this.seriesOptions = []
         this.selectData.series = null
         this.selectData.model = null
@@ -440,6 +449,7 @@ export default {
         }
 
         this.brandData = response.data.transportListRes
+        this.dataAllSeries = response.data.transportListRes
       } catch (error) {
         console.log(error)
       } finally {
@@ -450,7 +460,7 @@ export default {
     async getListModel (code) {
       try {
         this.selectData.codeTransport = code
-        this.selectData.idParent = this.brandData.find(e => e.code === code).id
+        this.selectData.idParent = this.dataAllSeries.find(e => e.code === code).id
         this.modelOptions = []
         this.selectData.model = null
         const response = await TransportService.getListTransport({
@@ -467,6 +477,7 @@ export default {
         }
 
         this.brandData = response.data.transportListRes
+        this.dataAllModel = response.data.transportListRes
       } catch (error) {
         console.log(error)
       }
@@ -500,7 +511,7 @@ export default {
           this.notiSuccess = false
           this.messNoti = response.message
         }
-        this.getListBrand('transport_car')
+        this.getListBrand(this.selectData.codeTransport)
         setTimeout(() => {
           this.showModalNoti = false
         }, 2000);
@@ -531,7 +542,7 @@ export default {
           this.notiSuccess = false
           this.messNoti = response.message
         }
-        this.getListBrand('transport_car')
+        this.getListSeries(this.selectData.codeTransport)
         setTimeout(() => {
           this.showModalNoti = false
         }, 2000);
@@ -562,7 +573,7 @@ export default {
           this.notiSuccess = false
           this.messNoti = response.message
         }
-        this.getListBrand('transport_car')
+        this.getListModel(this.selectData.codeTransport)
         setTimeout(() => {
           this.showModalNoti = false
         }, 2000);
@@ -594,7 +605,7 @@ export default {
           this.notiSuccess = false
           this.messNoti = response.message
         }
-        this.getListBrand('transport_car')
+        this.getReloadList(this.itemSelected.codeParent)
       } catch (error) {
         console.log(error)
       } finally {
@@ -607,6 +618,7 @@ export default {
       if (this.selectData.transport && !this.selectData.company) this.titleEditTransport = 'Hãng'
       if (this.selectData.company && !this.selectData.series) this.titleEditTransport = 'Series'
       if (this.selectData.series && !this.selectData.model) this.titleEditTransport = 'Model'
+      this.codeParentItemSelected = item.codeParent
       this.getDataTransport(item)
     },
 
@@ -625,6 +637,16 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+
+    getReloadList (codeParent) {
+      if (this.selectData.transport && !this.selectData.company) this.getListBrand(codeParent)
+      if (this.selectData.company && !this.selectData.series) this.getListSeries(codeParent)
+      if (this.selectData.series && !this.selectData.model) this.getListModel(codeParent)
+    },
+
+    clearSearch () {
+      this.getListBrand('transport_car')
     }
 
   }
